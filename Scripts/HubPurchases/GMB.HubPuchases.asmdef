@@ -1,0 +1,16 @@
+{
+    "name": "GMB.HubPuchases",
+    "rootNamespace": "",
+    "references": [
+        "GUID:67ff1803e93f3a347ac1ff53f2689d91"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
