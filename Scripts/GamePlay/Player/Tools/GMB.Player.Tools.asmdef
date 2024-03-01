@@ -1,0 +1,18 @@
+{
+    "name": "GMB.Player.Tools",
+    "rootNamespace": "",
+    "references": [
+        "GUID:25cd605768c103542a10f9157d038a44",
+        "GUID:67ff1803e93f3a347ac1ff53f2689d91",
+        "GUID:dee51b4f6ef736748a423f58c671f642"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
