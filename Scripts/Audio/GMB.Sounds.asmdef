@@ -1,0 +1,16 @@
+{
+    "name": "GMB.Sounds",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f3ae1c82b966a1245a7d7166e9d3e745"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
