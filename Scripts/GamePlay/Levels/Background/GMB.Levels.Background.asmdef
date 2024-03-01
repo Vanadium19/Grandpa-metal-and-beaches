@@ -1,0 +1,18 @@
+{
+    "name": "GMB.Levels.Background",
+    "rootNamespace": "",
+    "references": [
+        "GUID:dee51b4f6ef736748a423f58c671f642",
+        "GUID:31d2343ae100e934e9510435fd98924e",
+        "GUID:ccb99411a503ab44b859f3704915721a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
