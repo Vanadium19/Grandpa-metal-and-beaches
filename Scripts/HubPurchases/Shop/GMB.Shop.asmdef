@@ -1,0 +1,19 @@
+{
+    "name": "GMB.Shop",
+    "rootNamespace": "",
+    "references": [
+        "GUID:568b623cdaec20240a2ae28dbe9b11be",
+        "GUID:67ff1803e93f3a347ac1ff53f2689d91",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:3c5acf3828ada6442adab5a812dc95e2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
