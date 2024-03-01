@@ -6,7 +6,7 @@ using UnityEngine.UI;
 internal class Good : MonoBehaviour
 {
     private readonly string _htmlColor = "#d9CECE";
-    private readonly int _defaultIndex = 0;
+    private readonly int _defaultIndex = 1;
 
     [SerializeField] private Image _soldGoodPrefab;
     [SerializeField] private GoodInfo _goodInfo;
