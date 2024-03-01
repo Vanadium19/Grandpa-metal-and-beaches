@@ -10870,7 +10870,7 @@ MonoBehaviour:
   - {fileID: 1752839582592809425, guid: cfd8f7a1b73c7654197776b1d9f8274f, type: 3}
   - {fileID: 5695827298438649888, guid: 8e16b3ee6d7d1bd499c4771ff75e421a, type: 3}
   _goodsContent: {fileID: 174963285}
-  _canvas: {fileID: 232383099}
+  _canvas: {fileID: 1258058868}
   _wallet: {fileID: 123315625}
 --- !u!114 &1836237266
 MonoBehaviour:
