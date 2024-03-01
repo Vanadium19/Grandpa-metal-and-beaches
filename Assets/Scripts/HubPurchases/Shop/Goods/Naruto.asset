@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 799a97880e643d94fbdca20112aa3740, type: 3}
-  m_Name: PottenPlant
+  m_Name: Naruto
   m_EditorClassIdentifier: 
-  _name: Potten plant
-  _price: 30
-  _icon: {fileID: 21300000, guid: 6d4269069e52ce64a9646c48e01b6f2e, type: 3}
-  _position: {x: -771, y: 383}
-  _size: {x: 250, y: 250}
+  _name: Naruto
+  _price: 150
+  _icon: {fileID: 21300000, guid: 288b4150b1f7e4244924108aed3f3e37, type: 3}
+  _position: {x: 276, y: -91}
+  _size: {x: -3, y: -6}
+  _minAnchors: {x: 0.5774376, y: 0.29900002}
+  _maxAnchors: {x: 0.70943755, y: 0.536}

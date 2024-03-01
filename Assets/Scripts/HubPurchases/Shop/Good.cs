@@ -53,11 +53,17 @@ internal class Good : MonoBehaviour
     {
         Image soldGood = Instantiate(_soldGoodPrefab, _canvas);
         soldGood.name = _goodInfo.Name;
-        soldGood.rectTransform.SetSiblingIndex(_defaultIndex);
-        soldGood.rectTransform.anchoredPosition = _goodInfo.Position;
-        soldGood.rectTransform.sizeDelta = _goodInfo.Size;
-
+        Install(soldGood.rectTransform);
         TuneImage(soldGood);
+    }
+
+    private void Install(RectTransform rectTransform)
+    {
+        rectTransform.SetSiblingIndex(_defaultIndex);
+        rectTransform.sizeDelta = _goodInfo.Size;
+        rectTransform.anchorMin = _goodInfo.MinAnchors;
+        rectTransform.anchorMax = _goodInfo.MaxAnchors;
+        rectTransform.localPosition = _goodInfo.Position;
     }
 
     private void TuneImage(Image soldGood)

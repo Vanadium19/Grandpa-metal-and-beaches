@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 799a97880e643d94fbdca20112aa3740, type: 3}
-  m_Name: Shark
+  m_Name: Gollum
   m_EditorClassIdentifier: 
-  _name: Shark
-  _price: 50
-  _icon: {fileID: 21300000, guid: 4040f0c8955a56d40a1a27797da02c2e, type: 3}
-  _position: {x: -300, y: -130}
-  _size: {x: 450, y: 450}
+  _name: Gollum
+  _price: 75
+  _icon: {fileID: 21300000, guid: 971d6043610f8684687a881f70a17c98, type: 3}
+  _position: {x: 473, y: 70}
+  _size: {x: -6, y: -2}
+  _minAnchors: {x: 0.68, y: 0.45000002}
+  _maxAnchors: {x: 0.8137291, y: 0.6833333}
