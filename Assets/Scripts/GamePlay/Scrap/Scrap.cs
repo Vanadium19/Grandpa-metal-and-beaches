@@ -6,5 +6,8 @@ public class Scrap : MonoBehaviour
 
     public ScrapInfo Info => _info;
 
-    public void Collect() => Destroy(gameObject);
+    public void Collect()
+    {
+        Destroy(gameObject);
+    }
 }
