@@ -21,6 +21,15 @@ public static class GameSaver
     public static void RestartProgress()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetFloat(Bag, 25f);
+        PlayerPrefs.SetFloat(Speed, 3f);
+        PlayerPrefs.SetFloat(ScrapCollector, 1f);
+        PlayerPrefs.Save();
+    }
+
+    public static void SaveVolume()
+    {
+        PlayerPrefs.SetFloat(GameSaver.Audio, AudioListener.volume);
         PlayerPrefs.Save();
     }
 
