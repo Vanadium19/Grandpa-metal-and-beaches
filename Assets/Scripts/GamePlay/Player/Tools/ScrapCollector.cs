@@ -4,28 +4,37 @@ using UnityEngine.Events;
 public class ScrapCollector : MonoBehaviour
 {
     [SerializeField] private Bag _bag;
+    [SerializeField] private ScrapMagnet _scrapMagnet;
+    [SerializeField] private UpgradePanel _upgradePanel;
 
     private float _level;
 
     public event UnityAction ScrapCollected;
     public event UnityAction<WarningNames.Alerts> Alarmed;
 
-    private void Awake() => _level = PlayerPrefs.GetFloat(GameSaver.ScrapCollector);
+    private void Awake() => SetLevel();
 
-    public void Collect(Scrap scrapMetal)
+    private void OnEnable() => _upgradePanel.PlayerUpgraded += SetLevel;
+
+    private void OnDisable() => _upgradePanel.PlayerUpgraded -= SetLevel;
+
+    public void Collect(Scrap scrap)
     {
-        if (scrapMetal.Info.Rank > _level)        
+        if (scrap.Info.Rank > _level)        
             Alarmed?.Invoke(WarningNames.Alerts.OutOfLevel);        
-        else if (_bag.CanAdd(scrapMetal) == false)
+        else if (_bag.CanAdd(scrap) == false)
             Alarmed?.Invoke(WarningNames.Alerts.BagCrowded);
         else        
-            Put(scrapMetal);        
+            Put(scrap);        
     }
 
-    private void Put(Scrap scrapMetal)
+    private void Put(Scrap scrap)
     {
-        _bag.Add(scrapMetal);
-        scrapMetal.Collect();
+        scrap.Collect();
+        _bag.Add(scrap);
+        _scrapMagnet.StartAttract(scrap.transform);
         ScrapCollected?.Invoke();
     }
+
+    private void SetLevel() => _level = PlayerPrefs.GetFloat(GameSaver.ScrapCollector);
 }
