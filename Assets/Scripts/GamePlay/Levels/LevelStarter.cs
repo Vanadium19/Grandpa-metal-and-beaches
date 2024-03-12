@@ -4,9 +4,9 @@ using UnityEngine;
 internal class LevelStarter : MonoBehaviour
 {
     [SerializeField] private LevelSpawner _levelSpawner;
-    [SerializeField] private LevelGoalsView _levelGoalsView;
     [SerializeField] private LevelEnder _levelEnder;
     [SerializeField] private LevelsPool _levelsPool;
+    [SerializeField] private WeightView _weightView;
 
     private LevelGoals _levelGoals;
 
@@ -20,9 +20,9 @@ internal class LevelStarter : MonoBehaviour
 
     private void Initialize()
     {
-        _levelSpawner.Initialize(_levelGoals);
-        _levelEnder.Initialize(_levelGoals);
-        _levelGoalsView.Initialize(_levelGoals);
+        _levelSpawner.Initialize(_levelGoals.TargetWeight);
+        _levelEnder.Initialize(_levelGoals.TargetWeight);
+        _weightView.Initialize(_levelGoals.TargetWeight);
     }
 
     private void FindLevelGoals()
