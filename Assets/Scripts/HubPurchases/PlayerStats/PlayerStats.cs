@@ -9,30 +9,26 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private List<Stat> _stats;
 
-    private string _name;
+    private string _levelName;
+    private Stat _nextLevelStat;
 
     public int MaxLevel => _stats.Count;
-    public int CurrentLevel => GameSaver.GetCurrentStatLevel(_name);
-    public Stat NextLevelStat => _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + _levelStep);
+    public int CurrentLevel => PlayerPrefs.GetInt(_levelName, _levelStep);
+    public float NextStatPrice => _nextLevelStat.Price;
 
-    private void Awake() => CheckValues();
+    private void Awake()
+    {
+        _levelName = _stats[0].GetType().ToString();
+        SetNextLevelStat();
+    }
 
     public void UpdateLevel()
     {
-        PlayerPrefs.SetFloat(_name, NextLevelStat.Value);
-        GameSaver.SetNextStatLevel(_name, NextLevelStat.Level);
+        PlayerPrefs.SetFloat(_nextLevelStat.Name, _nextLevelStat.Value);
+        PlayerPrefs.SetInt(_levelName, _nextLevelStat.Level);
         PlayerPrefs.Save();
+        SetNextLevelStat();
     }
 
-    private void CheckValues()
-    {
-        _name = _stats[0].Name;
-
-        if (GameSaver.StatNames.Contains(_name) == false)
-            throw new ArgumentOutOfRangeException(nameof(_name));
-
-        foreach (var stat in _stats)
-            if (stat.Name != _name)
-                throw new ArgumentOutOfRangeException(nameof(_name));
-    }
+    private void SetNextLevelStat() => _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + _levelStep);
 }

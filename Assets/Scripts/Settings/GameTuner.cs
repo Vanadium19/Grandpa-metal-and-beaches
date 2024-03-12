@@ -5,15 +5,8 @@ using Agava.YandexGames;
 using UnityEngine;
 
 internal class GameTuner : MonoBehaviour
-{    
+{
     [SerializeField] private List<Stat> _firstLevelStats;
-
-    private void Awake()
-    {
-        foreach (var stat in _firstLevelStats)
-            if (GameSaver.StatNames.Contains(stat.Name) == false)
-                throw new ArgumentOutOfRangeException(nameof(stat.Name));
-    }
 
     private void Start()
     {
@@ -27,8 +20,8 @@ internal class GameTuner : MonoBehaviour
     private void TunePlayerStats()
     {
         foreach (var stat in _firstLevelStats)
-            if (GameSaver.GetCurrentStatLevel(stat.Name) == stat.Level)            
-                UpdateLevel(stat);        
+            if (Convert.ToBoolean(PlayerPrefs.GetInt(stat.GetType().ToString())) == false)
+                UpdateLevel(stat);      
     }
 
     private void UpdateLevel(Stat stat)

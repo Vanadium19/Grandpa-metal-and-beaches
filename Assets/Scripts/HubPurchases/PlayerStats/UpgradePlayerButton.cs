@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerStats))]
-public class PlayerStatsButton : MonoBehaviour
+public class UpgradePlayerButton : MonoBehaviour
 {
     private readonly string _max = "max";
 
@@ -23,14 +23,14 @@ public class PlayerStatsButton : MonoBehaviour
     private void Start()
     {
         UpdateDisplay();
-        _advertisingButton.Initialize(_playerStats.CurrentLevel != _playerStats.MaxLevel, _wallet, _playerStats.NextLevelStat.Price);
+        _advertisingButton.Initialize(_playerStats.CurrentLevel != _playerStats.MaxLevel, _wallet, _playerStats.NextStatPrice);
     }
 
     private void OnDisable() => _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClicked);
 
     private void OnUpgradeButtonClicked()
     {
-        if (_wallet.TryBuy(_playerStats.NextLevelStat.Price))
+        if (_wallet.TryBuy(_playerStats.NextStatPrice))
             UpdateLevel();
     }
 
@@ -45,7 +45,7 @@ public class PlayerStatsButton : MonoBehaviour
         if (_playerStats.CurrentLevel == _playerStats.MaxLevel)
             OffButton();
         else
-            _price.text = _playerStats.NextLevelStat.Price.ToString();
+            _price.text = _playerStats.NextStatPrice.ToString();
 
         _bar.fillAmount = Convert.ToSingle(_playerStats.CurrentLevel) / _playerStats.MaxLevel;
     }
