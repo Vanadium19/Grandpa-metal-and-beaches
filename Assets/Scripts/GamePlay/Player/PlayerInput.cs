@@ -2,9 +2,19 @@ using UnityEngine;
 
 internal class PlayerInput : MonoBehaviour
 {
-    [SerializeField] private FixedJoystick _fixedJoystick;
+    [SerializeField] private FloatingJoystick _joystick;
 
-    public Vector3 MoveInput { get; private set; }    
+    public Vector3 MoveInput { get; private set; }
 
-    private void Update() => MoveInput = _fixedJoystick.Horizontal * Vector3.right + _fixedJoystick.Vertical * Vector3.forward;
+    private void Update() => Input();
+
+    private void Input()
+    {
+        MoveInput = _joystick.Horizontal * Vector3.right + _joystick.Vertical * Vector3.forward;
+
+        if (MoveInput != Vector3.zero)
+            return;
+
+        MoveInput = UnityEngine.Input.GetAxis("Horizontal") * Vector3.right + UnityEngine.Input.GetAxis("Vertical") * Vector3.forward;
+    }
 }
