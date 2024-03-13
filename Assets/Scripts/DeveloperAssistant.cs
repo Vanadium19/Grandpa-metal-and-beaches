@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class DeveloperAssistant : MonoBehaviour
 {
-    private void Start()
-    {
-        Debug.Log(PlayerPrefs.GetInt("BagLevel"));
-    }
-
     [ContextMenu("AddLittleMoney")]
     public void AddLittleMoney()
     {
