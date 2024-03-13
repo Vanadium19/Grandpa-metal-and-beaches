@@ -7,18 +7,9 @@ internal class LevelEnder : MonoBehaviour
 {
     [SerializeField] private GameObject _endLevelButton;
     [SerializeField] private Dumpster _dumpster;
-
-    //private readonly float _delay = 2f;
-
-    //[SerializeField] private GameObject _congratulationsPanel;
-    //[SerializeField] private CongratulationsView _weightView;
-    //[SerializeField] private CongratulationsView _moneyView;
     
     private float _targetWeight;
     private float _currentWeight;
-    private SceneLoader _sceneLoader;
-
-    private void Awake() => _sceneLoader = GetComponent<SceneLoader>();
 
     private void OnEnable() => _dumpster.ScrapCollected += UpdateProgress;
 
@@ -40,21 +31,4 @@ internal class LevelEnder : MonoBehaviour
         PlayerPrefs.SetFloat(GameSaver.Weight, PlayerPrefs.GetFloat(GameSaver.Weight) + weight);
         PlayerPrefs.Save();
     }
-
-    //private void FinishLevel()
-    //{
-    //    GameSaver.FinishLevel(_currentWeight);
-    //    _sceneLoader.Load();
-    //}   
-
-    //private IEnumerator FinishLevel(float currentMoney, float currentWeight)
-    //{
-    //    _congratulationsPanel.SetActive(true);
-    //    _weightView.StartCongratulate(currentWeight, TargetWeight);
-    //    _moneyView.StartCongratulate(currentMoney, TargetMoney);
-    //    GameSaver.FinishLevel(currentWeight, currentMoney);        
-    //    yield return new WaitUntil(() => _weightView.IsFinished && _moneyView.IsFinished);
-    //    yield return new WaitForSeconds(_delay);
-    //    _sceneLoader.Load();
-    //}
 }

@@ -33,20 +33,4 @@ public static class GameSaver
     }
 
     public static float GetCurrentVolume() => PlayerPrefs.GetFloat(Audio, _defaultVolume);
-
-    //public static int GetCurrentStatLevel(string name) => PlayerPrefs.GetInt($"{name} {Level}", _levelStep);
-
-    //public static void SetNextStatLevel(string name, int level)
-    //{
-    //    PlayerPrefs.SetInt($"{name} {Level}", level);
-    //    PlayerPrefs.Save();
-    //}
-
-    //public static void FinishLevel(float weight)
-    //{
-    //    PlayerPrefs.SetFloat(Weight, PlayerPrefs.GetFloat(Weight) + weight);
-    //    //PlayerPrefs.SetFloat(Money, PlayerPrefs.GetFloat(Money) + money);
-    //    PlayerPrefs.SetInt(Level, PlayerPrefs.GetInt(Level, _levelStep) + _levelStep);
-    //    PlayerPrefs.Save();
-    //}
 }
