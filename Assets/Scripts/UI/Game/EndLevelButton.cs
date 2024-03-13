@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,18 +6,29 @@ using UnityEngine.UI;
 [RequireComponent(typeof(SceneLoader))]
 public class EndLevelButton : MonoBehaviour
 {
+    [SerializeField] private GameObject _tutorial;
+
     private Button _button;
     private SceneLoader _sceneLoader;
+
+    private bool _isTrained;
 
     private void Awake()
     {
         _button = GetComponent<Button>();
         _sceneLoader = GetComponent<SceneLoader>();
+        _isTrained = Convert.ToBoolean(PlayerPrefs.GetInt(GameSaver.Tutorial));
     }
 
     private void OnEnable()
     {
         _button.onClick.AddListener(FinishLevel);
+    }
+
+    private void Start()
+    {
+        if (!_isTrained)
+            _tutorial.SetActive(true);
     }
 
     private void OnDisable()
@@ -26,8 +38,17 @@ public class EndLevelButton : MonoBehaviour
 
     private void FinishLevel()
     {
-        PlayerPrefs.SetInt(GameSaver.Level, PlayerPrefs.GetInt(GameSaver.Level, GameSaver.LevelStep) + GameSaver.LevelStep);
-        PlayerPrefs.Save();
+        SaveProgress();
         _sceneLoader.Load();
+    }
+
+    private void SaveProgress()
+    {
+        PlayerPrefs.SetInt(GameSaver.Level, PlayerPrefs.GetInt(GameSaver.Level, GameSaver.LevelStep) + GameSaver.LevelStep);
+
+        if (!_isTrained)
+            PlayerPrefs.SetInt(GameSaver.Tutorial, Convert.ToInt16(true));
+
+        PlayerPrefs.Save();
     }
 }

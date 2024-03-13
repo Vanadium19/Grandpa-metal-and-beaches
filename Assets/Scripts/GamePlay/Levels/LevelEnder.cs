@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(SceneLoader))]
 internal class LevelEnder : MonoBehaviour
 {
     [SerializeField] private GameObject _endLevelButton;
