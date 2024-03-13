@@ -20,21 +20,11 @@ public class EndLevelButton : MonoBehaviour
         _isTrained = Convert.ToBoolean(PlayerPrefs.GetInt(GameSaver.Tutorial));
     }
 
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(FinishLevel);
-    }
+    private void OnEnable() => _button.onClick.AddListener(FinishLevel);
 
-    private void Start()
-    {
-        if (!_isTrained)
-            _tutorial.SetActive(true);
-    }
+    private void Start() => _tutorial.SetActive(!_isTrained);
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(FinishLevel);
-    }
+    private void OnDisable() => _button.onClick.RemoveListener(FinishLevel);
 
     private void FinishLevel()
     {
