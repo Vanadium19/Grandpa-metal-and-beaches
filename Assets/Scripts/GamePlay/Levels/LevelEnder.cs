@@ -28,10 +28,17 @@ internal class LevelEnder : MonoBehaviour
 
     private void UpdateProgress(Scrap scrap)
     {
-        _currentWeight += scrap.Info.Weight;
+        AddWeight(scrap.Info.Weight);
 
-        if (_currentWeight >= _targetWeight)
+        if (_endLevelButton.activeSelf == false && _currentWeight >= _targetWeight)
             _endLevelButton.SetActive(true);
+    }
+
+    private void AddWeight(float weight)
+    {
+        _currentWeight += weight;
+        PlayerPrefs.SetFloat(GameSaver.Weight, PlayerPrefs.GetFloat(GameSaver.Weight) + weight);
+        PlayerPrefs.Save();
     }
 
     //private void FinishLevel()
