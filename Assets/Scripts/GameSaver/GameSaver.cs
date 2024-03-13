@@ -13,8 +13,8 @@ public static class GameSaver
     public static readonly string Bag = "Bag";
     public static readonly string Speed = "Speed";
     public static readonly string ScrapCollector = "ScrapCollector";
+    public static readonly int LevelStep = 1;
 
-    private static readonly int _levelStep = 1;
     private static readonly float _defaultVolume = 1f;
 
     public static void RestartProgress()
@@ -42,11 +42,11 @@ public static class GameSaver
     //    PlayerPrefs.Save();
     //}
 
-    public static void FinishLevel(float weight)
-    {
-        PlayerPrefs.SetFloat(Weight, PlayerPrefs.GetFloat(Weight) + weight);
-        //PlayerPrefs.SetFloat(Money, PlayerPrefs.GetFloat(Money) + money);
-        PlayerPrefs.SetInt(Level, PlayerPrefs.GetInt(Level, _levelStep) + _levelStep);
-        PlayerPrefs.Save();
-    }
+    //public static void FinishLevel(float weight)
+    //{
+    //    PlayerPrefs.SetFloat(Weight, PlayerPrefs.GetFloat(Weight) + weight);
+    //    //PlayerPrefs.SetFloat(Money, PlayerPrefs.GetFloat(Money) + money);
+    //    PlayerPrefs.SetInt(Level, PlayerPrefs.GetInt(Level, _levelStep) + _levelStep);
+    //    PlayerPrefs.Save();
+    //}
 }
