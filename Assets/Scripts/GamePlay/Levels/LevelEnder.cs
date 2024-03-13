@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SceneLoader))]
 internal class LevelEnder : MonoBehaviour
 {
+    [SerializeField] private GameObject _endLevelButton;
     [SerializeField] private Dumpster _dumpster;
 
     //private readonly float _delay = 2f;
@@ -30,14 +31,14 @@ internal class LevelEnder : MonoBehaviour
         _currentWeight += scrap.Info.Weight;
 
         if (_currentWeight >= _targetWeight)
-            FinishLevel();
+            _endLevelButton.SetActive(true);
     }
 
-    private void FinishLevel()
-    {
-        GameSaver.FinishLevel(_currentWeight);
-        _sceneLoader.Load();
-    }   
+    //private void FinishLevel()
+    //{
+    //    GameSaver.FinishLevel(_currentWeight);
+    //    _sceneLoader.Load();
+    //}   
 
     //private IEnumerator FinishLevel(float currentMoney, float currentWeight)
     //{
