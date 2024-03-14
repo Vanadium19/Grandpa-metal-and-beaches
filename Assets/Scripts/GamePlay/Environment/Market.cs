@@ -1,7 +1,9 @@
+using System.Reflection;
 using UnityEngine;
 
 public class Market : MonoBehaviour
 {
+    [SerializeField] private GameObject _pointer;
     [SerializeField] private GameObject _updateMenu;
 
     private void OnTriggerEnter(Collider collider)
@@ -9,7 +11,8 @@ public class Market : MonoBehaviour
         if (collider.TryGetComponent(out Player player))
         {
             Time.timeScale = 0;
-            _updateMenu.SetActive(true);        
+            _pointer.SetActive(false);
+            _updateMenu.SetActive(true);
         }
     }
 }
