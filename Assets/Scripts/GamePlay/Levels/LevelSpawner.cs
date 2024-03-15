@@ -5,8 +5,7 @@ internal class LevelSpawner : MonoBehaviour
 {
     private readonly float _randomSpawnFactor = 10f;
     private readonly float _maxAngleY = 359f;
-    private readonly float _minAngleX = 85f;
-    private readonly float _maxAngleX = 95f;
+    private readonly float _angleXFactor = 5f;
 
     [SerializeField] private SpawnZone _spawnZone;    
     [SerializeField] private List<Scrap> _scraps;
@@ -40,7 +39,10 @@ internal class LevelSpawner : MonoBehaviour
 
     private void Spawn(Scrap scrap)
     {
-        Quaternion rotation = Quaternion.Euler(new Vector3(Random.Range(_minAngleX, _maxAngleX), Random.Range(0, _maxAngleY), 0));
+        float angleX = Random.Range(scrap.RotationAngleX - _angleXFactor, scrap.RotationAngleX + _angleXFactor);
+        float angleY = Random.Range(0, _maxAngleY);
+
+        Quaternion rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
         Instantiate(scrap, _spawnZone.GetRandomPointInZone(), rotation);
     }
 }
