@@ -3444,7 +3444,7 @@ GameObject:
   - component: {fileID: 373154204}
   - component: {fileID: 373154203}
   m_Layer: 5
-  m_Name: CloseButton (1)
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10032,7 +10032,7 @@ GameObject:
   - component: {fileID: 952185475}
   - component: {fileID: 952185476}
   m_Layer: 5
-  m_Name: Money (1)
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14721,6 +14721,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d2e3f9071f791544ad52dc9f7e458d9, type: 2}
   - {fileID: 11400000, guid: 7d7984dba993e874ea331b02538a2fdc, type: 2}
   - {fileID: 11400000, guid: 8e96a247e9d6a664b8bbdafd19946fbb, type: 2}
+  - {fileID: 11400000, guid: 8053b5edd890e994b8ced8072611ac7d, type: 2}
+  - {fileID: 11400000, guid: cbbe001568534814792fc6b84c480c93, type: 2}
+  - {fileID: 11400000, guid: a6ac9bf2ecd656e49a8d2c9d4eb98c6c, type: 2}
+  - {fileID: 11400000, guid: b1ceb9f96046bfe4387f28b169c8d092, type: 2}
+  - {fileID: 11400000, guid: 0d458a21949234049a85f79cd2fdd42d, type: 2}
+  - {fileID: 11400000, guid: 409ee58a1cdc01a4f8efab283a69cb7d, type: 2}
+  - {fileID: 11400000, guid: 29a83fdea9ba39d428430e5e03687151, type: 2}
 --- !u!114 &1370221032
 MonoBehaviour:
   m_ObjectHideFlags: 0
