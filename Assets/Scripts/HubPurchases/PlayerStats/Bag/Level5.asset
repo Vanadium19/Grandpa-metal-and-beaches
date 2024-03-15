@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa3b4540126bb974aaebec328299e045, type: 3}
-  m_Name: Level4
+  m_Name: Level5
   m_EditorClassIdentifier: 
-  _level: 4
-  _value: 40
-  _price: 225
+  _level: 5
+  _value: 45
+  _price: 300

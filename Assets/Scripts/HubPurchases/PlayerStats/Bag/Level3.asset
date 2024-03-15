@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level3
   m_EditorClassIdentifier: 
   _level: 3
-  _value: 75
+  _value: 35
   _price: 150
