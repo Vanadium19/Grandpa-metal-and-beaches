@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
@@ -33,7 +34,6 @@ public class Dumpster : MonoBehaviour
 
     private void StartCollect(Scrap scrap)
     {
-        PlaySound();
         _bag.Remove(scrap);
         scrap.transform.SetParent(transform);
         StartCoroutine(Collect(scrap.transform));
@@ -63,6 +63,7 @@ public class Dumpster : MonoBehaviour
             yield return null;
         }
 
+        PlaySound();
         Destroy(scrap.gameObject);
     }
 }
