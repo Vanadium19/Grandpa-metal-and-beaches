@@ -18,19 +18,19 @@ public class UpgradePlayerButton : MonoBehaviour
 
     private void Awake() => _playerStats = GetComponent<PlayerStats>();
 
-    private void OnEnable() => _upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
-
-    private void Start()
+    private void OnEnable()
     {
-        UpdateDisplay();
-        _advertisingButton.Initialize(_playerStats.CurrentLevel != _playerStats.MaxLevel, _wallet, _playerStats.NextStatPrice);
+        _upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
+        _advertisingButton.Initialize(_playerStats.CurrentLevel != _playerStats.MaxLevel, _wallet, _playerStats.GetPrice());
     }
+
+    private void Start() => UpdateDisplay();
 
     private void OnDisable() => _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClicked);
 
     private void OnUpgradeButtonClicked()
     {
-        if (_wallet.TryBuy(_playerStats.NextStatPrice))
+        if (_wallet.TryBuy(_playerStats.GetPrice()))
             UpdateLevel();
     }
 
@@ -45,7 +45,7 @@ public class UpgradePlayerButton : MonoBehaviour
         if (_playerStats.CurrentLevel == _playerStats.MaxLevel)
             OffButton();
         else
-            _price.text = _playerStats.NextStatPrice.ToString();
+            _price.text = _playerStats.GetPrice().ToString();
 
         _bar.fillAmount = Convert.ToSingle(_playerStats.CurrentLevel) / _playerStats.MaxLevel;
     }
