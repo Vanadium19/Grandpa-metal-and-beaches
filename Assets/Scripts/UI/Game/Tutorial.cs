@@ -4,13 +4,25 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     [SerializeField] private GameObject _tutorialPanel;
+
+    private int _tutorialSavingParam;
     private bool _isTrained;
 
-    private void Awake() => _isTrained = Convert.ToBoolean(PlayerPrefs.GetInt(GameSaver.Tutorial));
+    private void Awake()
+    {
+        _tutorialSavingParam = PlayerPrefs.GetInt(GameSaver.Tutorial);
+        _isTrained = Convert.ToBoolean(_tutorialSavingParam);
+    }
 
     private void Start()
     {
-        _tutorialPanel.SetActive(!_isTrained);
+        SwitchTutorial();
         enabled = false;
+    }
+
+    private void SwitchTutorial()
+    {
+        _tutorialPanel.SetActive(!_isTrained);
+        Time.timeScale = _tutorialSavingParam;
     }
 }

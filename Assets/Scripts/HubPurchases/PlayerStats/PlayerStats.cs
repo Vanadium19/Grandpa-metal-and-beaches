@@ -5,21 +5,23 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    private readonly int _levelStep = 1;
-
     [SerializeField] private List<Stat> _stats;
 
     private string _levelName;
     private Stat _nextLevelStat;
 
     public int MaxLevel => _stats.Count;
-    public int CurrentLevel => PlayerPrefs.GetInt(_levelName, _levelStep);
-    public float NextStatPrice => _nextLevelStat.Price;
+    public int CurrentLevel => PlayerPrefs.GetInt(_levelName, GameSaver.LevelStep);
 
     private void Awake()
     {
         _levelName = _stats[0].GetType().ToString();
         SetNextLevelStat();
+    }
+
+    public float GetPrice()
+    {
+        return _nextLevelStat != null ? _nextLevelStat.Price : _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaver.LevelStep).Price;
     }
 
     public void UpdateLevel()
@@ -30,5 +32,5 @@ public class PlayerStats : MonoBehaviour
         SetNextLevelStat();
     }
 
-    private void SetNextLevelStat() => _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + _levelStep);
+    private void SetNextLevelStat() => _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaver.LevelStep);
 }

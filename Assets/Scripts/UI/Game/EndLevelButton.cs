@@ -6,8 +6,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(SceneLoader))]
 public class EndLevelButton : MonoBehaviour
 {
-    [SerializeField] private GameObject _tutorial;
-
     private Button _button;
     private SceneLoader _sceneLoader;
 
@@ -21,8 +19,6 @@ public class EndLevelButton : MonoBehaviour
     }
 
     private void OnEnable() => _button.onClick.AddListener(FinishLevel);
-
-    private void Start() => _tutorial.SetActive(!_isTrained);
 
     private void OnDisable() => _button.onClick.RemoveListener(FinishLevel);
 
