@@ -12,6 +12,10 @@ internal class LevelSpawner : MonoBehaviour
 
     private float _targetWeight;
 
+    private float _scrapCollectorLevel;
+
+    private void Awake() => _scrapCollectorLevel = PlayerPrefs.GetFloat(GameSaver.ScrapCollector);
+
     public void Initialize(float targetWeight) => _targetWeight = targetWeight;
 
     public void StartSpawn() => SpawnScraps();
@@ -23,19 +27,22 @@ internal class LevelSpawner : MonoBehaviour
 
         while (currentSpawnWeight < _targetWeight + randomSpawnFactor)
         {
-            foreach (var scrap in _scraps)            
-                Spawn(scrap, ref currentSpawnWeight);            
+            foreach (var scrap in _scraps)
+            {
+                Spawn(scrap);
+
+                if (scrap.Info.Rank <= _scrapCollectorLevel)
+                    currentSpawnWeight += scrap.Info.Weight;
+            }
         }
     }
 
-    private void Spawn(Scrap scrap, ref float currentSpawnWeight)
+    private void Spawn(Scrap scrap)
     {
         float angleX = Random.Range(scrap.RotationAngleX - _angleXFactor, scrap.RotationAngleX + _angleXFactor);
         float angleY = Random.Range(0, _maxAngleY);
 
         Quaternion rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
         Instantiate(scrap, _spawnZone.GetRandomPointInZone(), rotation);
-
-        currentSpawnWeight += scrap.Info.Weight;
     }
 }
