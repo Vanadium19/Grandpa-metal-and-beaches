@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4189240815944191047
+--- !u!1 &7403306698267217394
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7835311995429624390}
-  - component: {fileID: 4364670148361918078}
-  - component: {fileID: 8258518682228338755}
-  - component: {fileID: 5078610866128439803}
-  - component: {fileID: 5169637873365625181}
+  - component: {fileID: 4582264507513722859}
+  - component: {fileID: 2677445057038280733}
+  - component: {fileID: 9096430338626916369}
+  - component: {fileID: 6173789343146056346}
+  - component: {fileID: 1901289463903864564}
   m_Layer: 0
-  m_Name: WarningCone
+  m_Name: Bottle2Purple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7835311995429624390
+--- !u!4 &4582264507513722859
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4189240815944191047}
+  m_GameObject: {fileID: 7403306698267217394}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -5.03, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: -4.873, z: 0.414}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &4364670148361918078
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+--- !u!33 &2677445057038280733
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4189240815944191047}
-  m_Mesh: {fileID: 4300000, guid: bc8e5b52475c073429a56932c2a09c3c, type: 3}
---- !u!23 &8258518682228338755
+  m_GameObject: {fileID: 7403306698267217394}
+  m_Mesh: {fileID: -4803834958506271272, guid: 159379b792012974cad43e278ff30f48, type: 3}
+--- !u!23 &9096430338626916369
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4189240815944191047}
+  m_GameObject: {fileID: 7403306698267217394}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d890fd604c441224084ef440be23601d, type: 2}
+  - {fileID: -6309423400349450919, guid: 159379b792012974cad43e278ff30f48, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5078610866128439803
+--- !u!65 &6173789343146056346
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4189240815944191047}
+  m_GameObject: {fileID: 7403306698267217394}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -104,19 +104,19 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.50566775, y: 0.5126778, z: 0.5056681}
-  m_Center: {x: 0, y: 0.256338, z: -0.00000011920932}
---- !u!114 &5169637873365625181
+  m_Size: {x: 0.18364438, y: 0.3898541, z: 0.21205422}
+  m_Center: {x: 0.000000007450581, y: 0.19629078, z: -0.00000000745058}
+--- !u!114 &1901289463903864564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4189240815944191047}
+  m_GameObject: {fileID: 7403306698267217394}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfb9ce2cb5b21ad48a3c5f56ea6bfb1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationAngleX: 90
-  _info: {fileID: 11400000, guid: 7929d92cf35f1914db71d4e7c73027ae, type: 2}
+  _rotationAngleX: 10
+  _info: {fileID: 11400000, guid: 16dd74311a5f54b46b3d08e0d83094b9, type: 2}
