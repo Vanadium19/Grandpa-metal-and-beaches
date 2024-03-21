@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9953c38bc7d4148a3e500552e472be, type: 3}
   m_Name: SmallTool
   m_EditorClassIdentifier: 
-  _weight: 7.5
-  _price: 25
+  _weight: 3
+  _price: 5
   _rank: 3
-  _name: "\u0422\u044F\u0436\u0435\u043B\u044B\u0439 \u043C\u0435\u0442\u0430\u043B\u043B\u043E\u043B\u043E\u043C"

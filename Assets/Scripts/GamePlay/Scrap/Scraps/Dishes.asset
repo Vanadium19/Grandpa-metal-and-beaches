@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9953c38bc7d4148a3e500552e472be, type: 3}
   m_Name: Dishes
   m_EditorClassIdentifier: 
-  _weight: 3
-  _price: 5
-  _rank: 1
-  _name: "\u041B\u0435\u0433\u043A\u0438\u0439 \u043C\u0435\u0442\u0430\u043B\u043B\u043E\u043B\u043E\u043C"
+  _weight: 2.5
+  _price: 3
+  _rank: 2

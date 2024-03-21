@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9953c38bc7d4148a3e500552e472be, type: 3}
-  m_Name: Bottle
+  m_Script: {fileID: 11500000, guid: 61ad194995e876949b914a62ea3a4636, type: 3}
+  m_Name: Level4
   m_EditorClassIdentifier: 
-  _weight: 1
-  _price: 1.5
-  _rank: 1
+  _level: 4
+  _value: 4
+  _price: 500
