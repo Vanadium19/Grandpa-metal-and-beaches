@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 internal class LevelStarter : MonoBehaviour
 {
-    [SerializeField] private LevelSpawner _levelSpawner;
+    [SerializeField] private List<LevelSpawner> _levelSpawners;
     [SerializeField] private LevelEnder _levelEnder;
     [SerializeField] private LevelsPool _levelsPool;
     [SerializeField] private WeightView _weightView;
@@ -16,11 +17,17 @@ internal class LevelStarter : MonoBehaviour
         Initialize();
     }
 
-    private void Start() => _levelSpawner.StartSpawn();
+    private void Start()
+    {
+        foreach (var levelSpawner in _levelSpawners)
+            levelSpawner.StartSpawn();
+    }
 
     private void Initialize()
     {
-        _levelSpawner.Initialize(_levelGoals.TargetWeight);
+        foreach (var levelSpawner in _levelSpawners)
+            levelSpawner.Initialize(_levelGoals.TargetWeight);
+
         _levelEnder.Initialize(_levelGoals.TargetWeight);
         _weightView.Initialize(_levelGoals.TargetWeight);
     }
