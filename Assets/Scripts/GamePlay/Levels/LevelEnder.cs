@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 internal class LevelEnder : MonoBehaviour
 {
     [SerializeField] private GameObject _endLevelButton;
     [SerializeField] private Dumpster _dumpster;
+    [SerializeField] private CongratulationsPanel _congratulationsPanel;
     
     private float _targetWeight;
     private float _currentWeight;
@@ -18,8 +20,8 @@ internal class LevelEnder : MonoBehaviour
     {
         AddWeight(scrap.Info.Weight);
 
-        if (_endLevelButton.activeSelf == false && _currentWeight >= _targetWeight)
-            _endLevelButton.SetActive(true);
+        if (_currentWeight >= _targetWeight)
+            StartCoroutine(FinishLevel());
     }
 
     private void AddWeight(float weight)
@@ -27,5 +29,14 @@ internal class LevelEnder : MonoBehaviour
         _currentWeight += weight;
         PlayerPrefs.SetFloat(GameSaver.Weight, PlayerPrefs.GetFloat(GameSaver.Weight) + weight);
         PlayerPrefs.Save();
+    }
+
+    private IEnumerator FinishLevel()
+    {
+        _dumpster.ScrapCollected -= UpdateProgress;
+        _congratulationsPanel.Activate(_targetWeight);
+        yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
+        _congratulationsPanel.gameObject.SetActive(false);
+        _endLevelButton.SetActive(true);
     }
 }
