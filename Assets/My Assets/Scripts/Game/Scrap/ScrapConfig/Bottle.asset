@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Bottle
   m_EditorClassIdentifier: 
   _weight: 1
-  _price: 1.5
+  _price: 2
   _rank: 1
