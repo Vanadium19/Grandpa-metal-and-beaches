@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -32,7 +31,8 @@ internal class WarningView : MonoBehaviour
         for (int i = 0; i < _alerts.Length; i++)
             _alerts[i].SetActive(i == (int)alert);
 
-        _audioSource.Play();
+        if (alert == WarningNames.Alerts.Water)
+            _audioSource.Play();
     }
 
     private void Close(WarningNames.Alerts alert)
