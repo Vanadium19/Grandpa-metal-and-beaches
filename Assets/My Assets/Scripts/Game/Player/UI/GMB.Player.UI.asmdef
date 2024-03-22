@@ -1,0 +1,18 @@
+{
+    "name": "GMB.Player.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:72f0902c2e51dbb4ebf3323cf8ca42ab",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:6de9678512b866b45817746cb95d6e60"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

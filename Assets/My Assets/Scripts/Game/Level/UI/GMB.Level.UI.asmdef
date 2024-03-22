@@ -1,0 +1,22 @@
+{
+    "name": "GMB.Level.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:02f176d4da2330d4d963fc86b3bba241",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:6de9678512b866b45817746cb95d6e60",
+        "GUID:8774018050a6b1b4280270dd806fb704",
+        "GUID:6b815906c447cbe4c9c6545958508cf6",
+        "GUID:1e299469037b97640969d7d8e99e2ead",
+        "GUID:e2a8b3ea8c88c5a42942ba2b059f5d4c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
