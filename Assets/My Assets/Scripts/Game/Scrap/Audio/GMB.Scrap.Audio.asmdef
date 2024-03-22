@@ -1,0 +1,16 @@
+{
+    "name": "GMB.Scrap.Audio",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6de9678512b866b45817746cb95d6e60"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

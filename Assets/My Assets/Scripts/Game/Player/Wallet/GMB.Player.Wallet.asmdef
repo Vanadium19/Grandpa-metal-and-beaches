@@ -1,0 +1,16 @@
+{
+    "name": "GMB.Player.Wallet",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8774018050a6b1b4280270dd806fb704"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

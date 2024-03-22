@@ -12475,6 +12475,7 @@ MonoBehaviour:
   - {fileID: 1785059635}
   - {fileID: 2009845109}
   - {fileID: 2135909336}
+  _water: {fileID: 8435536469532386431}
   _scrapCollector: {fileID: 229907539}
 --- !u!82 &936546751
 AudioSource:
@@ -29689,7 +29690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf5ac953fbc37c468faec22557de2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _warningView: {fileID: 936546750}
 --- !u!65 &8435536469532386432
 BoxCollider:
   m_ObjectHideFlags: 0
