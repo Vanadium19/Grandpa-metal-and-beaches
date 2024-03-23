@@ -10,6 +10,7 @@ internal class Good : MonoBehaviour
     [SerializeField] private AdvertisingButton _advertisingButton;
 
     private GoodRenderer _goodRenderer;
+    private AudioSource _audioSource;
     private Transform _goodPicture;
     private Wallet _wallet;
 
@@ -34,16 +35,19 @@ internal class Good : MonoBehaviour
 
     private void OnDisable() => _sellButton.onClick.RemoveListener(OnSellButtonClicked);
 
-    public void Initialize(Wallet wallet, Transform goodPicture)
+    public void Initialize(Wallet wallet, Transform goodPicture, AudioSource audioSource)
     {
         _wallet = wallet;
         _goodPicture = goodPicture;
+        _audioSource = audioSource;
     }
 
     public void Install() => _goodPicture.gameObject.SetActive(true);
 
     private void OnSellButtonClicked()
     {
+        _audioSource.Play();
+
         if (_wallet.TryBuy(_goodInfo.Price))
             Buy();
     }

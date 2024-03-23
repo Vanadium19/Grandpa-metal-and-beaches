@@ -5,6 +5,7 @@ internal class GoodsInstaller : MonoBehaviour
 {
     [SerializeField] private List<Good> _goodPrefabs;
     [SerializeField] private Transform _goodsContent;
+    [SerializeField] private AudioSource _buttonAudio;
     [SerializeField] private Wallet _wallet;
     [SerializeField] private Transform _decor;
 
@@ -19,7 +20,7 @@ internal class GoodsInstaller : MonoBehaviour
         var goodPicture = _decor.Find(good.Name);
         var newGood = Instantiate(good, _goodsContent);
 
-        newGood.Initialize(_wallet, goodPicture);
+        newGood.Initialize(_wallet, goodPicture, _buttonAudio);
 
         if (newGood.IsSold)
             newGood.Install();
