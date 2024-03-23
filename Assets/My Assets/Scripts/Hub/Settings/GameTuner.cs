@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Agava.YandexGames;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ internal class GameTuner : MonoBehaviour
     {
         TuneVolume();
         TunePlayerStats();
-        YandexGamesSdk.GameReady();
+        //YandexGamesSdk.GameReady();
     }
 
     private void TuneVolume() => AudioListener.volume = GameSaver.GetCurrentVolume();
