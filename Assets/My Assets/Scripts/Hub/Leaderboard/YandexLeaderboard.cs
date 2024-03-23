@@ -22,7 +22,7 @@ internal class YandexLeaderboard : MonoBehaviour
 
         Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
         {
-            if (result.score < score)
+            if (result.score < score || result == null)
                 Leaderboard.SetScore(LeaderboardName, score);
         });
     }
