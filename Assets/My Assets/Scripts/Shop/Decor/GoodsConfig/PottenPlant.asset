@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: PottenPlant
   m_EditorClassIdentifier: 
   _name: Potten plant
-  _price: 30
+  _price: 1
   _icon: {fileID: 21300000, guid: 6d4269069e52ce64a9646c48e01b6f2e, type: 3}
-  _position: {x: -771, y: 383}
-  _size: {x: -5, y: -6}
-  _minAnchors: {x: 0.035541672, y: 0.7352223}
-  _maxAnchors: {x: 0.16358334, y: 0.9721482}

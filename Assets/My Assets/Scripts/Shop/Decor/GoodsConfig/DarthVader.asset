@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: DarthVader
   m_EditorClassIdentifier: 
   _name: Darth Vader
-  _price: 100
+  _price: 1
   _icon: {fileID: 21300000, guid: 427770c5931a02b4c9298db0abd49489, type: 3}
-  _position: {x: -150, y: 389}
-  _size: {x: 0, y: -3}
-  _minAnchors: {x: 0.3441458, y: 0.71940744}
-  _maxAnchors: {x: 0.5, y: 1}
