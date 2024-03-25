@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 internal class LevelSpawner : MonoBehaviour
 {
+    private readonly int _uncollectableScrapSpawnFactor = 5;
     private readonly float _randomSpawnFactor = 10f;
     private readonly float _maxAngleY = 359f;
     private readonly float _angleXFactor = 5f;
@@ -18,23 +20,43 @@ internal class LevelSpawner : MonoBehaviour
 
     public void Initialize(float targetWeight) => _targetWeight = targetWeight;
 
-    public void StartSpawn() => SpawnScraps();
-   
+    public void StartSpawn() => SpawnScraps();      
+
     private void SpawnScraps()
     {
+        var scraps = _scraps.Where(scrap => scrap.Info.Rank <= _scrapCollectorLevel).ToList();
+        SpawnCollectableScrap(scraps);
+
+        scraps = _scraps.Where(scrap => scrap.Info.Rank > _scrapCollectorLevel).ToList();
+        SpawnUncollectableScrap(scraps);
+    }
+
+    private void SpawnCollectableScrap(List<Scrap> scraps)
+    {
+        if (scraps == null)
+            return;
+
         float currentSpawnWeight = 0;
         float randomSpawnFactor = Random.Range(0, _randomSpawnFactor);
 
         while (currentSpawnWeight < _targetWeight + randomSpawnFactor)
         {
-            foreach (var scrap in _scraps)
+            foreach (var scrap in scraps)
             {
                 Spawn(scrap);
-
-                if (scrap.Info.Rank <= _scrapCollectorLevel)
-                    currentSpawnWeight += scrap.Info.Weight;
+                currentSpawnWeight += scrap.Info.Weight;
             }
         }
+    }
+
+    private void SpawnUncollectableScrap(List<Scrap> scraps)
+    {
+        if (scraps == null)        
+            return;        
+
+        for (int i = 0; i < _uncollectableScrapSpawnFactor; i++)
+            foreach (var scrap in scraps)
+                Spawn(scrap);
     }
 
     private void Spawn(Scrap scrap)
