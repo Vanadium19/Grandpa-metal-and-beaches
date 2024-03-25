@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2491810543851259106}
   - component: {fileID: 2660293721541510336}
   - component: {fileID: 8736785612748387112}
+  - component: {fileID: 1358781906598476095}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -140,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy
+  m_text: "\u041A\u0443\u043F\u0438\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 2
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -209,6 +210,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1358781906598476095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2416616163941680395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Shop/Buy
+  FallbackText: Buy
 --- !u!1 &2905665430777785702
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,10 +258,10 @@ RectTransform:
   - {fileID: 2491810543851259106}
   m_Father: {fileID: 1729413919119423797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.512, y: 0.032739498}
-  m_AnchorMax: {x: 0.94500005, y: 0.149}
-  m_AnchoredPosition: {x: 0.35598755, y: 2.7329712}
-  m_SizeDelta: {x: 1.966999, y: -5.9919996}
+  m_AnchorMin: {x: 0.44353837, y: 0.044526618}
+  m_AnchorMax: {x: 0.94500005, y: 0.14610647}
+  m_AnchoredPosition: {x: 1.5, y: -0.5}
+  m_SizeDelta: {x: 1, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2021176520732391660
 CanvasRenderer:
@@ -385,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823d4cf268e48bd4fb2599d0bb0ae4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soldGoodPrefab: {fileID: 2259176325733993969, guid: 6587c491fea7cfe49aca4019aaa42d6b, type: 3}
   _goodInfo: {fileID: 11400000, guid: 711174b7ed773c345acdad553b1d1618, type: 2}
   _sellButton: {fileID: 2503256969914899472}
   _advertisingButton: {fileID: 1393716883546844276}

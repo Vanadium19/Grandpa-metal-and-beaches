@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: Naruto
   m_EditorClassIdentifier: 
   _name: Naruto
-  _price: 150
+  _price: 1
   _icon: {fileID: 21300000, guid: 288b4150b1f7e4244924108aed3f3e37, type: 3}
-  _position: {x: 276, y: -91}
-  _size: {x: -3, y: -6}
-  _minAnchors: {x: 0.5774376, y: 0.29900002}
-  _maxAnchors: {x: 0.70943755, y: 0.536}

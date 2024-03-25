@@ -20,10 +20,17 @@ internal class LeaderboardOpener : MonoBehaviour
 
     private void OpenLeaderboard()
     {
-        PlayerAccount.Authorize();
+        if (PlayerAccount.IsAuthorized == false)
+        {
+            PlayerAccount.Authorize();
+            Debug.Log("Authorize");
+        }
 
         if (PlayerAccount.IsAuthorized)
+        {
             PlayerAccount.RequestPersonalProfileDataPermission();
+            Debug.Log("RequestPersonalProfileDataPermission");
+        }
 
         if (PlayerAccount.IsAuthorized == false)
             return;

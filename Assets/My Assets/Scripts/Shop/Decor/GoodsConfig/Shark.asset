@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: Shark
   m_EditorClassIdentifier: 
   _name: Shark
-  _price: 50
+  _price: 1
   _icon: {fileID: 21300000, guid: 4040f0c8955a56d40a1a27797da02c2e, type: 3}
-  _position: {x: -300, y: -130}
-  _size: {x: -4, y: 1}
-  _minAnchors: {x: 0.2275, y: 0.16885187}
-  _maxAnchors: {x: 0.46366665, y: 0.58400005}
