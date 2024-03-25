@@ -13844,6 +13844,7 @@ GameObject:
   - component: {fileID: 1020991647}
   - component: {fileID: 1020991646}
   - component: {fileID: 1020991645}
+  - component: {fileID: 1020991648}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -13938,8 +13939,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, GMB.UI
+      - m_Target: {fileID: 1020991648}
+        m_TargetAssemblyTypeName: SceneLoader, GMB.MainUI
         m_MethodName: Load
         m_Mode: 1
         m_Arguments:
@@ -13988,6 +13989,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020991643}
   m_CullTransparentMesh: 1
+--- !u!114 &1020991648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020991643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c13575897eeb545af082b6a0ce48c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneNumber: 2
+  _loadPanel: {fileID: 269240258}
+  _percent: {fileID: 576107266}
 --- !u!1 &1028452864
 GameObject:
   m_ObjectHideFlags: 0
