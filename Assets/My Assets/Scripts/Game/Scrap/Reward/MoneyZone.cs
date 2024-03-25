@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoneyZone : MonoBehaviour
+internal class MoneyZone : MonoBehaviour
 {
     [SerializeField] private Transform _minPoint;
     [SerializeField] private float _maxPositionX;
