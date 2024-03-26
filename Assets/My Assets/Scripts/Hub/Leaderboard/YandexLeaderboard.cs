@@ -20,11 +20,8 @@ internal class YandexLeaderboard : MonoBehaviour
 
         Leaderboard.GetPlayerEntry(LeaderboardName, (result) =>
         {
-            if (result.score < score || result == null)
-            {
-                Leaderboard.SetScore(LeaderboardName, score);
-                Debug.Log("SetScore");
-            }
+            if (result.score < score || result == null)            
+                Leaderboard.SetScore(LeaderboardName, score);             
         });
     }
 
@@ -32,8 +29,6 @@ internal class YandexLeaderboard : MonoBehaviour
     {
         if (PlayerAccount.IsAuthorized == false)
             return;
-
-        Debug.Log("Fill");
 
         _leaderboardPlayers.Clear();
 
@@ -48,7 +43,6 @@ internal class YandexLeaderboard : MonoBehaviour
                 if (string.IsNullOrEmpty(name))
                     name = AnonymousName;
 
-                Debug.Log("AddPlayer");
                 _leaderboardPlayers.Add(new LeaderboardPlayer(name, rank, score));
             }
 
