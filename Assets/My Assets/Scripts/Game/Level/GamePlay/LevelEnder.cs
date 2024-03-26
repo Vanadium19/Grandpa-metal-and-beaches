@@ -11,6 +11,7 @@ internal class LevelEnder : MonoBehaviour
     private float _targetWeight;
     private float _currentWeight;
     private YandexLeaderboardScoreSetter _leaderboardScoreSetter;
+    private Coroutine _levelFinishing;
 
     private void Awake() => _leaderboardScoreSetter = GetComponent<YandexLeaderboardScoreSetter>();
 
@@ -24,8 +25,8 @@ internal class LevelEnder : MonoBehaviour
     {
         AddWeight(scrap.Info.Weight);
 
-        if (_currentWeight >= _targetWeight)
-            StartCoroutine(FinishLevel());
+        if (_levelFinishing == null && _currentWeight >= _targetWeight)
+            _levelFinishing = StartCoroutine(FinishLevel());
     }
 
     private void AddWeight(float weight)
@@ -37,7 +38,6 @@ internal class LevelEnder : MonoBehaviour
 
     private IEnumerator FinishLevel()
     {
-        _dumpster.ScrapCollected -= UpdateProgress;
         _congratulationsPanel.Activate(_targetWeight);
         yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
         _congratulationsPanel.gameObject.SetActive(false);
