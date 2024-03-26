@@ -3,6 +3,7 @@ using UnityEngine;
 
 internal class Tutorial : MonoBehaviour
 {
+    [SerializeField] private FocusTracker _focusTracker;
     [SerializeField] private GameObject _tutorialPanel;
 
     private int _tutorialSavingParam;
@@ -24,5 +25,6 @@ internal class Tutorial : MonoBehaviour
     {
         _tutorialPanel.SetActive(!_isTrained);
         Time.timeScale = _tutorialSavingParam;
+        _focusTracker.SetCurrentTimeScale(_tutorialSavingParam);
     }
 }

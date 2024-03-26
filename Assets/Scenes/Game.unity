@@ -2237,6 +2237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTracker: {fileID: 918578743}
   _tutorialPanel: {fileID: 1984162582}
 --- !u!114 &184524288
 MonoBehaviour:
@@ -6207,6 +6208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTracker: {fileID: 918578743}
   _tutorialPanel: {fileID: 1069697951}
 --- !u!1 &434767275
 GameObject:
@@ -8044,6 +8046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTracker: {fileID: 918578743}
   _tutorialPanel: {fileID: 836309700}
 --- !u!1 &576107264
 GameObject:
@@ -17489,6 +17492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTracker: {fileID: 918578743}
   _tutorialPanel: {fileID: 249013634}
 --- !u!1001 &1247661109
 PrefabInstance:
@@ -20241,6 +20245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9345517557c41c84dab225a2f067401e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTracker: {fileID: 918578743}
 --- !u!1 &1514187441
 GameObject:
   m_ObjectHideFlags: 0
@@ -21229,6 +21234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTracker: {fileID: 918578743}
   _tutorialPanel: {fileID: 1059317085}
 --- !u!1 &1567697137
 GameObject:
@@ -27510,6 +27516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTracker: {fileID: 918578743}
   _tutorialPanel: {fileID: 184524285}
 --- !u!1 &2020226881
 GameObject:

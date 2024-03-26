@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 35212759}
   - component: {fileID: 35212758}
   - component: {fileID: 35212757}
+  - component: {fileID: 35212761}
   m_Layer: 5
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fe8dc39ada5ce40b66758cb02f8578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leaderboardFiller: {fileID: 0}
+  _leaderboardFiller: {fileID: 35212761}
   _leaderboardPanel: {fileID: 1687029604}
 --- !u!114 &35212758
 MonoBehaviour:
@@ -357,6 +358,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35212755}
   m_CullTransparentMesh: 1
+--- !u!114 &35212761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35212755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fceb9e557ef4dc942abb73b60008c285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leaderboardView: {fileID: 1687029608}
 --- !u!1 &76458779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5348,6 +5362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9345517557c41c84dab225a2f067401e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTracker: {fileID: 2134524510}
 --- !u!114 &1836237265
 MonoBehaviour:
   m_ObjectHideFlags: 0
