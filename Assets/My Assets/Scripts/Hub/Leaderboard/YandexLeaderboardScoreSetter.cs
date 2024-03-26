@@ -1,7 +1,7 @@
 using Agava.YandexGames;
 using UnityEngine;
 
-public class YandexLeaderboardSetter : MonoBehaviour
+public class YandexLeaderboardScoreSetter : MonoBehaviour
 {
     private const string LeaderboardName = "Leaderboard";
 
