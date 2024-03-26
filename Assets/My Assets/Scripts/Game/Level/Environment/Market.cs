@@ -11,7 +11,7 @@ internal class Market : MonoBehaviour
         {
             Time.timeScale = 0;
             _pointer.SetActive(false);
-            _updateMenu.SetActive(true);
+            _updateMenu.SetActive(true); 
         }
     }
 }
