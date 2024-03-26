@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 internal class LeaderboardOpener : MonoBehaviour
 {
-    [SerializeField] private YandexLeaderboardFiller _yandexLeaderboardFiller;
+    [SerializeField] private YandexLeaderboardFiller _leaderboardFiller;
     [SerializeField] private GameObject _leaderboardPanel;
 
     private Button _leaderboardButton;
@@ -29,7 +29,7 @@ internal class LeaderboardOpener : MonoBehaviour
         if (PlayerAccount.IsAuthorized == false)
             return;
 
-        _yandexLeaderboardFiller.Fill();
+        _leaderboardFiller.Fill();
         _leaderboardPanel.SetActive(true);
     }
 }
