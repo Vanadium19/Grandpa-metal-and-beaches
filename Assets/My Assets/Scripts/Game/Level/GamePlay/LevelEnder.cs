@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(YandexLeaderboardScoreSetter))]
 internal class LevelEnder : MonoBehaviour
 {
     [SerializeField] private GameObject _endLevelButton;
@@ -9,6 +10,9 @@ internal class LevelEnder : MonoBehaviour
     
     private float _targetWeight;
     private float _currentWeight;
+    private YandexLeaderboardScoreSetter _leaderboardScoreSetter;
+
+    private void Awake() => _leaderboardScoreSetter = GetComponent<YandexLeaderboardScoreSetter>();
 
     private void OnEnable() => _dumpster.ScrapCollected += UpdateProgress;
 
@@ -37,6 +41,7 @@ internal class LevelEnder : MonoBehaviour
         _congratulationsPanel.Activate(_targetWeight);
         yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
         _congratulationsPanel.gameObject.SetActive(false);
+        _leaderboardScoreSetter.UpdatePlayerScore();
         _endLevelButton.SetActive(true);
     }
 }
