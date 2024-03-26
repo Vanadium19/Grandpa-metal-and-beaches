@@ -23,7 +23,7 @@ internal class LeaderboardView : MonoBehaviour
     private void ClearLeaderboard()
     {
         foreach (var spawnElement in _spawnElements)
-            Destroy(spawnElement);
+            Destroy(spawnElement.gameObject);
 
         _spawnElements = new List<LeaderboardElement>();
     }
