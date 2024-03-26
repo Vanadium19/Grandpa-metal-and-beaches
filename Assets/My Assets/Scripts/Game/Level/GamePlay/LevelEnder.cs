@@ -41,7 +41,10 @@ internal class LevelEnder : MonoBehaviour
         _congratulationsPanel.Activate(_targetWeight);
         yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
         _congratulationsPanel.gameObject.SetActive(false);
-        _leaderboardScoreSetter.UpdatePlayerScore();
         _endLevelButton.SetActive(true);
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+ _leaderboardScoreSetter.UpdatePlayerScore();
+#endif       
     }
 }
