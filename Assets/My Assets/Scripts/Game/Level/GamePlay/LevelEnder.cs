@@ -31,9 +31,15 @@ internal class LevelEnder : MonoBehaviour
 
     private void AddWeight(float weight)
     {
+        var allWeight = PlayerPrefs.GetFloat(GameSaver.Weight) + weight;
+
         _currentWeight += weight;
-        PlayerPrefs.SetFloat(GameSaver.Weight, PlayerPrefs.GetFloat(GameSaver.Weight) + weight);
+        PlayerPrefs.SetFloat(GameSaver.Weight, allWeight);
         PlayerPrefs.Save();
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+ _leaderboardScoreSetter.UpdatePlayerScore(allWeight);
+#endif
     }
 
     private IEnumerator FinishLevel()
@@ -41,10 +47,6 @@ internal class LevelEnder : MonoBehaviour
         _congratulationsPanel.Activate(_targetWeight);
         yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
         _congratulationsPanel.gameObject.SetActive(false);
-        _endLevelButton.SetActive(true);
-
-#if UNITY_WEBGL && !UNITY_EDITOR
- _leaderboardScoreSetter.UpdatePlayerScore();
-#endif       
+        _endLevelButton.SetActive(true);      
     }
 }
