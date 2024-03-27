@@ -5,6 +5,7 @@ public static class GameSaver
 {
     public static readonly string Money = "Money";    
     public static readonly string Weight = "Weight";
+    public static readonly string CurrentWeight = "CurrentWeight";
 
     public static readonly string Level = "Level";
     public static readonly string Tutorial = "Tutorial";

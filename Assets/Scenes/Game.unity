@@ -27145,8 +27145,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1745952462}
-  - component: {fileID: 1745952464}
-  - component: {fileID: 1745952463}
   m_Layer: 5
   m_Name: Weight
   m_TagString: Untagged
@@ -27176,46 +27174,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 230.47998}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1745952463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745952461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5658dd37ab66339459ad8f78e01a4083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stats:
-  - {fileID: 11400000, guid: b7575ea5c2b82c54ea1633388fb53c74, type: 2}
-  - {fileID: 11400000, guid: f89cdfb9b5857534b9b6361b5ae0e4cb, type: 2}
-  - {fileID: 11400000, guid: 0c057950a79c56046ac639402c730e8b, type: 2}
-  - {fileID: 11400000, guid: c14161c7b6a3e524bafc8d2136772a1f, type: 2}
-  - {fileID: 11400000, guid: ce6e57bb0c73df34cbc0fa77b572da7c, type: 2}
-  - {fileID: 11400000, guid: 2d4e7f44712876042afbb47005a65282, type: 2}
-  - {fileID: 11400000, guid: 18887a7d7a3257c4b9d580682412d60d, type: 2}
-  - {fileID: 11400000, guid: dfa343c1381bcab47877dc9bdd9a235a, type: 2}
-  - {fileID: 11400000, guid: e87734b99d6ba174f98a43ce853130a1, type: 2}
-  - {fileID: 11400000, guid: e4a1719c18db3b54d9808393d5dd5fba, type: 2}
---- !u!114 &1745952464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745952461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce7b076cc94eb74a9cb292467840aa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _wallet: {fileID: 229907546}
-  _price: {fileID: 0}
-  _upgradeButton: {fileID: 0}
-  _bar: {fileID: 1725843019}
-  _advertisingButton: {fileID: 0}
 --- !u!1001 &1748949985
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class WeightView : MonoBehaviour
     public void Initialize(float targetWeight)
     {
         _targetWeight = targetWeight;
+        _currentWeight = PlayerPrefs.GetFloat(GameSaver.CurrentWeight);
         UpdateDisplay();
     }
     private void AddWeight(Scrap scrap)

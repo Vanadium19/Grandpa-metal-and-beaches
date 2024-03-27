@@ -13,7 +13,11 @@ internal class LevelEnder : MonoBehaviour
     private YandexLeaderboardScoreSetter _leaderboardScoreSetter;
     private Coroutine _levelFinishing;
 
-    private void Awake() => _leaderboardScoreSetter = GetComponent<YandexLeaderboardScoreSetter>();
+    private void Awake()
+    {
+        _leaderboardScoreSetter = GetComponent<YandexLeaderboardScoreSetter>();
+        _currentWeight = PlayerPrefs.GetFloat(GameSaver.CurrentWeight);
+    }
 
     private void OnEnable() => _dumpster.ScrapCollected += UpdateProgress;
 
@@ -34,12 +38,27 @@ internal class LevelEnder : MonoBehaviour
         var allWeight = PlayerPrefs.GetFloat(GameSaver.Weight) + weight;
 
         _currentWeight += weight;
-        PlayerPrefs.SetFloat(GameSaver.Weight, allWeight);
-        PlayerPrefs.Save();
+        SaveProgress(allWeight);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
  _leaderboardScoreSetter.UpdatePlayerScore(allWeight);
 #endif
+    }
+
+    private void SaveProgress(float allWeight)
+    {
+        PlayerPrefs.SetFloat(GameSaver.Weight, allWeight);
+
+        if (_levelFinishing == null)
+            PlayerPrefs.SetFloat(GameSaver.CurrentWeight, _currentWeight);
+
+        PlayerPrefs.Save();
+    }
+
+    private void ResetProgress()
+    {
+        PlayerPrefs.SetFloat(GameSaver.CurrentWeight, 0);
+        PlayerPrefs.Save();
     }
 
     private IEnumerator FinishLevel()
@@ -48,5 +67,6 @@ internal class LevelEnder : MonoBehaviour
         yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
         _congratulationsPanel.gameObject.SetActive(false);
         _endLevelButton.SetActive(true);      
+        ResetProgress();
     }
 }
