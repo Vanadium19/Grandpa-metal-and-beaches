@@ -29,6 +29,8 @@ internal class PlayerMover : MonoBehaviour
 
     private void OnDisable() => _upgradePanel.PlayerUpgraded -= SetSpeed;
 
+    public void Stop() => _speed = 0;
+
     private void Rotate()
     {
         if (_playerInput.MoveInput != Vector3.zero)
