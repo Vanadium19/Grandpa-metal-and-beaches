@@ -3621,6 +3621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae82b94c7835c2646a053646458724b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _focusTracker: {fileID: 2134524510}
   _volumeOffImage: {fileID: 21300000, guid: b1f42bbbfffc44202b66381ab8b622ee, type: 3}
 --- !u!114 &1964192345
 MonoBehaviour:
