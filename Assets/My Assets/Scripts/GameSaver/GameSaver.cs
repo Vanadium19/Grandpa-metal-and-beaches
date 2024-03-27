@@ -13,9 +13,9 @@ public static class GameSaver
     public static readonly string Bag = "Bag";
     public static readonly string Speed = "Speed";
     public static readonly string ScrapCollector = "ScrapCollector";
-    public static readonly int LevelStep = 1;
 
-    private static readonly float _defaultVolume = 1f;
+    public static readonly int LevelStep = 1;
+    public static readonly float DefaultVolume = 1f;
 
     public static void RestartProgress()
     {
@@ -25,12 +25,4 @@ public static class GameSaver
         PlayerPrefs.SetFloat(ScrapCollector, 1f);
         PlayerPrefs.Save();
     }
-
-    public static void SaveVolume()
-    {
-        PlayerPrefs.SetFloat(GameSaver.Audio, AudioListener.volume);
-        PlayerPrefs.Save();
-    }
-
-    public static float GetCurrentVolume() => PlayerPrefs.GetFloat(Audio, _defaultVolume);
 }
