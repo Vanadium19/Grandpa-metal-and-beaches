@@ -11,6 +11,7 @@ internal class UpgradePlayerButton : MonoBehaviour
     [SerializeField] private Wallet _wallet;
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Button _upgradeButton;
+    [SerializeField] private Animator _buttonAnimator;
     [SerializeField] private Image _bar;
     [SerializeField] private AdvertisingButton _advertisingButton;
 
@@ -31,7 +32,14 @@ internal class UpgradePlayerButton : MonoBehaviour
     private void OnUpgradeButtonClicked()
     {
         if (_wallet.TryBuy(_playerStats.GetPrice()))
+        {
+            _buttonAnimator.SetTrigger(AnimatorNames.Buy);
             UpdateLevel();
+        }
+        else
+        {
+            _buttonAnimator.SetTrigger(AnimatorNames.NoMoney);
+        }
     }
 
     private void UpdateLevel()
