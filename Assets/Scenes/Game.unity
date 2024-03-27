@@ -3055,7 +3055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d59f5d058a457488e214649ed5b90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upgradePanel: {fileID: 1093165775}
+  _upgradePanel: {fileID: 1250267528}
 --- !u!114 &229907539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3070,7 +3070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bag: {fileID: 229907538}
   _scrapMagnet: {fileID: 132733404}
-  _upgradePanel: {fileID: 1093165775}
+  _upgradePanel: {fileID: 1250267528}
 --- !u!114 &229907540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3084,7 +3084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1609415096}
-  _upgradePanel: {fileID: 1093165775}
+  _upgradePanel: {fileID: 1250267528}
 --- !u!114 &229907541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4139,6 +4139,7 @@ MonoBehaviour:
   _wallet: {fileID: 229907546}
   _price: {fileID: 1514187443}
   _upgradeButton: {fileID: 641091526}
+  _buttonAnimator: {fileID: 0}
   _bar: {fileID: 1951114774}
   _advertisingButton: {fileID: 536519172}
 --- !u!1001 &266963008
@@ -5363,6 +5364,7 @@ MonoBehaviour:
   _wallet: {fileID: 229907546}
   _price: {fileID: 1324337630}
   _upgradeButton: {fileID: 1019472801}
+  _buttonAnimator: {fileID: 1019472804}
   _bar: {fileID: 1984335587}
   _advertisingButton: {fileID: 1865281643}
 --- !u!1 &373154201
@@ -12390,6 +12392,7 @@ GameObject:
   - component: {fileID: 829925116}
   - component: {fileID: 829925115}
   - component: {fileID: 829925114}
+  - component: {fileID: 829925117}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -12511,6 +12514,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829925112}
   m_CullTransparentMesh: 1
+--- !u!95 &829925117
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829925112}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de0a3102e41899c44ab58722c37b5bec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &830059545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12865,6 +12889,7 @@ GameObject:
   - component: {fileID: 847464645}
   - component: {fileID: 847464644}
   - component: {fileID: 847464643}
+  - component: {fileID: 847464646}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -12986,6 +13011,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847464641}
   m_CullTransparentMesh: 1
+--- !u!95 &847464646
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847464641}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de0a3102e41899c44ab58722c37b5bec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &854975531
 GameObject:
   m_ObjectHideFlags: 0
@@ -13267,6 +13313,7 @@ MonoBehaviour:
   _wallet: {fileID: 229907546}
   _price: {fileID: 1382247438}
   _upgradeButton: {fileID: 716375290}
+  _buttonAnimator: {fileID: 0}
   _bar: {fileID: 1898479475}
   _advertisingButton: {fileID: 724263387}
 --- !u!1001 &904106110
@@ -14999,6 +15046,7 @@ GameObject:
   - component: {fileID: 1019472803}
   - component: {fileID: 1019472802}
   - component: {fileID: 1019472801}
+  - component: {fileID: 1019472804}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -15120,6 +15168,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019472799}
   m_CullTransparentMesh: 1
+--- !u!95 &1019472804
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019472799}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de0a3102e41899c44ab58722c37b5bec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1020991643
 GameObject:
   m_ObjectHideFlags: 0
@@ -16739,7 +16808,6 @@ GameObject:
   - component: {fileID: 1093165772}
   - component: {fileID: 1093165774}
   - component: {fileID: 1093165773}
-  - component: {fileID: 1093165775}
   m_Layer: 5
   m_Name: OldUpgradesPanel
   m_TagString: Untagged
@@ -16793,21 +16861,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093165771}
   m_CullTransparentMesh: 1
---- !u!114 &1093165775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093165771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb43635c432bc2b4da83006ec52ac2ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _closingMenus:
-  - {fileID: 317090633}
-  - {fileID: 1941596724}
 --- !u!1 &1095579679
 GameObject:
   m_ObjectHideFlags: 0
@@ -19813,6 +19866,7 @@ MonoBehaviour:
   _wallet: {fileID: 229907546}
   _price: {fileID: 95801137}
   _upgradeButton: {fileID: 1947080510}
+  _buttonAnimator: {fileID: 0}
   _bar: {fileID: 55328940}
   _advertisingButton: {fileID: 1601768200}
 --- !u!1 &1371267938
@@ -21901,6 +21955,7 @@ MonoBehaviour:
   _wallet: {fileID: 229907546}
   _price: {fileID: 1546515302}
   _upgradeButton: {fileID: 847464643}
+  _buttonAnimator: {fileID: 847464646}
   _bar: {fileID: 1407042995}
   _advertisingButton: {fileID: 742672185}
 --- !u!1 &1514187441
@@ -22648,6 +22703,7 @@ MonoBehaviour:
   _wallet: {fileID: 229907546}
   _price: {fileID: 233582549}
   _upgradeButton: {fileID: 829925114}
+  _buttonAnimator: {fileID: 829925117}
   _bar: {fileID: 456608484}
   _advertisingButton: {fileID: 809838974}
 --- !u!1 &1546515300
