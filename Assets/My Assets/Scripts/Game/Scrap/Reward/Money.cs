@@ -35,7 +35,7 @@ public class Money : MonoBehaviour
 
     public void Collect()
     {
-        _animator.SetTrigger("CollectMoney");
+        _animator.SetTrigger(AnimatorNames.CollectMoney);
         _audioSource.Play();
         _collider.enabled = false;
         Invoke(nameof(Push), _delay);
