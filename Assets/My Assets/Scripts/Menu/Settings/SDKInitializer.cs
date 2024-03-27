@@ -14,6 +14,6 @@ namespace Source.Yandex
             yield return YandexGamesSdk.Initialize(OnInitialized);
         }
 
-        private void OnInitialized() => SceneManager.LoadScene(SceneNames.Hub);
+        private void OnInitialized() => SceneManager.LoadScene(SceneNames.Menu);
     }
 }

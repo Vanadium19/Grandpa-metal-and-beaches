@@ -1,5 +1,5 @@
 {
-    "name": "GMB.Hub.Settings",
+    "name": "GMB.Menu",
     "rootNamespace": "",
     "references": [
         "GUID:1e299469037b97640969d7d8e99e2ead",
