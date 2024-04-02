@@ -2881,7 +2881,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f0ceac46f9f8b1c42ad026fd556462c5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 573c7d315dcff2b479e9653c5bda9b05, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3100,17 +3100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0c923d296d8c749b2ca1e91f378dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goodPrefabs:
-  - {fileID: 2332475812460444958, guid: 3f82b0b98c0967a4597f8f0fa64bab83, type: 3}
-  - {fileID: 774505291080110202, guid: 1e509b47661a718459f29b6b42b016b2, type: 3}
-  - {fileID: 2955131962595043561, guid: a70569c32806dcb40b9d82451b9eb5fd, type: 3}
-  - {fileID: 2153954633318638655, guid: c554d8af2136cc147ad48ad7ab6b8b77, type: 3}
-  - {fileID: 1752839582592809425, guid: cfd8f7a1b73c7654197776b1d9f8274f, type: 3}
-  - {fileID: 5695827298438649888, guid: 8e16b3ee6d7d1bd499c4771ff75e421a, type: 3}
-  _goodsContent: {fileID: 0}
-  _buttonAudio: {fileID: 109305640}
-  _wallet: {fileID: 0}
-  _decor: {fileID: 0}
 --- !u!114 &1836237266
 MonoBehaviour:
   m_ObjectHideFlags: 0
