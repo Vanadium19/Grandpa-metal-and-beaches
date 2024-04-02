@@ -22,6 +22,4 @@ internal class Menu : MonoBehaviour
         Time.timeScale = _pauseTimeScale;
         _focusTracker.SetCurrentTimeScale(_pauseTimeScale);
     }
-
-    public void ExitGame() => Application.Quit();
 }
