@@ -31,6 +31,8 @@ internal class PlayerMover : MonoBehaviour
 
     public void Stop() => _speed = 0;
 
+    public void SetSpeed() => _speed = PlayerPrefs.GetFloat(GameSaver.Speed);
+
     private void Rotate()
     {
         if (_playerInput.MoveInput != Vector3.zero)
@@ -43,6 +45,4 @@ internal class PlayerMover : MonoBehaviour
         _rigidbody.velocity = horizontalVelocity + _playerInput.MoveInput * _speed;
         _animator.SetBool(AnimatorNames.Walking, _playerInput.MoveInput != Vector3.zero);
     }
-
-    private void SetSpeed() => _speed = PlayerPrefs.GetFloat(GameSaver.Speed);
 }

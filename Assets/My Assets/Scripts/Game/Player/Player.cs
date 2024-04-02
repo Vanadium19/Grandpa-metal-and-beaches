@@ -16,7 +16,13 @@ public class Player : MonoBehaviour
         _playerMover = GetComponent<PlayerMover>();
     }
 
-    public void StopMove() => _playerMover.Stop();
+    public void StopMove(bool value)
+    {
+        if (value)
+            _playerMover.Stop();        
+        else        
+            _playerMover.SetSpeed();        
+    }
 
     public void StartHeightTracking()
     {
