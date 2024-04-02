@@ -8,6 +8,7 @@ public class CongratulationsPanel : MonoBehaviour
     private readonly float _closePanelDelay = 2f;
     private readonly float _additionValueDelay = 0.01f;
 
+    [SerializeField] private Player _player;
     [SerializeField] private Image _image;
     [SerializeField] private TMP_Text _text;
 
@@ -16,6 +17,7 @@ public class CongratulationsPanel : MonoBehaviour
     public void Activate(float targetValue)
     {
         gameObject.SetActive(true);
+        _player.StopMove(!IsFinished);
         StartCoroutine(Congratulate(targetValue));
     }
 
@@ -34,6 +36,8 @@ public class CongratulationsPanel : MonoBehaviour
         }
 
         yield return new WaitForSeconds(_closePanelDelay);
-        IsFinished = true;        
+
+        IsFinished = true;
+        _player.StopMove(!IsFinished);
     }
 }
