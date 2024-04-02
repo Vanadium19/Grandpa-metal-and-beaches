@@ -55,18 +55,19 @@ internal class LevelEnder : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void ResetProgress()
-    {
-        PlayerPrefs.SetFloat(GameSaver.CurrentWeight, 0);
-        PlayerPrefs.Save();
-    }
-
     private IEnumerator FinishLevel()
     {
         _congratulationsPanel.Activate(_targetWeight);
         yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
         _congratulationsPanel.gameObject.SetActive(false);
         _endLevelButton.SetActive(true);      
-        ResetProgress();
+        SaveFinishLevelProgress();
+    }
+
+    private void SaveFinishLevelProgress()
+    {
+        PlayerPrefs.SetInt(GameSaver.Level, PlayerPrefs.GetInt(GameSaver.Level, GameSaver.LevelStep) + GameSaver.LevelStep);
+        PlayerPrefs.SetFloat(GameSaver.CurrentWeight, 0);
+        PlayerPrefs.Save();
     }
 }
