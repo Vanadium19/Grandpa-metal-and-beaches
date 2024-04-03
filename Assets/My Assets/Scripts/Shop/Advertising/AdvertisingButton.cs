@@ -27,7 +27,7 @@ public class AdvertisingButton : MonoBehaviour
     private void OnDisable() => _button.onClick.RemoveListener(Show);
 
     public void Initialize(bool isRelevantProduct, Wallet wallet, float price)
-    {        
+    {
         _wallet = wallet;
         _money = price - wallet.Money;
 

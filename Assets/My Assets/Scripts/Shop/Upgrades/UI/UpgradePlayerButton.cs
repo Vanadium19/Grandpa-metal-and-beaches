@@ -22,7 +22,9 @@ internal class UpgradePlayerButton : MonoBehaviour
     private void OnEnable()
     {
         _upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
-        _advertisingButton.Initialize(_playerStats.CurrentLevel != _playerStats.MaxLevel, _wallet, _playerStats.GetPrice());
+
+        if (_upgradeButton.interactable)        
+            _advertisingButton.Initialize(_playerStats.CurrentLevel != _playerStats.MaxLevel, _wallet, _playerStats.GetPrice());        
     }
 
     private void Start() => UpdateDisplay();
@@ -31,19 +33,18 @@ internal class UpgradePlayerButton : MonoBehaviour
 
     private void OnUpgradeButtonClicked()
     {
-        if (_wallet.TryBuy(_playerStats.GetPrice()))
-        {
-            _buttonAnimator.SetTrigger(AnimatorNames.Buy);
-            UpdateLevel();
-        }
+        var price = _playerStats.GetPrice();
+
+        if (_wallet.CanBuy(price))        
+            Buy(price);        
         else
-        {
-            _buttonAnimator.SetTrigger(AnimatorNames.NoMoney);
-        }
+            _buttonAnimator.SetTrigger(AnimatorNames.NoMoney);        
     }
 
-    private void UpdateLevel()
+    private void Buy(float price)
     {
+        _wallet.RemoveMoney(price);
+        _buttonAnimator.SetTrigger(AnimatorNames.Buy);
         _playerStats.UpdateLevel();
         UpdateDisplay();
     }

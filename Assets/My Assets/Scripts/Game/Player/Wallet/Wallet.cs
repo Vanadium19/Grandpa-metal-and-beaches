@@ -14,25 +14,23 @@ public class Wallet : MonoBehaviour
         _money = PlayerPrefs.GetFloat(GameSaver.Money);
     }
 
-    public bool TryBuy(float money)
-    {
-        bool canBuy = _money >= money;
-        
-        if (canBuy)        
-            RemoveMoney(money);        
-
-        return canBuy;
-    }
+    public bool CanBuy(float money) => _money >= money;
 
     public void AddMoney(float money)
     {
+        if (money <= 0)        
+            return;        
+
         _money += money;
         PlayerPrefs.SetFloat(GameSaver.Money, _money);
         MoneyChanged?.Invoke(_money);
     }
 
-    private void RemoveMoney(float money)
+    public void RemoveMoney(float money)
     {
+        if (money <= 0)
+            return;
+
         _money -= money;
         PlayerPrefs.SetFloat(GameSaver.Money, _money);
         MoneyChanged?.Invoke(_money);
