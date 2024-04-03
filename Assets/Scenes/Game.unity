@@ -14750,6 +14750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _focusTracker: {fileID: 918578743}
   _volumeOffImage: {fileID: 21300000, guid: b1f42bbbfffc44202b66381ab8b622ee, type: 3}
+  _icon: {fileID: 1136870018}
 --- !u!114 &1136870017
 MonoBehaviour:
   m_ObjectHideFlags: 0

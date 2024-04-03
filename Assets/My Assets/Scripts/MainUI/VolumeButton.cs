@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-[RequireComponent(typeof(Image))]
 internal class VolumeButton : MonoBehaviour
 {
     private readonly float _minVolume = 0;
@@ -10,15 +9,14 @@ internal class VolumeButton : MonoBehaviour
 
     [SerializeField] private FocusTracker _focusTracker;
     [SerializeField] private Sprite _volumeOffImage;    
+    [SerializeField] private Image _icon;
 
     private Sprite _volumeOnImage;
     private Button _volumeButton;
-    private Image _icon;
 
     private void Awake()
     {
         _volumeButton = GetComponent<Button>();
-        _icon = GetComponent<Image>();
         _volumeOnImage = _icon.sprite;
     }
 
