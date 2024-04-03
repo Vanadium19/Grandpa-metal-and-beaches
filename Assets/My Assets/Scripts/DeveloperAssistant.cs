@@ -29,4 +29,13 @@ public class DeveloperAssistant : MonoBehaviour
         PlayerPrefs.SetFloat(GameSaver.Speed, 15);
         PlayerPrefs.Save();
     }
+
+    [ContextMenu("SetEnglish")]
+    public void SetEnglish() => LeanLocalization.SetCurrentLanguageAll("English");
+
+    [ContextMenu("SetTurkish")]
+    public void SetTurkish() => LeanLocalization.SetCurrentLanguageAll("Turkish");
+
+    [ContextMenu("SetRussian")]
+    public void SetRussian() => LeanLocalization.SetCurrentLanguageAll("Russian");
 }
