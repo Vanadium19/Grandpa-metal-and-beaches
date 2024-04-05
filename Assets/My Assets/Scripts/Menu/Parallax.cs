@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RawImage))]
-public class Parallax : MonoBehaviour
+internal class Parallax : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
