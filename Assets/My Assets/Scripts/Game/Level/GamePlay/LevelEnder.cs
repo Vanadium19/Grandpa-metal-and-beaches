@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(YandexLeaderboardScoreSetter))]
+[RequireComponent(typeof(LeaderboardUpdater))]
 internal class LevelEnder : MonoBehaviour
 {
     [SerializeField] private GameObject _endLevelButton;
@@ -10,12 +10,13 @@ internal class LevelEnder : MonoBehaviour
     
     private float _targetWeight;
     private float _currentWeight;
-    private YandexLeaderboardScoreSetter _leaderboardScoreSetter;
+    private LeaderboardUpdater _leaderboardUpdater;
     private Coroutine _levelFinishing;
+
 
     private void Awake()
     {
-        _leaderboardScoreSetter = GetComponent<YandexLeaderboardScoreSetter>();
+        _leaderboardUpdater = GetComponent<LeaderboardUpdater>();
         _currentWeight = PlayerPrefs.GetFloat(GameSaver.CurrentWeight);
     }
 
@@ -41,7 +42,7 @@ internal class LevelEnder : MonoBehaviour
         SaveProgress(allWeight);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
- _leaderboardScoreSetter.UpdatePlayerScore(allWeight);
+_leaderboardUpdater.Execute(allWeight);
 #endif
     }
 
