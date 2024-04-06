@@ -28,7 +28,18 @@ internal class EndLevelButton : MonoBehaviour
 
     private void OnDisable() => _button.onClick.RemoveListener(FinishLevel);
 
-    private void FinishLevel() => _sceneLoader.Load();
+    private void FinishLevel()
+    {
+        SaveProgress();
+        _sceneLoader.Load();
+    }
+
+    private void SaveProgress()
+    {
+        PlayerPrefs.SetInt(GameSaver.Level, PlayerPrefs.GetInt(GameSaver.Level, GameSaver.LevelStep) + GameSaver.LevelStep);
+        PlayerPrefs.SetFloat(GameSaver.CurrentWeight, 0);
+        PlayerPrefs.Save();
+    }
 
     private void FinishTutorial()
     {

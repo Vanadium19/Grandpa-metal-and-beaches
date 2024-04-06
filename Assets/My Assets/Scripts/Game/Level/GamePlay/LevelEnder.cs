@@ -11,27 +11,29 @@ internal class LevelEnder : MonoBehaviour
     private float _targetWeight;
     private float _currentWeight;
     private LeaderboardUpdater _leaderboardUpdater;
-    private Coroutine _levelFinishing;
+    private bool _isEnd;
 
 
-    private void Awake()
-    {
-        _leaderboardUpdater = GetComponent<LeaderboardUpdater>();
-        _currentWeight = PlayerPrefs.GetFloat(GameSaver.CurrentWeight);
-    }
+    private void Awake() => _leaderboardUpdater = GetComponent<LeaderboardUpdater>();
 
     private void OnEnable() => _dumpster.ScrapCollected += UpdateProgress;
 
     private void OnDisable() => _dumpster.ScrapCollected -= UpdateProgress;
 
-    public void Initialize(float targetWeight) => _targetWeight = targetWeight;
+    public void Initialize(float targetWeight, float currentWeight)
+    {
+        _targetWeight = targetWeight;
+        _currentWeight = currentWeight;
+        _isEnd = _currentWeight >= _targetWeight;
+        _endLevelButton.SetActive(_isEnd);
+    }
 
     private void UpdateProgress(Scrap scrap)
     {
         AddWeight(scrap.Info.Weight);
 
-        if (_levelFinishing == null && _currentWeight >= _targetWeight)
-            _levelFinishing = StartCoroutine(FinishLevel());
+        if (!_isEnd && _currentWeight >= _targetWeight)
+            StartCoroutine(FinishLevel());
     }
 
     private void AddWeight(float weight)
@@ -48,27 +50,17 @@ _leaderboardUpdater.Execute(allWeight);
 
     private void SaveProgress(float allWeight)
     {
-        PlayerPrefs.SetFloat(GameSaver.Weight, allWeight);
-
-        if (_levelFinishing == null)
-            PlayerPrefs.SetFloat(GameSaver.CurrentWeight, _currentWeight);
-
+        PlayerPrefs.SetFloat(GameSaver.Weight, allWeight);        
+        PlayerPrefs.SetFloat(GameSaver.CurrentWeight, _currentWeight);
         PlayerPrefs.Save();
     }
 
     private IEnumerator FinishLevel()
     {
+        _isEnd = true;
         _congratulationsPanel.Activate(_targetWeight);
         yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
         _congratulationsPanel.gameObject.SetActive(false);
-        _endLevelButton.SetActive(true);      
-        SaveFinishLevelProgress();
-    }
-
-    private void SaveFinishLevelProgress()
-    {
-        PlayerPrefs.SetInt(GameSaver.Level, PlayerPrefs.GetInt(GameSaver.Level, GameSaver.LevelStep) + GameSaver.LevelStep);
-        PlayerPrefs.SetFloat(GameSaver.CurrentWeight, 0);
-        PlayerPrefs.Save();
+        _endLevelButton.SetActive(true);        
     }
 }
