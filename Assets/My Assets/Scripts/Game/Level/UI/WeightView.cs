@@ -13,10 +13,10 @@ public class WeightView : MonoBehaviour
 
     private void OnDisable() => _dumpster.ScrapCollected -= AddWeight;
 
-    public void Initialize(float targetWeight)
+    public void Initialize(float targetWeight, float currentWeight)
     {
         _targetWeight = targetWeight;
-        _currentWeight = PlayerPrefs.GetFloat(GameSaver.CurrentWeight);
+        _currentWeight = currentWeight;
         UpdateDisplay();
     }
     private void AddWeight(Scrap scrap)
