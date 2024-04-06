@@ -5,11 +5,11 @@ public class ScrapCollector : MonoBehaviour
 {
     [SerializeField] private Bag _bag;
     [SerializeField] private ScrapMagnet _scrapMagnet;
-    [SerializeField] private UpgradePanel _upgradePanel;    
+    [SerializeField] private UpgradePanel _upgradePanel;
+    [SerializeField] private ScrapSounds _scrapSounds;
 
     private float _level;
 
-    public event UnityAction ScrapCollected;
     public event UnityAction<WarningNames.Alerts> Alarmed;
 
     private void Awake() => SetLevel();
@@ -33,7 +33,7 @@ public class ScrapCollector : MonoBehaviour
         scrap.Collect();
         _bag.Add(scrap);
         _scrapMagnet.StartAttract(scrap.transform);
-        ScrapCollected?.Invoke();
+        _scrapSounds.Play();
     }
 
     private void SetLevel() => _level = PlayerPrefs.GetFloat(GameSaver.ScrapCollector);
