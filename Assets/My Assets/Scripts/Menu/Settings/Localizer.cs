@@ -37,7 +37,7 @@ internal class Localizer : MonoBehaviour
                 break;
 
             default:
-                LeanLocalization.SetCurrentLanguageAll(RussianCode);
+                LeanLocalization.SetCurrentLanguageAll(EnglishCode);
                 break;
         }
     }

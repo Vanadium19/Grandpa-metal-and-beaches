@@ -5,7 +5,9 @@ using UnityEngine;
 internal class YandexLeaderboardFiller : MonoBehaviour
 {
     private const string LeaderboardName = "Leaderboard";
-    private const string AnonymousName = "Anonymous";
+    private const string EnglishAnonymousName = "Anonymous";
+    private const string RussianAnonymousName = "Аноним";
+    private const string TurkishAnonymousName = "Isimsiz";
 
     private readonly List<LeaderboardPlayer> _leaderboardPlayers = new List<LeaderboardPlayer>();
 
@@ -27,7 +29,7 @@ internal class YandexLeaderboardFiller : MonoBehaviour
                 string name = entry.player.publicName;
 
                 if (string.IsNullOrEmpty(name))
-                    name = AnonymousName;
+                    name = GetAnonymousName();
 
                 _leaderboardPlayers.Add(new LeaderboardPlayer(name, rank, score));
             }
@@ -35,4 +37,12 @@ internal class YandexLeaderboardFiller : MonoBehaviour
             _leaderboardView.ConstructLeaderboard(_leaderboardPlayers);
         });
     }
+
+    private string GetAnonymousName() => YandexGamesSdk.Environment.i18n.lang switch
+    {
+        Localizer.Russian => RussianAnonymousName,
+        Localizer.English => EnglishAnonymousName,
+        Localizer.Turkish => TurkishAnonymousName,
+        _ => EnglishAnonymousName,
+    };
 }
