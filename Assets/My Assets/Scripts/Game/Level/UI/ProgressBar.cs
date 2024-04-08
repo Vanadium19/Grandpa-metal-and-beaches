@@ -1,11 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class WeightView : MonoBehaviour
+public class ProgressBar : MonoBehaviour
 {
     [SerializeField] private Dumpster _dumpster;
-    [SerializeField] private TMP_Text _weight;
-    
+    [SerializeField] private Slider _slider;
+    [SerializeField] private TMP_Text _text;
+
     private float _targetWeight;
     private float _currentWeight;
 
@@ -25,7 +27,11 @@ public class WeightView : MonoBehaviour
         UpdateDisplay();
     }
 
-    private void UpdateDisplay() => _weight.text = $"{_currentWeight}/{_targetWeight}";
+    private void UpdateDisplay()
+    {
+        _slider.value = _currentWeight / _targetWeight;
+        _text.text = $"{_currentWeight}/{_targetWeight}";
+    }
 }
         
 

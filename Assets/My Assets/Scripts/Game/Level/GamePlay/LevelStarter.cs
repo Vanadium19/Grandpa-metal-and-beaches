@@ -7,7 +7,7 @@ internal class LevelStarter : MonoBehaviour
     [SerializeField] private List<LevelSpawner> _levelSpawners;
     [SerializeField] private LevelEnder _levelEnder;
     [SerializeField] private LevelsPool _levelsPool;
-    [SerializeField] private WeightView _weightView;
+    [SerializeField] private ProgressBar _progressBar;
 
     private LevelGoals _levelGoals;
 
@@ -32,7 +32,7 @@ internal class LevelStarter : MonoBehaviour
             levelSpawner.Initialize(Mathf.Max(0, targetWeight - currentWeight));
 
         _levelEnder.Initialize(targetWeight, currentWeight);
-        _weightView.Initialize(targetWeight, currentWeight);
+        _progressBar.Initialize(targetWeight, currentWeight);
     }
 
     private void FindLevelGoals()
