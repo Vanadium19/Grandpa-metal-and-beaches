@@ -9,7 +9,7 @@ public class CongratulationsPanel : MonoBehaviour
     private readonly float _additionValueDelay = 0.01f;
 
     [SerializeField] private Player _player;
-    [SerializeField] private Image _image;
+    [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _text;
 
     public bool IsFinished { get; private set; }
@@ -28,8 +28,8 @@ public class CongratulationsPanel : MonoBehaviour
 
         while (value <= targetValue)
         {
-            _image.fillAmount = value / targetValue;
-            _text.text = $"{value}/{targetValue}";
+            _slider.value = value / targetValue;
+            _text.text = $"{value}/{targetValue} kg";
             value++;
 
             yield return delay;
