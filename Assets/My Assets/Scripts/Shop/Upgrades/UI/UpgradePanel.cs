@@ -4,14 +4,11 @@ using UnityEngine.Events;
 
 public class UpgradePanel : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _closingMenus;
+    [SerializeField] private List<GameObject> _closingPanels;
 
     public event UnityAction PlayerUpgraded;
 
-    private void OnEnable()
-    {
-        TurnOnClosingMenus(false);
-    }
+    private void OnEnable() => TurnOnClosingMenus(false);
 
     private void OnDisable()
     {
@@ -22,7 +19,7 @@ public class UpgradePanel : MonoBehaviour
 
     private void TurnOnClosingMenus(bool value)
     {
-        foreach (var closingMenu in _closingMenus)
+        foreach (var closingMenu in _closingPanels)
             closingMenu.SetActive(value);
     }
 }
