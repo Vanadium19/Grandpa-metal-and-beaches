@@ -10,7 +10,7 @@ public class ScrapCollector : MonoBehaviour
 
     private float _level;
 
-    public event UnityAction<WarningNames.Alerts> Alarmed;
+    public event UnityAction<Alerts> Alarmed;
 
     private void Awake() => SetLevel();
 
@@ -21,9 +21,9 @@ public class ScrapCollector : MonoBehaviour
     public void Collect(Scrap scrap)
     {
         if (scrap.Info.Rank > _level)
-            Alarmed?.Invoke(WarningNames.Alerts.OutOfLevel);
+            Alarmed?.Invoke(Alerts.OutOfLevel);
         else if (_bag.CanAdd(scrap) == false)
-            Alarmed?.Invoke(WarningNames.Alerts.BagCrowded);
+            Alarmed?.Invoke(Alerts.BagCrowded);
         else
             Put(scrap);        
     }
@@ -37,4 +37,10 @@ public class ScrapCollector : MonoBehaviour
     }
 
     private void SetLevel() => _level = PlayerPrefs.GetFloat(GameSaver.ScrapCollector);
+
+    public enum Alerts
+    {
+        BagCrowded = 0,
+        OutOfLevel
+    }
 }
