@@ -3,50 +3,53 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerStats))]
+[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(Animator))]
 internal class UpgradePlayerButton : MonoBehaviour
 {
     private readonly string _max = "max";
 
     [SerializeField] private Wallet _wallet;
     [SerializeField] private TMP_Text _price;
-    [SerializeField] private Button _upgradeButton;
-    [SerializeField] private Animator _buttonAnimator;
-    [SerializeField] private Image _bar;
-    [SerializeField] private AdvertisingButton _advertisingButton;
+    [SerializeField] private Slider _slider;
+    [SerializeField] private PlayerStats _playerStats;
 
-    private PlayerStats _playerStats;
+    private Animator _animator;
+    private Button _upgradeButton;
 
-    private void Awake() => _playerStats = GetComponent<PlayerStats>();
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _upgradeButton = GetComponent<Button>();
+    }
 
     private void OnEnable()
     {
+        _playerStats.LevelUpgraded += UpdateDisplay;
         _upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
-
-        if (_upgradeButton.interactable)        
-            _advertisingButton.Initialize(_playerStats.CurrentLevel != _playerStats.MaxLevel, _wallet, _playerStats.GetPrice());        
     }
 
     private void Start() => UpdateDisplay();
 
-    private void OnDisable() => _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClicked);
-
-    private void OnUpgradeButtonClicked()
+    private void OnDisable()
     {
-        var price = _playerStats.GetPrice();
-
-        if (_wallet.CanBuy(price))        
-            Buy(price);        
-        else
-            _buttonAnimator.SetTrigger(AnimatorNames.NoMoney);        
+        _playerStats.LevelUpgraded -= UpdateDisplay;
+        _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClicked);
     }
 
-    private void Buy(float price)
+    protected virtual void Buy(float price)
     {
         _wallet.RemoveMoney(price);
-        _buttonAnimator.SetTrigger(AnimatorNames.Buy);
         _playerStats.UpdateLevel();
-        UpdateDisplay();
+        _animator.SetTrigger(AnimatorNames.Buy);        
+    }
+
+    protected virtual float GetPrice() => _playerStats.GetPrice();
+
+    protected virtual void OffButton()
+    {
+        _price.text = _max;
+        _upgradeButton.interactable = false;
     }
 
     private void UpdateDisplay()
@@ -54,14 +57,18 @@ internal class UpgradePlayerButton : MonoBehaviour
         if (_playerStats.CurrentLevel == _playerStats.MaxLevel)
             OffButton();
         else
-            _price.text = _playerStats.GetPrice().ToString();
+            _price.text = GetPrice().ToString();
 
-        _bar.fillAmount = Convert.ToSingle(_playerStats.CurrentLevel) / _playerStats.MaxLevel;
+        _slider.value = Convert.ToSingle(_playerStats.CurrentLevel) / _playerStats.MaxLevel;
     }
 
-    private void OffButton()
+    private void OnUpgradeButtonClicked()
     {
-        _price.text = _max;
-        _upgradeButton.interactable = false;
+        var price = GetPrice();
+
+        if (_wallet.CanBuy(price))
+            Buy(price);
+        else
+            _animator.SetTrigger(AnimatorNames.NoMoney);
     }
 }

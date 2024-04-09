@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 internal class PlayerStats : MonoBehaviour
 {
@@ -8,6 +9,8 @@ internal class PlayerStats : MonoBehaviour
 
     private string _levelName;
     private Stat _nextLevelStat;
+
+    public event UnityAction LevelUpgraded;
 
     public int MaxLevel => _stats.Count;
     public int CurrentLevel => PlayerPrefs.GetInt(_levelName, GameSaver.LevelStep);
@@ -29,6 +32,7 @@ internal class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt(_levelName, _nextLevelStat.Level);
         PlayerPrefs.Save();
         SetNextLevelStat();
+        LevelUpgraded?.Invoke();
     }
 
     private void SetNextLevelStat() => _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaver.LevelStep);
