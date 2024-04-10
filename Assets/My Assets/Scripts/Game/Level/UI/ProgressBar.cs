@@ -30,7 +30,7 @@ public class ProgressBar : MonoBehaviour
     private void UpdateDisplay()
     {
         _slider.value = _currentWeight / _targetWeight;
-        _text.text = $"{_currentWeight}/{_targetWeight} kg";
+        _text.text = $"{_currentWeight}/{_targetWeight}";
     }
 }
         

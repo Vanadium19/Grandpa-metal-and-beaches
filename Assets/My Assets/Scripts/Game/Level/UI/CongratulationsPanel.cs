@@ -29,7 +29,7 @@ public class CongratulationsPanel : MonoBehaviour
         while (value <= targetValue)
         {
             _slider.value = value / targetValue;
-            _text.text = $"{value}/{targetValue} kg";
+            _text.text = $"{value}/{targetValue}";
             value++;
 
             yield return delay;
