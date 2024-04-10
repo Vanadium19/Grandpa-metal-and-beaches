@@ -9705,6 +9705,7 @@ GameObject:
   - component: {fileID: 663069752}
   - component: {fileID: 663069751}
   - component: {fileID: 663069750}
+  - component: {fileID: 663069753}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -9777,7 +9778,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 663069751}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1504618528}
+        m_TargetAssemblyTypeName: Menu, GMB.MainUI
+        m_MethodName: ClosePanel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1424795307}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &663069751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9816,6 +9829,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663069748}
   m_CullTransparentMesh: 1
+--- !u!114 &663069753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663069748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74bbc86d61cdaf4f86b88895a946cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menu: {fileID: 1504618528}
+  _wallet: {fileID: 229907546}
 --- !u!1 &673802021
 GameObject:
   m_ObjectHideFlags: 0
@@ -18172,7 +18199,7 @@ GameObject:
   - component: {fileID: 1250267529}
   - component: {fileID: 1250267528}
   m_Layer: 5
-  m_Name: NewUpgradesPanel
+  m_Name: UpgradesPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25002,6 +25029,18 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1250267526}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1504618528}
+        m_TargetAssemblyTypeName: Menu, GMB.MainUI
+        m_MethodName: OpenPanel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1424795307}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
