@@ -5,7 +5,6 @@ using UnityEngine;
 internal class PlayerMover : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private UpgradePanel _upgradePanel;
 
     private float _speed;
     private PlayerInput _playerInput;
@@ -14,12 +13,11 @@ internal class PlayerMover : MonoBehaviour
 
     private void Awake()
     {
-        SetSpeed();
+        _speed = PlayerPrefs.GetFloat(GameSaver.Speed);
         _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody>();
         _transform = transform;
     }
-    private void OnEnable() => _upgradePanel.PlayerUpgraded += SetSpeed;
     
     private void Update()
     {
@@ -27,11 +25,9 @@ internal class PlayerMover : MonoBehaviour
         Rotate();
     }
 
-    private void OnDisable() => _upgradePanel.PlayerUpgraded -= SetSpeed;
-
     public void Stop() => _speed = 0;
 
-    public void SetSpeed() => _speed = PlayerPrefs.GetFloat(GameSaver.Speed);
+    public void SetSpeed(float speed) => _speed = speed;
 
     private void Rotate()
     {
