@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Bag : MonoBehaviour
 {
-    [SerializeField] private UpgradePanel _upgradePanel;
+    [SerializeField] private PlayerStats _playerStats;
 
     private float _capacity;
     private List<Scrap> _content = new List<Scrap>();
@@ -17,11 +17,11 @@ public class Bag : MonoBehaviour
 
     private void Awake() => _capacity = PlayerPrefs.GetFloat(GameSaver.Bag);
 
-    private void OnEnable() => _upgradePanel.PlayerUpgraded += ChangeCapacity;
+    private void OnEnable() => _playerStats.PlayerUpgraded += ChangeCapacity;
 
     private void Start() => ContentChanged?.Invoke(_content.Count);
 
-    private void OnDisable() => _upgradePanel.PlayerUpgraded -= ChangeCapacity;
+    private void OnDisable() => _playerStats.PlayerUpgraded -= ChangeCapacity;
 
     public bool CanAdd(Scrap scrap) => _currentWeight + scrap.Info.Weight <= _capacity;
 
@@ -37,9 +37,9 @@ public class Bag : MonoBehaviour
         ContentChanged?.Invoke(_currentWeight);
     }
 
-    private void ChangeCapacity()
+    private void ChangeCapacity(float capacity)
     {
-        _capacity = PlayerPrefs.GetFloat(GameSaver.Bag);
+        _capacity = capacity;
         ContentChanged?.Invoke(_currentWeight);
     }   
 }

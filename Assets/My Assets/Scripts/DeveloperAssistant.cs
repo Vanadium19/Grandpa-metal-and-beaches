@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class DeveloperAssistant : MonoBehaviour
 {
+    [SerializeField] private Wallet _wallet;
+
     [ContextMenu("AddLittleMoney")]
     public void AddLittleMoney()
     {
-        PlayerPrefs.SetFloat(GameSaver.Money, PlayerPrefs.GetFloat(GameSaver.Money) + 55f);
-        PlayerPrefs.Save();
+        _wallet.AddMoney(10f);
     }
 
     [ContextMenu("Restart")]
@@ -29,4 +30,13 @@ public class DeveloperAssistant : MonoBehaviour
         PlayerPrefs.SetFloat(GameSaver.Speed, 15);
         PlayerPrefs.Save();
     }
+
+    [ContextMenu("SetEnglish")]
+    public void SetEnglish() => LeanLocalization.SetCurrentLanguageAll("English");
+
+    [ContextMenu("SetTurkish")]
+    public void SetTurkish() => LeanLocalization.SetCurrentLanguageAll("Turkish");
+
+    [ContextMenu("SetRussian")]
+    public void SetRussian() => LeanLocalization.SetCurrentLanguageAll("Russian");
 }

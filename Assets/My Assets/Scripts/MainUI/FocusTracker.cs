@@ -1,8 +1,13 @@
 using Agava.WebUtility;
 using UnityEngine;
 
-internal class FocusTracker : MonoBehaviour
+public class FocusTracker : MonoBehaviour
 {
+    private float _currentTimeScale = 1f;
+    private float _currentVolume;
+
+    private void Awake() => _currentVolume = PlayerPrefs.GetFloat(GameSaver.Audio, GameSaver.DefaultVolume);
+
     private void OnEnable()
     {
         Application.focusChanged += OnInBackgroundChangeApp;
@@ -14,6 +19,10 @@ internal class FocusTracker : MonoBehaviour
         Application.focusChanged -= OnInBackgroundChangeApp;
         WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
     }
+
+    public void SetCurrentTimeScale(float value) => _currentTimeScale = value;
+
+    public void SetCurrentVolume(float value) => _currentVolume = value;
 
     private void OnInBackgroundChangeApp(bool inApp)
     {
@@ -27,7 +36,7 @@ internal class FocusTracker : MonoBehaviour
         PauseGame(isBackground);
     }
 
-    private void MuteAudio(bool value) => AudioListener.volume = value ? 0 : GameSaver.GetCurrentVolume();
+    private void MuteAudio(bool value) => AudioListener.volume = value ? 0 : _currentVolume;
 
-    private void PauseGame(bool value) => Time.timeScale = value ? 0 : 1;
+    private void PauseGame(bool value) => Time.timeScale = value ? 0 : _currentTimeScale;
 }

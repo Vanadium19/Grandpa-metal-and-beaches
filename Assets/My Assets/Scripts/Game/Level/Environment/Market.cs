@@ -9,7 +9,7 @@ internal class Market : MonoBehaviour
     {
         if (collider.TryGetComponent(out Player player))
         {
-            Time.timeScale = 0;
+            player.StopMove(true);
             _pointer.SetActive(false);
             _updateMenu.SetActive(true);
         }

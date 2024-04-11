@@ -2,14 +2,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(AudioSource))]
 public class Money : MonoBehaviour
 {    
     private Animator _animator;
     private readonly float _delay = 1f;
 
     private BoxCollider _collider;
-    private AudioSource _audioSource;
     private MoneyPool _moneyPool;
 
     public float Value { get; private set; }
@@ -18,7 +16,6 @@ public class Money : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _collider = GetComponent<BoxCollider>();
-        _audioSource = GetComponent<AudioSource>();
     }
 
     public void Initialize(MoneyPool moneyPool)
@@ -35,8 +32,7 @@ public class Money : MonoBehaviour
 
     public void Collect()
     {
-        _animator.SetTrigger("CollectMoney");
-        _audioSource.Play();
+        _animator.SetTrigger(AnimatorNames.CollectMoney);
         _collider.enabled = false;
         Invoke(nameof(Push), _delay);
     }

@@ -2,8 +2,8 @@ using UnityEngine;
 
 internal class Pointer : MonoBehaviour
 {
-    private readonly float _indent = 75f;
     private readonly float _rightAngle = 90f;
+    private readonly float _indent = 75f;
     private readonly float _staticPositionX = Screen.width / 2;
 
     [SerializeField] private Transform _target;

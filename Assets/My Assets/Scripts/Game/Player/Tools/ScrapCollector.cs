@@ -5,25 +5,25 @@ public class ScrapCollector : MonoBehaviour
 {
     [SerializeField] private Bag _bag;
     [SerializeField] private ScrapMagnet _scrapMagnet;
-    [SerializeField] private UpgradePanel _upgradePanel;    
+    [SerializeField] private PlayerStats _playerStats;
+    [SerializeField] private ScrapSounds _scrapSounds;
 
     private float _level;
 
-    public event UnityAction ScrapCollected;
-    public event UnityAction<WarningNames.Alerts> Alarmed;
+    public event UnityAction<Alerts> Alarmed;
 
-    private void Awake() => SetLevel();
+    private void Awake() => _level = PlayerPrefs.GetFloat(GameSaver.ScrapCollector);
 
-    private void OnEnable() => _upgradePanel.PlayerUpgraded += SetLevel;
+    private void OnEnable() => _playerStats.PlayerUpgraded += SetLevel;
 
-    private void OnDisable() => _upgradePanel.PlayerUpgraded -= SetLevel;
+    private void OnDisable() => _playerStats.PlayerUpgraded -= SetLevel;
 
     public void Collect(Scrap scrap)
     {
         if (scrap.Info.Rank > _level)
-            Alarmed?.Invoke(WarningNames.Alerts.OutOfLevel);
+            Alarmed?.Invoke(Alerts.OutOfLevel);
         else if (_bag.CanAdd(scrap) == false)
-            Alarmed?.Invoke(WarningNames.Alerts.BagCrowded);
+            Alarmed?.Invoke(Alerts.BagCrowded);
         else
             Put(scrap);        
     }
@@ -33,8 +33,14 @@ public class ScrapCollector : MonoBehaviour
         scrap.Collect();
         _bag.Add(scrap);
         _scrapMagnet.StartAttract(scrap.transform);
-        ScrapCollected?.Invoke();
+        _scrapSounds.Play();
     }
 
-    private void SetLevel() => _level = PlayerPrefs.GetFloat(GameSaver.ScrapCollector);
+    private void SetLevel(float level) => _level = level;
+
+    public enum Alerts
+    {
+        BagCrowded = 0,
+        OutOfLevel
+    }
 }

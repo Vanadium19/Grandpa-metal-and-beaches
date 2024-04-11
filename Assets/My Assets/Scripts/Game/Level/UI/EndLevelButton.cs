@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,13 +8,10 @@ internal class EndLevelButton : MonoBehaviour
     private Button _button;
     private SceneLoader _sceneLoader;
 
-    private bool _isTrained;
-
     private void Awake()
     {
         _button = GetComponent<Button>();
         _sceneLoader = GetComponent<SceneLoader>();
-        _isTrained = Convert.ToBoolean(PlayerPrefs.GetInt(GameSaver.Tutorial));
     }
 
     private void OnEnable() => _button.onClick.AddListener(FinishLevel);
@@ -31,10 +27,7 @@ internal class EndLevelButton : MonoBehaviour
     private void SaveProgress()
     {
         PlayerPrefs.SetInt(GameSaver.Level, PlayerPrefs.GetInt(GameSaver.Level, GameSaver.LevelStep) + GameSaver.LevelStep);
-
-        if (!_isTrained)
-            PlayerPrefs.SetInt(GameSaver.Tutorial, Convert.ToInt16(true));
-
+        PlayerPrefs.SetFloat(GameSaver.CurrentWeight, 0);
         PlayerPrefs.Save();
     }
 }

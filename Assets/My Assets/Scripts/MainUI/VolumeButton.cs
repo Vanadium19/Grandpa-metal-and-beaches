@@ -2,22 +2,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-[RequireComponent(typeof(Image))]
 internal class VolumeButton : MonoBehaviour
 {
     private readonly float _minVolume = 0;
     private readonly float _maxVolume = 1f;
 
+    [SerializeField] private FocusTracker _focusTracker;
     [SerializeField] private Sprite _volumeOffImage;    
+    [SerializeField] private Image _icon;
 
     private Sprite _volumeOnImage;
     private Button _volumeButton;
-    private Image _icon;
 
     private void Awake()
     {
         _volumeButton = GetComponent<Button>();
-        _icon = GetComponent<Image>();
         _volumeOnImage = _icon.sprite;
     }
 
@@ -38,8 +37,12 @@ internal class VolumeButton : MonoBehaviour
 
     public void Change()
     {
-        AudioListener.volume = AudioListener.volume == _maxVolume ? _minVolume : _maxVolume;
-        _icon.sprite = _icon.sprite == _volumeOnImage ? _volumeOffImage : _volumeOnImage;
-        GameSaver.SaveVolume();
+        var volume = AudioListener.volume == _maxVolume ? _minVolume : _maxVolume;
+
+        AudioListener.volume = volume;
+        _focusTracker.SetCurrentVolume(volume);
+        _icon.sprite = volume == _minVolume ? _volumeOffImage : _volumeOnImage;
+        PlayerPrefs.SetFloat(GameSaver.Audio, volume);
+        PlayerPrefs.Save();
     }
 }

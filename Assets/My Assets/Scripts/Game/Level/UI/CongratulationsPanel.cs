@@ -8,7 +8,8 @@ public class CongratulationsPanel : MonoBehaviour
     private readonly float _closePanelDelay = 2f;
     private readonly float _additionValueDelay = 0.01f;
 
-    [SerializeField] private Image _image;
+    [SerializeField] private Player _player;
+    [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _text;
 
     public bool IsFinished { get; private set; }
@@ -16,6 +17,7 @@ public class CongratulationsPanel : MonoBehaviour
     public void Activate(float targetValue)
     {
         gameObject.SetActive(true);
+        _player.StopMove(!IsFinished);
         StartCoroutine(Congratulate(targetValue));
     }
 
@@ -26,7 +28,7 @@ public class CongratulationsPanel : MonoBehaviour
 
         while (value <= targetValue)
         {
-            _image.fillAmount = value / targetValue;
+            _slider.value = value / targetValue;
             _text.text = $"{value}/{targetValue}";
             value++;
 
@@ -34,6 +36,8 @@ public class CongratulationsPanel : MonoBehaviour
         }
 
         yield return new WaitForSeconds(_closePanelDelay);
-        IsFinished = true;        
+
+        IsFinished = true;
+        _player.StopMove(!IsFinished);
     }
 }
