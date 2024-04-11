@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class DeveloperAssistant : MonoBehaviour
 {
+    [SerializeField] private Wallet _wallet;
+
     [ContextMenu("AddLittleMoney")]
     public void AddLittleMoney()
     {
-        PlayerPrefs.SetFloat(GameSaver.Money, PlayerPrefs.GetFloat(GameSaver.Money) + 55f);
-        PlayerPrefs.Save();
+        _wallet.AddMoney(10f);
     }
 
     [ContextMenu("Restart")]

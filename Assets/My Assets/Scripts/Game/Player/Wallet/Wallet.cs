@@ -9,21 +9,18 @@ public class Wallet : MonoBehaviour
 
     public float Money => _money;
 
-    private void Awake()
-    {
-        _money = PlayerPrefs.GetFloat(GameSaver.Money);
-    }
+    private void Awake() => _money = PlayerPrefs.GetFloat(GameSaver.Money);
 
     public bool CanBuy(float money) => _money >= money;
 
     public void AddMoney(float money)
     {
-        if (money <= 0)        
-            return;        
+        if (money <= 0)
+            return;
 
         _money += money;
-        PlayerPrefs.SetFloat(GameSaver.Money, _money);
         MoneyChanged?.Invoke(_money);
+        SaveMoney();
     }
 
     public void RemoveMoney(float money)
@@ -32,8 +29,13 @@ public class Wallet : MonoBehaviour
             return;
 
         _money -= money;
-        PlayerPrefs.SetFloat(GameSaver.Money, _money);
         MoneyChanged?.Invoke(_money);
+        SaveMoney();
     }
 
+    private void SaveMoney()
+    {
+        PlayerPrefs.SetFloat(GameSaver.Money, _money);
+        PlayerPrefs.Save();
+    }
 }
