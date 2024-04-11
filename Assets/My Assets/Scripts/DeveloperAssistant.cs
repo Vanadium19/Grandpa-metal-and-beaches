@@ -14,20 +14,24 @@ public class DeveloperAssistant : MonoBehaviour
     [ContextMenu("Restart")]
     public void Restart()
     {
-        GameSaver.RestartProgress();
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetFloat(GameSaverData.Bag, 25f);
+        PlayerPrefs.SetFloat(GameSaverData.Speed, 2f);
+        PlayerPrefs.SetFloat(GameSaverData.ScrapCollector, 1f);
+        PlayerPrefs.Save();
     }
 
     [ContextMenu("AddMoney")]
     public void AddMoney()
     {
-        PlayerPrefs.SetFloat(GameSaver.Money, 5000f);
+        PlayerPrefs.SetFloat(GameSaverData.Money, 5000f);
         PlayerPrefs.Save();
     }
 
     [ContextMenu("SetSpeed")]
     public void SetSpeed()
     {
-        PlayerPrefs.SetFloat(GameSaver.Speed, 15);
+        PlayerPrefs.SetFloat(GameSaverData.Speed, 15);
         PlayerPrefs.Save();
     }
 

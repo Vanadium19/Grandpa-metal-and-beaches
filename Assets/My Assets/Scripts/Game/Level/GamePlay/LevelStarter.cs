@@ -26,7 +26,7 @@ internal class LevelStarter : MonoBehaviour
     private void Initialize()
     {
         float targetWeight = _levelGoals.TargetWeight;
-        float currentWeight = PlayerPrefs.GetFloat(GameSaver.CurrentWeight);
+        float currentWeight = PlayerPrefs.GetFloat(GameSaverData.CurrentWeight);
 
         foreach (var levelSpawner in _levelSpawners)
             levelSpawner.Initialize(Mathf.Max(0, targetWeight - currentWeight));

@@ -15,7 +15,7 @@ public class Bag : MonoBehaviour
     public float Capacity => _capacity;
     private float _currentWeight => _content.Sum(content => content.Info.Weight);
 
-    private void Awake() => _capacity = PlayerPrefs.GetFloat(GameSaver.Bag);
+    private void Awake() => _capacity = PlayerPrefs.GetFloat(GameSaverData.Bag);
 
     private void OnEnable() => _playerStats.PlayerUpgraded += ChangeCapacity;
 

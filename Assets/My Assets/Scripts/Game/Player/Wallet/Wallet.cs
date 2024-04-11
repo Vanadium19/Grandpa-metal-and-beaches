@@ -9,7 +9,7 @@ public class Wallet : MonoBehaviour
 
     public float Money => _money;
 
-    private void Awake() => _money = PlayerPrefs.GetFloat(GameSaver.Money);
+    private void Awake() => _money = PlayerPrefs.GetFloat(GameSaverData.Money);
 
     public bool CanBuy(float money) => _money >= money;
 
@@ -35,7 +35,7 @@ public class Wallet : MonoBehaviour
 
     private void SaveMoney()
     {
-        PlayerPrefs.SetFloat(GameSaver.Money, _money);
+        PlayerPrefs.SetFloat(GameSaverData.Money, _money);
         PlayerPrefs.Save();
     }
 }

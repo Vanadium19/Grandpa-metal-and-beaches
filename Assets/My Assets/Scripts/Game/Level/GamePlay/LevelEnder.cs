@@ -38,7 +38,7 @@ internal class LevelEnder : MonoBehaviour
 
     private void AddWeight(float weight)
     {
-        var allWeight = PlayerPrefs.GetFloat(GameSaver.Weight) + weight;
+        var allWeight = PlayerPrefs.GetFloat(GameSaverData.Weight) + weight;
 
         _currentWeight += weight;
         SaveProgress(allWeight);
@@ -50,8 +50,8 @@ _leaderboardUpdater.Execute(allWeight);
 
     private void SaveProgress(float allWeight)
     {
-        PlayerPrefs.SetFloat(GameSaver.Weight, allWeight);        
-        PlayerPrefs.SetFloat(GameSaver.CurrentWeight, _currentWeight);
+        PlayerPrefs.SetFloat(GameSaverData.Weight, allWeight);        
+        PlayerPrefs.SetFloat(GameSaverData.CurrentWeight, _currentWeight);
         PlayerPrefs.Save();
     }
 
