@@ -14,7 +14,7 @@ internal class GameTuner : MonoBehaviour
         YandexGamesSdk.GameReady();
     }
 
-    private void TuneVolume() => AudioListener.volume = PlayerPrefs.GetFloat(GameSaver.Audio, GameSaver.DefaultVolume);
+    private void TuneVolume() => AudioListener.volume = PlayerPrefs.GetFloat(GameSaverData.Audio, GameSaverData.DefaultVolume);
 
     private void TunePlayerStats()
     {

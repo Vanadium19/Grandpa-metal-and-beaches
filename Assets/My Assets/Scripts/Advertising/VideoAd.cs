@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-internal class VideoAd : MonoBehaviour
+public class VideoAd : MonoBehaviour
 {
     [SerializeField] private Menu _menu;
 

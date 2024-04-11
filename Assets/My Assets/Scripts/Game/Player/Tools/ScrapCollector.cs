@@ -12,7 +12,7 @@ public class ScrapCollector : MonoBehaviour
 
     public event UnityAction<Alerts> Alarmed;
 
-    private void Awake() => _level = PlayerPrefs.GetFloat(GameSaver.ScrapCollector);
+    private void Awake() => _level = PlayerPrefs.GetFloat(GameSaverData.ScrapCollector);
 
     private void OnEnable() => _playerStats.PlayerUpgraded += SetLevel;
 

@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using UnityEngine;
-
-public static class GameSaver
+public static class GameSaverData
 {
     public static readonly string Money = "Money";    
     public static readonly string Weight = "Weight";
@@ -17,13 +14,4 @@ public static class GameSaver
 
     public static readonly int LevelStep = 1;
     public static readonly float DefaultVolume = 1f;
-
-    public static void RestartProgress()
-    {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetFloat(Bag, 25f);
-        PlayerPrefs.SetFloat(Speed, 2f);
-        PlayerPrefs.SetFloat(ScrapCollector, 1f);
-        PlayerPrefs.Save();
-    }
 }

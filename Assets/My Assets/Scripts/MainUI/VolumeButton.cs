@@ -42,7 +42,7 @@ internal class VolumeButton : MonoBehaviour
         AudioListener.volume = volume;
         _focusTracker.SetCurrentVolume(volume);
         _icon.sprite = volume == _minVolume ? _volumeOffImage : _volumeOnImage;
-        PlayerPrefs.SetFloat(GameSaver.Audio, volume);
+        PlayerPrefs.SetFloat(GameSaverData.Audio, volume);
         PlayerPrefs.Save();
     }
 }

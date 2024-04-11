@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
     public event UnityAction<float> PlayerUpgraded;
 
     public int MaxLevel => _stats.Count;
-    public int CurrentLevel => PlayerPrefs.GetInt(_levelName, GameSaver.LevelStep);
+    public int CurrentLevel => PlayerPrefs.GetInt(_levelName, GameSaverData.LevelStep);
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
 
     public float GetPrice()
     {
-        return _nextLevelStat != null ? _nextLevelStat.Price : _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaver.LevelStep).Price;
+        return _nextLevelStat != null ? _nextLevelStat.Price : _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaverData.LevelStep).Price;
     }
 
     public void UpdateLevel()
@@ -35,5 +35,5 @@ public class PlayerStats : MonoBehaviour
         SetNextLevelStat();
     }
 
-    private void SetNextLevelStat() => _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaver.LevelStep);
+    private void SetNextLevelStat() => _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaverData.LevelStep);
 }

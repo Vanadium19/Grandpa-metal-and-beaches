@@ -13,7 +13,7 @@ internal class PlayerMover : MonoBehaviour
 
     private void Awake()
     {
-        _speed = PlayerPrefs.GetFloat(GameSaver.Speed);
+        _speed = PlayerPrefs.GetFloat(GameSaverData.Speed);
         _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody>();
         _transform = transform;
