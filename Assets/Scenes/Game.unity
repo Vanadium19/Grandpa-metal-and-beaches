@@ -2739,8 +2739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _menu: {fileID: 0}
+  _name: Weight
+  _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 1984162582}
 --- !u!114 &184524288
 MonoBehaviour:
@@ -6617,8 +6617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _menu: {fileID: 0}
+  _name: EndLevelButton
+  _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 1069697951}
 --- !u!1 &434767275
 GameObject:
@@ -8732,8 +8732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _menu: {fileID: 0}
+  _name: Money
+  _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 836309700}
 --- !u!1 &576107264
 GameObject:
@@ -17870,8 +17870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _menu: {fileID: 0}
+  _name: Main
+  _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 249013634}
 --- !u!1001 &1247661109
 PrefabInstance:
@@ -22293,8 +22293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _menu: {fileID: 0}
+  _name: Dumpster
+  _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 1059317085}
 --- !u!1 &1562890516
 GameObject:
@@ -28941,8 +28941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4889cf8423a8242a22fdd657a72693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _menu: {fileID: 0}
+  _name: Market
+  _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 184524285}
 --- !u!114 &1931275064
 MonoBehaviour:

@@ -3,28 +3,24 @@ using UnityEngine;
 
 internal class Tutorial : MonoBehaviour
 {
-    [SerializeField] private FocusTracker _focusTracker;
+    [SerializeField] private string _name;
+    [SerializeField] private Menu _menu;
     [SerializeField] private GameObject _tutorialPanel;
-
-    private int _tutorialSavingParam;
-    private bool _isTrained;
-
-    private void Awake()
-    {
-        _tutorialSavingParam = PlayerPrefs.GetInt(GameSaver.Tutorial);
-        _isTrained = Convert.ToBoolean(_tutorialSavingParam);
-    }
 
     private void Start()
     {
-        SwitchTutorial();
+        if (!PlayerPrefs.HasKey(GameSaver.Tutorial + _name))
+            TurnOnTutorial();
+        
         enabled = false;
     }
 
-    private void SwitchTutorial()
+    private void TurnOnTutorial()
     {
-        _tutorialPanel.SetActive(!_isTrained);
-        Time.timeScale = _tutorialSavingParam;
-        _focusTracker.SetCurrentTimeScale(_tutorialSavingParam);
+        _tutorialPanel.SetActive(true);
+        _menu.StopTime();
+
+        PlayerPrefs.SetInt(GameSaver.Tutorial + _name, Convert.ToInt16(true));
+        PlayerPrefs.Save();
     }
 }
