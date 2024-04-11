@@ -29,14 +29,21 @@ internal class UpgradePlayerButton : MonoBehaviour
         _upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
         _wallet.MoneyChanged += UpdateButton;
 
-        if (_upgradeButton.interactable)
-            UpdateButton(_wallet.Money);
+        OnEnableUpdate();
     }
+
+    private void Start() => OnEnableUpdate();
 
     private void OnDisable()
     {
         _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClicked);
         _wallet.MoneyChanged -= UpdateButton;
+    }
+
+    private void OnEnableUpdate()
+    {
+        if (_upgradeButton.interactable)
+            UpdateButton(_wallet.Money);
     }
 
     private void UpdateButton(float money)
