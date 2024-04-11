@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class InterstitialAd : MonoBehaviour
@@ -6,6 +7,8 @@ public class InterstitialAd : MonoBehaviour
     [SerializeField] private Menu _menu;
 
     private Button _lockableButton;
+
+    public event UnityAction AdvertisingClosed;
 
     public void Initialize(Button lockableButton) => _lockableButton = lockableButton;
 
@@ -22,6 +25,7 @@ public class InterstitialAd : MonoBehaviour
     {
         _menu.ContinueTime();
         _menu.ContinueMusic();
-        _lockableButton.interactable = true;
+
+        AdvertisingClosed?.Invoke();
     }
 }
