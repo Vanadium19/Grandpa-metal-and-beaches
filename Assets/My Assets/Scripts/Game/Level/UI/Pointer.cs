@@ -3,16 +3,13 @@ using UnityEngine;
 internal class Pointer : MonoBehaviour
 {
     private readonly float _rightAngle = 90f;
-    private readonly float _indent = 75f;
-    private readonly float _staticPositionX = Screen.width / 2;
 
     [SerializeField] private Transform _target;
     [SerializeField] private RectTransform _pointerTransform;
     [SerializeField] private Camera _mainCamera;    
 
-    private Vector3 _staticPosition;
-
-    private void Awake() => _staticPosition = new Vector3(_staticPositionX, _indent, 0);
+    private float _staticPositionX => Screen.width / 2;
+    private float _indent => 0.075f * Screen.height;
 
     private void Update()
     {
@@ -37,7 +34,8 @@ internal class Pointer : MonoBehaviour
 
         float clampedX = Mathf.Clamp(screenPosition.x, _indent, Screen.width - _indent);
         float clampedY = Mathf.Clamp(screenPosition.y, _indent, Screen.height - _indent);
-        screenPosition = clampedY == Screen.height - _indent ? _staticPosition : new Vector3(clampedX, clampedY, screenPosition.z);      
+        screenPosition = Mathf.Approximately(clampedY, Screen.height - _indent) ? 
+            new Vector3(_staticPositionX, _indent, 0) : new Vector3(clampedX, clampedY, screenPosition.z);      
 
         _pointerTransform.position = screenPosition;
     }
