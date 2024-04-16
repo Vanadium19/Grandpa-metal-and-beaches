@@ -1,16 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(YandexLeaderboardScoreSetter))]
 internal class LeaderboardUpdater : MonoBehaviour
 {
-    private readonly float _leaderboardDelay = 2f;
+    private readonly float _delayTime = 2f;
 
     private YandexLeaderboardScoreSetter _leaderboardScoreSetter;
     private Coroutine _scoreUpdating;
+    private WaitForSeconds _delay;
 
-    private void Awake() => _leaderboardScoreSetter = GetComponent<YandexLeaderboardScoreSetter>();
+    private void Awake()
+    {
+        _leaderboardScoreSetter = GetComponent<YandexLeaderboardScoreSetter>();
+        _delay = new WaitForSeconds(_delayTime);
+    }
 
     public void Execute(float weight)
     {
@@ -22,7 +26,7 @@ internal class LeaderboardUpdater : MonoBehaviour
 
     private IEnumerator UpdateLeaderboardScore(float weight)
     {
-        yield return new WaitForSeconds(_leaderboardDelay);
+        yield return _delay;
         _leaderboardScoreSetter.UpdatePlayerScore(weight);
     }
 }

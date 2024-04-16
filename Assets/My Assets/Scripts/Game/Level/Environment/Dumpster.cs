@@ -38,15 +38,6 @@ public class Dumpster : MonoBehaviour
         ScrapCollected?.Invoke(scrap);
     }
 
-    private void PlaySound()
-    {
-        if (_musicDelayCounter <= 0)
-        {
-            _audioSource.Play();
-            _musicDelayCounter = _musicDelay;
-        }
-    }
-
     private IEnumerator Collect(Transform scrap)
     {
         float elapsedTime = 0;
@@ -55,13 +46,23 @@ public class Dumpster : MonoBehaviour
 
         while (elapsedTime < _scrapMagnetDelay)
         {
-            scrap.position = Vector3.Lerp(startPosition, _garbagePoint.position, elapsedTime / _scrapMagnetDelay);
-            scrap.localScale = Vector3.Lerp(startScale, Vector3.zero, elapsedTime / _scrapMagnetDelay);
+            float lerpValue = elapsedTime / _scrapMagnetDelay;
+            scrap.position = Vector3.Lerp(startPosition, _garbagePoint.position, lerpValue);
+            scrap.localScale = Vector3.Lerp(startScale, Vector3.zero, lerpValue);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         PlaySound();
         Destroy(scrap.gameObject);
+    }
+
+    private void PlaySound()
+    {
+        if (_musicDelayCounter > 0)
+            return;
+
+        _audioSource.Play();
+        _musicDelayCounter = _musicDelay;
     }
 }

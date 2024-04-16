@@ -17,17 +17,18 @@ internal class EndLevelButton : MonoBehaviour
         _interstitialAd = GetComponent<InterstitialAd>();
     }
 
-    private void OnEnable() => _button.onClick.AddListener(FinishLevel);
+    private void OnEnable()
+    {
+        _button.onClick.AddListener(FinishLevel);
+        _interstitialAd.AdvertisingClosed += OnAdvertisingClosed;
+    }
 
     private void Start() => _interstitialAd.Initialize(_button);
 
-    private void OnDisable() => _button.onClick.RemoveListener(FinishLevel);
-
-    private void FinishLevel()
+    private void OnDisable()
     {
-        SaveProgress();
-        _interstitialAd.Show();
-        _sceneLoader.Load();
+        _button.onClick.RemoveListener(FinishLevel);
+        _interstitialAd.AdvertisingClosed -= OnAdvertisingClosed;
     }
 
     private void SaveProgress()
@@ -36,4 +37,12 @@ internal class EndLevelButton : MonoBehaviour
         PlayerPrefs.SetFloat(GameSaverData.CurrentWeight, 0);
         PlayerPrefs.Save();
     }
+
+    private void FinishLevel()
+    {
+        SaveProgress();
+        _interstitialAd.Show();
+    }
+
+    private void OnAdvertisingClosed() => _sceneLoader.Load();
 }

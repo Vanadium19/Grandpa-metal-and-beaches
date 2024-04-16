@@ -11,7 +11,7 @@ internal class LevelEnder : MonoBehaviour
     private float _targetWeight;
     private float _currentWeight;
     private LeaderboardUpdater _leaderboardUpdater;
-    private bool _isEnd;
+    private bool _isLevelEnded;
 
 
     private void Awake() => _leaderboardUpdater = GetComponent<LeaderboardUpdater>();
@@ -24,16 +24,8 @@ internal class LevelEnder : MonoBehaviour
     {
         _targetWeight = targetWeight;
         _currentWeight = currentWeight;
-        _isEnd = _currentWeight >= _targetWeight;
-        _endLevelButton.SetActive(_isEnd);
-    }
-
-    private void UpdateProgress(Scrap scrap)
-    {
-        AddWeight(scrap.Info.Weight);
-
-        if (!_isEnd && _currentWeight >= _targetWeight)
-            StartCoroutine(FinishLevel());
+        _isLevelEnded = _currentWeight >= _targetWeight;
+        _endLevelButton.SetActive(_isLevelEnded);
     }
 
     private void AddWeight(float weight)
@@ -57,10 +49,18 @@ _leaderboardUpdater.Execute(allWeight);
 
     private IEnumerator FinishLevel()
     {
-        _isEnd = true;
+        _isLevelEnded = true;
         _congratulationsPanel.Activate(_targetWeight);
         yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
         _congratulationsPanel.gameObject.SetActive(false);
         _endLevelButton.SetActive(true);        
+    }
+
+    private void UpdateProgress(Scrap scrap)
+    {
+        AddWeight(scrap.Info.Weight);
+
+        if (!_isLevelEnded && _currentWeight >= _targetWeight)
+            StartCoroutine(FinishLevel());
     }
 }

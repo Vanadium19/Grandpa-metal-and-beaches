@@ -21,16 +21,17 @@ public class ProgressBar : MonoBehaviour
         _currentWeight = currentWeight;
         UpdateDisplay();
     }
-    private void AddWeight(Scrap scrap)
-    {
-        _currentWeight += scrap.Info.Weight;
-        UpdateDisplay();
-    }
 
     private void UpdateDisplay()
     {
         _slider.value = _currentWeight / _targetWeight;
         _text.text = $"{_currentWeight}/{_targetWeight}";
+    }
+
+    private void AddWeight(Scrap scrap)
+    {
+        _currentWeight += scrap.Info.Weight;
+        UpdateDisplay();
     }
 }
         

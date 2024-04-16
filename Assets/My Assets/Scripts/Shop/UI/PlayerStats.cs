@@ -18,22 +18,30 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         _levelName = _stats[0].GetType().ToString();
-        SetNextLevelStat();
+        SetNextStat();
     }
 
     public float GetPrice()
     {
-        return _nextLevelStat != null ? _nextLevelStat.Price : _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaverData.LevelStep).Price;
+        if (_nextLevelStat == null)
+            SetNextStat();
+
+        return _nextLevelStat.Price;
     }
 
     public void UpdateLevel()
     {
         PlayerUpgraded?.Invoke(_nextLevelStat.Value);
+        SaveNewStat();
+        SetNextStat();
+    }
+
+    private void SaveNewStat()
+    {
         PlayerPrefs.SetFloat(_nextLevelStat.Name, _nextLevelStat.Value);
         PlayerPrefs.SetInt(_levelName, _nextLevelStat.Level);
         PlayerPrefs.Save();
-        SetNextLevelStat();
     }
 
-    private void SetNextLevelStat() => _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaverData.LevelStep);
+    private void SetNextStat() => _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaverData.LevelStep);
 }
