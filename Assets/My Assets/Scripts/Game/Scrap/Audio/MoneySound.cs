@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-
 public class MoneySound : MonoBehaviour
 {
     private readonly float _delay = 0.3f;

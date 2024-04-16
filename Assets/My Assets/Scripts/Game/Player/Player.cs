@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMover))]
 public class Player : MonoBehaviour
 {
+    private readonly float _minPositionY = -7f;
+
     private Transform _transform;
     private Vector3 _startPoint;
     private PlayerMover _playerMover;
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            if (_transform.position.y < -7)
+            if (_transform.position.y < _minPositionY)
             {
                 _transform.position = _startPoint;
                 break;

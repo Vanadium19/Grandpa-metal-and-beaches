@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Animator))]
 internal class ButtonDisplay : MonoBehaviour
 {
-    private readonly string _max = "max";
+    private readonly string _maxText = "max";
 
     [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _price;
@@ -22,7 +22,7 @@ internal class ButtonDisplay : MonoBehaviour
     public void Off()
     {
         _videoAdIcon.SetActive(false);
-        _price.text = _max;
+        _price.text = _maxText;
     }
 
     public void UpdatePrice(bool isSalePrice, float price)

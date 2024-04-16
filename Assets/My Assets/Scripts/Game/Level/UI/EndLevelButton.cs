@@ -31,17 +31,17 @@ internal class EndLevelButton : MonoBehaviour
         _interstitialAd.AdvertisingClosed -= OnAdvertisingClosed;
     }
 
-    private void FinishLevel()
-    {
-        SaveProgress();
-        _interstitialAd.Show();
-    }
-
     private void SaveProgress()
     {
         PlayerPrefs.SetInt(GameSaverData.Level, PlayerPrefs.GetInt(GameSaverData.Level, GameSaverData.LevelStep) + GameSaverData.LevelStep);
         PlayerPrefs.SetFloat(GameSaverData.CurrentWeight, 0);
         PlayerPrefs.Save();
+    }
+
+    private void FinishLevel()
+    {
+        SaveProgress();
+        _interstitialAd.Show();
     }
 
     private void OnAdvertisingClosed() => _sceneLoader.Load();

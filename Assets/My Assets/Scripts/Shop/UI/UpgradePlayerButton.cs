@@ -29,10 +29,10 @@ internal class UpgradePlayerButton : MonoBehaviour
         _upgradeButton.onClick.AddListener(OnUpgradeButtonClicked);
         _wallet.MoneyChanged += UpdateButton;
 
-        OnEnableUpdate();
+        InitializeButton();
     }
 
-    private void Start() => OnEnableUpdate();
+    private void Start() => InitializeButton();
 
     private void OnDisable()
     {
@@ -40,20 +40,23 @@ internal class UpgradePlayerButton : MonoBehaviour
         _wallet.MoneyChanged -= UpdateButton;
     }
 
-    private void OnEnableUpdate()
+    private void InitializeButton()
     {
         if (_upgradeButton.interactable)
             UpdateButton(_wallet.Money);
     }
 
-    private void UpdateButton(float money)
+    private void Buy(float price)
     {
-        if (_playerStats.CurrentLevel == _playerStats.MaxLevel)
-            OffButton();
-        else
-            UpdateDisplay(money);
+        _playerStats.UpdateLevel();
+        _wallet.RemoveMoney(price);
+        _buttonDisplay.SetAnimationTrigger(AnimatorNames.Buy);
+    }
 
-        _buttonDisplay.SetSlider(Convert.ToSingle(_playerStats.CurrentLevel) / _playerStats.MaxLevel);
+    private void OffButton()
+    {
+        _buttonDisplay.Off();
+        _upgradeButton.interactable = false;
     }
 
     private void UpdateDisplay(float money)
@@ -72,16 +75,13 @@ internal class UpgradePlayerButton : MonoBehaviour
             _buttonDisplay.SetAnimationTrigger(AnimatorNames.NoMoney);
     }
 
-    private void Buy(float price)
+    private void UpdateButton(float money)
     {
-        _playerStats.UpdateLevel();
-        _wallet.RemoveMoney(price);
-        _buttonDisplay.SetAnimationTrigger(AnimatorNames.Buy);
-    }    
+        if (_playerStats.CurrentLevel == _playerStats.MaxLevel)
+            OffButton();
+        else
+            UpdateDisplay(money);
 
-    private void OffButton()
-    {
-        _buttonDisplay.Off();
-        _upgradeButton.interactable = false;
+        _buttonDisplay.SetSlider(Convert.ToSingle(_playerStats.CurrentLevel) / _playerStats.MaxLevel);
     }
 }

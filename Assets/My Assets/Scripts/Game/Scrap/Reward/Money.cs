@@ -24,12 +24,6 @@ public class Money : MonoBehaviour
         Push();
     }
 
-    public void Push()
-    {
-        _collider.enabled = true;
-        _moneyPool.Push(this);
-    }
-
     public void Collect()
     {
         _animator.SetTrigger(AnimatorNames.CollectMoney);
@@ -38,4 +32,10 @@ public class Money : MonoBehaviour
     }
 
     public void SetValue(float value) => Value = value;
+
+    private void Push()
+    {
+        _collider.enabled = true;
+        _moneyPool.Push(this);
+    }
 }

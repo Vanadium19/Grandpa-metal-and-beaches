@@ -9,11 +9,10 @@ internal class LevelSpawner : MonoBehaviour
     private readonly float _maxAngleY = 359f;
     private readonly float _angleXFactor = 5f;
 
-    [SerializeField] private SpawnZone _spawnZone;    
+    [SerializeField] private SpawnZone _spawnZone;
     [SerializeField] private List<Scrap> _scraps;
 
     private float _targetWeight;
-
     private float _scrapCollectorLevel;
 
     private void Awake() => _scrapCollectorLevel = PlayerPrefs.GetFloat(GameSaverData.ScrapCollector);
@@ -37,9 +36,9 @@ internal class LevelSpawner : MonoBehaviour
             return;
 
         float currentSpawnWeight = 0;
-        float randomSpawnFactor = Random.Range(0, _randomSpawnFactor);
+        float targetWeight = _targetWeight + Random.Range(0, _randomSpawnFactor);
 
-        while (currentSpawnWeight < _targetWeight + randomSpawnFactor)
+        while (currentSpawnWeight < targetWeight)
         {
             foreach (var scrap in scraps)
             {

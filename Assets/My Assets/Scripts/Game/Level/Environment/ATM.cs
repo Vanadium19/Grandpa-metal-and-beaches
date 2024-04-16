@@ -10,6 +10,12 @@ internal class ATM : MonoBehaviour
 
     private void OnDisable() => _dumpster.ScrapCollected -= GiveMoney;
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.TryGetComponent(out Player player))
+            _pointer.SetActive(false);
+    }
+
     private void GiveMoney(Scrap scrap)
     {
         var money = _moneyPool.Pull();
@@ -18,11 +24,5 @@ internal class ATM : MonoBehaviour
         money.SetValue(scrap.Info.Price);
 
         _pointer.SetActive(true);
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.TryGetComponent(out Player player))
-            _pointer.SetActive(false);
     }
 }

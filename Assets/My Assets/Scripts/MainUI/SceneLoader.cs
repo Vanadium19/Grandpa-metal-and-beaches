@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     private readonly float _percentFactor = 100f;
 
+    [Range(0, 2)]
     [Tooltip("0 - StartMenu, 1 - Game, 2 - Menu")]
     [SerializeField] private int _sceneNumber;
 

@@ -17,14 +17,4 @@ public class SpawnZone : MonoBehaviour
 
         return point;
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-
-        if (_cornerPoint == null)
-            return;
-
-        Gizmos.DrawCube(transform.position, Vector3.ProjectOnPlane(_cornerPoint.localPosition * 2, Vector3.up));
-    }
 }

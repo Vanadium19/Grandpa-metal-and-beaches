@@ -2,8 +2,7 @@ using UnityEngine;
 
 internal class DumpsterPointerSwitch : MonoBehaviour
 {
-    private readonly float _showPercent = 80f;
-    private readonly float _percentFactor = 100f;
+    private readonly float _percentFactor = 0.8f;
 
     [SerializeField] private Bag _bag;
     [SerializeField] private Pointer _pointer;
@@ -12,5 +11,5 @@ internal class DumpsterPointerSwitch : MonoBehaviour
 
     private void OnDisable() => _bag.ContentChanged -= TurnOnPointer;
 
-    private void TurnOnPointer(float weight) => _pointer.gameObject.SetActive(weight / _bag.Capacity * _percentFactor > _showPercent);
+    private void TurnOnPointer(float weight) => _pointer.gameObject.SetActive(weight >= _percentFactor * _bag.Capacity);
 }
