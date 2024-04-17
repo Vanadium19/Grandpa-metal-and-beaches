@@ -7,6 +7,7 @@ internal class LeaderboardOpener : MonoBehaviour
 {
     [SerializeField] private YandexLeaderboardFiller _leaderboardFiller;
     [SerializeField] private GameObject _leaderboardPanel;
+    [SerializeField] private GameObject _authorizePanel;
 
     private Button _leaderboardButton;
 
@@ -20,8 +21,8 @@ internal class LeaderboardOpener : MonoBehaviour
 
     private void OpenLeaderboard()
     {
-        if (PlayerAccount.IsAuthorized == false)        
-            PlayerAccount.Authorize();            
+        if (PlayerAccount.IsAuthorized == false)
+            _authorizePanel.SetActive(true);
 
         if (PlayerAccount.IsAuthorized)        
             PlayerAccount.RequestPersonalProfileDataPermission();         
