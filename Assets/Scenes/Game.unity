@@ -2670,6 +2670,7 @@ MonoBehaviour:
   _name: Weight
   _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 1984162582}
+  _closablePanels: []
 --- !u!114 &184524288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6483,6 +6484,10 @@ MonoBehaviour:
   _name: EndLevelButton
   _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 1069697951}
+  _closablePanels:
+  - {fileID: 861767779}
+  - {fileID: 1931275061}
+  - {fileID: 1723890767}
 --- !u!114 &432094122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8369,6 +8374,10 @@ MonoBehaviour:
   _name: Money
   _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 836309700}
+  _closablePanels:
+  - {fileID: 861767779}
+  - {fileID: 1931275061}
+  - {fileID: 1723890767}
 --- !u!1 &576107264
 GameObject:
   m_ObjectHideFlags: 0
@@ -18078,6 +18087,7 @@ MonoBehaviour:
   _name: Main
   _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 249013634}
+  _closablePanels: []
 --- !u!1001 &1247661109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22157,6 +22167,10 @@ MonoBehaviour:
   _name: Dumpster
   _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 1059317085}
+  _closablePanels:
+  - {fileID: 861767779}
+  - {fileID: 1931275061}
+  - {fileID: 1723890767}
 --- !u!1 &1562890516
 GameObject:
   m_ObjectHideFlags: 0
@@ -28446,6 +28460,10 @@ MonoBehaviour:
   _name: Market
   _menu: {fileID: 1504618528}
   _tutorialPanel: {fileID: 184524285}
+  _closablePanels:
+  - {fileID: 861767779}
+  - {fileID: 1931275061}
+  - {fileID: 1723890767}
 --- !u!114 &1931275064
 MonoBehaviour:
   m_ObjectHideFlags: 0
