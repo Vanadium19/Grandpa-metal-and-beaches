@@ -31,7 +31,7 @@ internal class PlayerMover : MonoBehaviour
 
     private void Rotate()
     {
-        if (_playerInput.MoveInput != Vector3.zero)
+        if (_playerInput.MoveInput * _speed != Vector3.zero)
             _transform.rotation = Quaternion.LookRotation(_playerInput.MoveInput, Vector3.up);
     }
 
