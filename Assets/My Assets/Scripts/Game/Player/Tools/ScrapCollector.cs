@@ -42,5 +42,5 @@ public class ScrapCollector : MonoBehaviour
     {
         BagCrowded = 0,
         OutOfLevel
-    }
+    };
 }
