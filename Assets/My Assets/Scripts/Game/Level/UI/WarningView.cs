@@ -10,7 +10,7 @@ internal class WarningView : MonoBehaviour
 
     private void OnDisable() => _scrapCollector.Alarmed -= Set;
 
-    private void Set(ScrapCollector.Alerts alert)
+    private void Set(Alerts alert)
     {
         for (int i = 0; i < _alerts.Length; i++)
             _alerts[i].SetActive(i == (int)alert);

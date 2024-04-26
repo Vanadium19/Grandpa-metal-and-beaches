@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum Alerts
+{
+    BagCrowded = 0,
+    OutOfLevel
+};
+
 public class ScrapCollector : MonoBehaviour
 {
     [SerializeField] private Bag _bag;
@@ -37,10 +43,4 @@ public class ScrapCollector : MonoBehaviour
     }
 
     private void SetLevel(float level) => _level = level;
-
-    public enum Alerts
-    {
-        BagCrowded = 0,
-        OutOfLevel
-    };
 }
