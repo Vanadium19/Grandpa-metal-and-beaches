@@ -29,30 +29,30 @@ internal class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandl
 
     public float HandleRange
     {
-        get { return _handleRange; }
-        set { _handleRange = Mathf.Abs(value); }
+        get => _handleRange;
+        set => _handleRange = Mathf.Abs(value);
     }
 
     public float DeadZone
     {
-        get { return _deadZone; }
-        set { _deadZone = Mathf.Abs(value); }
+        get => _deadZone;
+        set => _deadZone = Mathf.Abs(value);
     }
 
     public AxisOptions AxisOptions
     {
-        get { return AxisOptions; }
-        set { _axisOptions = value; }
+        get => AxisOptions;
+        set => _axisOptions = value;
     }
     public bool SnapX
     {
-        get { return _snapX; }
-        set { _snapX = value; }
+        get => _snapX;
+        set => _snapX = value;
     }
     public bool SnapY
     {
-        get { return _snapY; }
-        set { _snapY = value; }
+        get => _snapY;
+        set => _snapY = value;
     }
 
     private void Start()
