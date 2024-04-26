@@ -13,7 +13,6 @@ internal class LevelEnder : MonoBehaviour
     private LeaderboardUpdater _leaderboardUpdater;
     private bool _isLevelEnded;
 
-
     private void Awake() => _leaderboardUpdater = GetComponent<LeaderboardUpdater>();
 
     private void OnEnable() => _dumpster.ScrapCollected += UpdateProgress;
