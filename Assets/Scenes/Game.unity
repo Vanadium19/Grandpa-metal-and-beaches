@@ -14884,7 +14884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: Turkish
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
@@ -70460,13 +70460,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleRange: 1
-  deadZone: 0
-  axisOptions: 0
-  snapX: 0
-  snapY: 0
-  background: {fileID: 8170153791724964229}
-  handle: {fileID: 8170153793054372767}
+  _background: {fileID: 8170153791724964229}
+  _handleRange: 1
+  _deadZone: 0
+  _axisOptions: 0
+  _snapX: 0
+  _snapY: 0
+  _handle: {fileID: 8170153793054372767}
 --- !u!114 &8170153793054372764
 MonoBehaviour:
   m_ObjectHideFlags: 0
