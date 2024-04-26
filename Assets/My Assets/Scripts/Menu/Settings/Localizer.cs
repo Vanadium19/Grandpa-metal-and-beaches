@@ -1,5 +1,5 @@
-using Lean.Localization;
 using Agava.YandexGames;
+using Lean.Localization;
 using UnityEngine;
 
 internal class Localizer : MonoBehaviour
