@@ -26,7 +26,8 @@ public class SceneLoader : MonoBehaviour
 
         while (asyncLoad.isDone == false)
         {
-            _percent.text = $"{Mathf.Round(asyncLoad.progress * _percentFactor)}%";
+            float percent = Mathf.Round(asyncLoad.progress * _percentFactor);
+            _percent.text = $"{percent}%";
             yield return null;
         }
     }
