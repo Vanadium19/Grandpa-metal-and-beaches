@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class CongratulationsPanel : MonoBehaviour
 {
-    private readonly float _closePanelDelay = 2f;
-    private readonly float _additionValueDelay = 0.01f;
+    private readonly WaitForSeconds _additionDelay = new WaitForSeconds(0.01f);
+    private readonly WaitForSeconds _closePanelDelay = new WaitForSeconds(2f);
 
     [SerializeField] private Player _player;
     [SerializeField] private Slider _slider;
@@ -23,7 +23,6 @@ public class CongratulationsPanel : MonoBehaviour
 
     private IEnumerator Congratulate(float targetValue)
     {
-        var delay = new WaitForSeconds(_additionValueDelay);
         float value = 0;
 
         while (value <= targetValue)
@@ -32,10 +31,10 @@ public class CongratulationsPanel : MonoBehaviour
             _text.text = $"{value}/{targetValue}";
             value++;
 
-            yield return delay;
+            yield return _additionDelay;
         }
 
-        yield return new WaitForSeconds(_closePanelDelay);
+        yield return _closePanelDelay;
 
         _player.ContinueMove();
         IsFinished = true;
