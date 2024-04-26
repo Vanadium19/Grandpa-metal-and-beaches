@@ -16,7 +16,7 @@ internal class UpgradePlayerButton : MonoBehaviour
     private Button _upgradeButton;
     private ButtonDisplay _buttonDisplay;
 
-    private bool _isSaleButton => _wallet.Money >= _saleFactor * _currentPrice && _wallet.Money < _currentPrice;
+    private bool IsSaleButton => _wallet.Money >= _saleFactor * _currentPrice && _wallet.Money < _currentPrice;
 
     private void Awake()
     {
@@ -62,12 +62,12 @@ internal class UpgradePlayerButton : MonoBehaviour
     private void UpdateDisplay(float money)
     {
         _currentPrice = _playerStats.GetPrice();
-        _buttonDisplay.UpdatePrice(_isSaleButton, _isSaleButton ? money : _currentPrice);
+        _buttonDisplay.UpdatePrice(IsSaleButton, IsSaleButton ? money : _currentPrice);
     }
 
     private void OnUpgradeButtonClicked()
     {
-        if (_isSaleButton)
+        if (IsSaleButton)
             _videoAd.Show(_upgradeButton, Buy, _wallet.Money);
         else if (_wallet.CanBuy(_currentPrice))
             Buy(_currentPrice);
