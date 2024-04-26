@@ -4,9 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Money : MonoBehaviour
 {
-    private Animator _animator;
     private readonly float _delay = 1f;
 
+    private Animator _animator;
     private BoxCollider _collider;
     private MoneyPool _moneyPool;
 
