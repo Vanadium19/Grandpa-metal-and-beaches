@@ -1,6 +1,6 @@
 public static class GameSaverData
 {
-    public static readonly string Money = "Money";    
+    public static readonly string Money = "Money";
     public static readonly string Weight = "Weight";
     public static readonly string CurrentWeight = "CurrentWeight";
 

@@ -7,7 +7,7 @@ internal class ScrapMagnet : MonoBehaviour
 
     private readonly float _minDistance = 0f;
     private readonly float _maxDistance = 0.5f;
-    
+
     [SerializeField] private float _speed;
 
     public void StartAttract(Transform scrap) => StartCoroutine(Attract(scrap));
@@ -19,10 +19,10 @@ internal class ScrapMagnet : MonoBehaviour
 
         while (Vector3.Distance(transform.position, scrap.position) >= _range)
         {
-            scrap.position = Vector3.MoveTowards(scrap.position, transform.position, _speed * Time.deltaTime);            
+            scrap.position = Vector3.MoveTowards(scrap.position, transform.position, _speed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
 
-            if (elapsedTime >= _delay)            
+            if (elapsedTime >= _delay)
                 break;
 
             yield return null;

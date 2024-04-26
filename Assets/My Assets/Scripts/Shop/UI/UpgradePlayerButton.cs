@@ -9,7 +9,7 @@ internal class UpgradePlayerButton : MonoBehaviour
     private readonly float _saleFactor = 0.75f;
 
     [SerializeField] private Wallet _wallet;
-    [SerializeField] private PlayerStats _playerStats;    
+    [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private VideoAd _videoAd;
 
     private float _currentPrice;
@@ -19,7 +19,7 @@ internal class UpgradePlayerButton : MonoBehaviour
     private bool _isSaleButton => _wallet.Money >= _saleFactor * _currentPrice && _wallet.Money < _currentPrice;
 
     private void Awake()
-    {        
+    {
         _upgradeButton = GetComponent<Button>();
         _buttonDisplay = GetComponent<ButtonDisplay>();
     }

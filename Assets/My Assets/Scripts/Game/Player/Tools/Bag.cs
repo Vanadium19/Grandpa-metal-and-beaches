@@ -41,5 +41,5 @@ public class Bag : MonoBehaviour
     {
         _capacity = capacity;
         ContentChanged?.Invoke(_currentWeight);
-    }   
+    }
 }

@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
     public void StopMove(bool value)
     {
         if (value)
-            _playerMover.Stop();        
-        else        
-            _playerMover.SetSpeed(PlayerPrefs.GetFloat(GameSaverData.Speed));        
+            _playerMover.Stop();
+        else
+            _playerMover.SetSpeed(PlayerPrefs.GetFloat(GameSaverData.Speed));
     }
 
     public void StartHeightTracking()

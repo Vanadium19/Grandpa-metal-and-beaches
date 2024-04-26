@@ -18,7 +18,7 @@ internal class PlayerMover : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _transform = transform;
     }
-    
+
     private void Update()
     {
         Move();

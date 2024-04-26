@@ -15,7 +15,7 @@ internal class Localizer : MonoBehaviour
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
         ChangeLanguage();
-#endif  
+#endif
     }
 
     private void ChangeLanguage()

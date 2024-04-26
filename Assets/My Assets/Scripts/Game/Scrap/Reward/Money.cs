@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider))]
 public class Money : MonoBehaviour
-{    
+{
     private Animator _animator;
     private readonly float _delay = 1f;
 

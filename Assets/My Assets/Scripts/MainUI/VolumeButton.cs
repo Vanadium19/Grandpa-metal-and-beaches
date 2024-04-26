@@ -8,7 +8,7 @@ internal class VolumeButton : MonoBehaviour
     private readonly float _maxVolume = 1f;
 
     [SerializeField] private FocusTracker _focusTracker;
-    [SerializeField] private Sprite _volumeOffImage;    
+    [SerializeField] private Sprite _volumeOffImage;
     [SerializeField] private Image _icon;
 
     private Sprite _volumeOnImage;

@@ -25,7 +25,7 @@ public class ScrapCollector : MonoBehaviour
         else if (_bag.CanAdd(scrap) == false)
             Alarmed?.Invoke(Alerts.BagCrowded);
         else
-            Put(scrap);        
+            Put(scrap);
     }
 
     private void Put(Scrap scrap)

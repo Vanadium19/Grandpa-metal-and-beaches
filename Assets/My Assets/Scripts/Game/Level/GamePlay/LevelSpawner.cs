@@ -19,7 +19,7 @@ internal class LevelSpawner : MonoBehaviour
 
     public void Initialize(float targetWeight) => _targetWeight = targetWeight;
 
-    public void StartSpawn() => SpawnScraps();      
+    public void StartSpawn() => SpawnScraps();
 
     private void SpawnScraps()
     {
@@ -50,8 +50,8 @@ internal class LevelSpawner : MonoBehaviour
 
     private void SpawnUncollectableScrap(List<Scrap> scraps)
     {
-        if (scraps == null)        
-            return;        
+        if (scraps == null)
+            return;
 
         for (int i = 0; i < _uncollectableScrapSpawnFactor; i++)
             foreach (var scrap in scraps)

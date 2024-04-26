@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScrapSounds : MonoBehaviour
 {
     [SerializeField] private List<AudioClip> _audioClips;
-    
+
     private AudioSource _audioSource;
 
     private void Awake() => _audioSource = GetComponent<AudioSource>();

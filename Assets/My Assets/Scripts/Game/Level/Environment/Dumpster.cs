@@ -20,8 +20,8 @@ public class Dumpster : MonoBehaviour
 
     private void Update()
     {
-        if (_musicDelayCounter > 0)        
-            _musicDelayCounter -= Time.deltaTime;        
+        if (_musicDelayCounter > 0)
+            _musicDelayCounter -= Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider collider)

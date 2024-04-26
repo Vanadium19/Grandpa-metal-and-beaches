@@ -10,8 +10,8 @@ internal class AlertCloser : MonoBehaviour
 
     private void Update()
     {
-        if (_elapsedTime >= _delay)        
-            gameObject.SetActive(false);        
+        if (_elapsedTime >= _delay)
+            gameObject.SetActive(false);
 
         _elapsedTime += Time.deltaTime;
     }

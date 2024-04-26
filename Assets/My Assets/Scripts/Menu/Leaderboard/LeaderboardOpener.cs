@@ -24,8 +24,8 @@ internal class LeaderboardOpener : MonoBehaviour
         if (PlayerAccount.IsAuthorized == false)
             _authorizePanel.SetActive(true);
 
-        if (PlayerAccount.IsAuthorized)        
-            PlayerAccount.RequestPersonalProfileDataPermission();         
+        if (PlayerAccount.IsAuthorized)
+            PlayerAccount.RequestPersonalProfileDataPermission();
 
         if (PlayerAccount.IsAuthorized == false)
             return;

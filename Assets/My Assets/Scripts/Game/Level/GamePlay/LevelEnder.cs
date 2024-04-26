@@ -7,7 +7,7 @@ internal class LevelEnder : MonoBehaviour
     [SerializeField] private GameObject _endLevelButton;
     [SerializeField] private Dumpster _dumpster;
     [SerializeField] private CongratulationsPanel _congratulationsPanel;
-    
+
     private float _targetWeight;
     private float _currentWeight;
     private LeaderboardUpdater _leaderboardUpdater;
@@ -42,7 +42,7 @@ _leaderboardUpdater.Execute(allWeight);
 
     private void SaveProgress(float allWeight)
     {
-        PlayerPrefs.SetFloat(GameSaverData.Weight, allWeight);        
+        PlayerPrefs.SetFloat(GameSaverData.Weight, allWeight);
         PlayerPrefs.SetFloat(GameSaverData.CurrentWeight, _currentWeight);
         PlayerPrefs.Save();
     }
@@ -53,7 +53,7 @@ _leaderboardUpdater.Execute(allWeight);
         _congratulationsPanel.Activate(_targetWeight);
         yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
         _congratulationsPanel.gameObject.SetActive(false);
-        _endLevelButton.SetActive(true);        
+        _endLevelButton.SetActive(true);
     }
 
     private void UpdateProgress(Scrap scrap)

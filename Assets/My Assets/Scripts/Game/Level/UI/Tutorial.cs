@@ -12,7 +12,7 @@ internal class Tutorial : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey(GameSaverData.Tutorial + _name))
             TurnOnTutorial();
-        
+
         enabled = false;
     }
 
@@ -28,10 +28,10 @@ internal class Tutorial : MonoBehaviour
 
     private void ClosePanels()
     {
-        if (_closablePanels.Length == 0)        
-            return;        
+        if (_closablePanels.Length == 0)
+            return;
 
-        foreach (var closablePanel in _closablePanels)        
-            closablePanel.SetActive(false);        
+        foreach (var closablePanel in _closablePanels)
+            closablePanel.SetActive(false);
     }
 }
