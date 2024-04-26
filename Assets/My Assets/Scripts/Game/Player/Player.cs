@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     public void StopMove()
     {
-            _playerMover.Stop();
+        _playerMover.Stop();
     }
 
     public void ContinueMove()
@@ -42,15 +42,9 @@ public class Player : MonoBehaviour
 
     private IEnumerator TrackHeight()
     {
-        while (true)
-        {
-            if (_transform.position.y < _minPositionY)
-            {
-                _transform.position = _startPoint;
-                break;
-            }
-
+        while (_transform.position.y > _minPositionY)
             yield return null;
-        }
+
+        _transform.position = _startPoint;
     }
 }
