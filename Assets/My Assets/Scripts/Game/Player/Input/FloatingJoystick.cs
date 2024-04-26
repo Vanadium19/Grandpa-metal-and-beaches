@@ -10,13 +10,23 @@ public enum AxisOptions
 
 internal class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
+    private readonly float _snappingValue = 1f;
+    private readonly float _snappingZeroValue = 0f;
+    private readonly float _horizontalMinAngle = 22.5f;
+    private readonly float _horizontalMaxAngle = 157.5f;
+    private readonly float _verticalMinAngle = 67.5f;
+    private readonly float _verticalMaxAngle = 112.5f;
+    private readonly float _radiusFactor = 2f;
+    private readonly float _maxMagnitude = 1f;
+    private readonly Vector2 _imageCenter = new Vector2(0.5f, 0.5f);
+
+    [SerializeField] private AxisOptions _axisOptions = AxisOptions.Both;
     [SerializeField] private RectTransform _background = null;
+    [SerializeField] private RectTransform _handle = null;
     [SerializeField] private float _handleRange = 1;
     [SerializeField] private float _deadZone = 0;
-    [SerializeField] private AxisOptions _axisOptions = AxisOptions.Both;
     [SerializeField] private bool _snapX = false;
     [SerializeField] private bool _snapY = false;
-    [SerializeField] private RectTransform _handle = null;
 
     private Vector2 _input = Vector2.zero;
     private RectTransform _baseRect = null;
@@ -65,11 +75,10 @@ internal class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandl
         if (_canvas == null)
             Debug.LogError("The Joystick is not placed inside a canvas");
 
-        Vector2 center = new Vector2(0.5f, 0.5f);
-        _background.pivot = center;
-        _handle.anchorMin = center;
-        _handle.anchorMax = center;
-        _handle.pivot = center;
+        _background.pivot = _imageCenter;
+        _handle.anchorMin = _imageCenter;
+        _handle.anchorMax = _imageCenter;
+        _handle.pivot = _imageCenter;
         _handle.anchoredPosition = Vector2.zero;
 
         _background.gameObject.SetActive(false);
@@ -91,7 +100,7 @@ internal class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandl
             _cam = _canvas.worldCamera;
 
         Vector2 position = RectTransformUtility.WorldToScreenPoint(_cam, _background.position);
-        Vector2 radius = _background.sizeDelta / 2;
+        Vector2 radius = _background.sizeDelta / _radiusFactor;
         _input = (eventData.position - position) / (radius * _canvas.scaleFactor);
         FormatInput();
         HandleInput(_input.magnitude, _input.normalized, radius, _cam);
@@ -110,7 +119,7 @@ internal class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandl
     {
         if (magnitude > _deadZone)
         {
-            if (magnitude > 1)
+            if (magnitude > _maxMagnitude)
             {
                 _input = normalised;
             }
@@ -124,14 +133,14 @@ internal class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandl
     private void FormatInput()
     {
         if (_axisOptions == AxisOptions.Horizontal)
-            _input = new Vector2(_input.x, 0f);
+            _input = Vector2.right * _input.x;
         else if (_axisOptions == AxisOptions.Vertical)
-            _input = new Vector2(0f, _input.y);
+            _input = Vector2.up * _input.y;
     }
 
     private float SnapFloat(float value, AxisOptions snapAxis)
     {
-        if (value == 0)
+        if (value == _snappingZeroValue)
             return value;
 
         if (_axisOptions == AxisOptions.Both)
@@ -140,31 +149,31 @@ internal class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandl
 
             if (snapAxis == AxisOptions.Horizontal)
             {
-                if (angle < 22.5f || angle > 157.5f)
-                    return 0;
+                if (angle < _horizontalMinAngle || angle > _horizontalMaxAngle)
+                    return _snappingZeroValue;
                 else
-                    return (value > 0) ? 1 : -1;
+                    return (value > _snappingZeroValue) ? _snappingValue : -_snappingValue;
             }
             else if (snapAxis == AxisOptions.Vertical)
             {
-                if (angle > 67.5f && angle < 112.5f)
-                    return 0;
+                if (angle > _verticalMinAngle && angle < _verticalMaxAngle)
+                    return _snappingZeroValue;
                 else
-                    return (value > 0) ? 1 : -1;
+                    return (value > _snappingZeroValue) ? _snappingValue : -_snappingValue;
             }
 
             return value;
         }
         else
         {
-            if (value > 0)
-                return 1;
+            if (value > _snappingZeroValue)
+                return _snappingValue;
 
-            if (value < 0)
-                return -1;
+            if (value < _snappingZeroValue)
+                return -_snappingValue;
         }
 
-        return 0;
+        return _snappingZeroValue;
     }
 
     private Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)

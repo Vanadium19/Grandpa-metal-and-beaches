@@ -2,6 +2,8 @@ using UnityEngine;
 
 internal class Pointer : MonoBehaviour
 {
+    private readonly float _screenWidthFactor = 2f;
+    private readonly float _indentFactor = 0.075f;
     private readonly float _rightAngle = 90f;
 
     [SerializeField] private Transform _target;
@@ -26,13 +28,13 @@ internal class Pointer : MonoBehaviour
 
     private void Move()
     {
-        float indent = 0.075f * Screen.height;
+        float indent = _indentFactor * Screen.height;
         Vector3 screenPosition = _mainCamera.WorldToScreenPoint(_target.position);
 
         float clampedX = Mathf.Clamp(screenPosition.x, indent, Screen.width - indent);
         float clampedY = Mathf.Clamp(screenPosition.y, indent, Screen.height - indent);
         screenPosition = Mathf.Approximately(clampedY, Screen.height - indent) ?
-            new Vector3(Screen.width / 2, indent, 0) : new Vector3(clampedX, clampedY, screenPosition.z);
+            new Vector3(Screen.width / _screenWidthFactor, indent, 0) : new Vector3(clampedX, clampedY, screenPosition.z);
 
         _pointerTransform.position = screenPosition;
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    private readonly int _firstElementIndex = 0;
+
     [SerializeField] private List<Stat> _stats;
 
     private string _levelName;
@@ -17,7 +19,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        _levelName = _stats[0].GetType().ToString();
+        _levelName = _stats[_firstElementIndex].GetType().ToString();
         SetNextStat();
     }
 
@@ -43,5 +45,8 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void SetNextStat() => _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaverData.LevelStep);
+    private void SetNextStat()
+    {
+        _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaverData.LevelStep);
+    }
 }
