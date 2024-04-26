@@ -10,7 +10,10 @@ internal class ScrapMagnet : MonoBehaviour
 
     [SerializeField] private float _speed;
 
-    public void StartAttract(Transform scrap) => StartCoroutine(Attract(scrap));
+    public void StartAttract(Transform scrap)
+    {
+        StartCoroutine(Attract(scrap));
+    }
 
     private IEnumerator Attract(Transform scrap)
     {

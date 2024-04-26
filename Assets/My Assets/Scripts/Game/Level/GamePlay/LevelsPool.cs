@@ -8,7 +8,8 @@ internal class LevelsPool : MonoBehaviour
 
     public LevelGoals GetCurrentLevel()
     {
-        var levelNumber = Mathf.Min(PlayerPrefs.GetInt(GameSaverData.Level, GameSaverData.LevelStep), _levelGoals.Count);
+        var levelNumber = Mathf.Min(PlayerPrefs.GetInt(
+            GameSaverData.Level, GameSaverData.LevelStep), _levelGoals.Count);
 
         return _levelGoals.FirstOrDefault(levelGoal => levelGoal.Number == levelNumber);
     }

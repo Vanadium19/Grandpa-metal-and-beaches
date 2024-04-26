@@ -6,15 +6,18 @@ public class PlayerInput : MonoBehaviour
 
     public Vector3 MoveInput { get; private set; }
 
-    private void Update() => Input();
+    private void Update()
+    {
+        InputMove();
+    }
 
-    private void Input()
+    private void InputMove()
     {
         MoveInput = _joystick.Horizontal * Vector3.right + _joystick.Vertical * Vector3.forward;
 
         if (MoveInput != Vector3.zero)
             return;
 
-        MoveInput = UnityEngine.Input.GetAxis("Horizontal") * Vector3.right + UnityEngine.Input.GetAxis("Vertical") * Vector3.forward;
+        MoveInput = Input.GetAxis("Horizontal") * Vector3.right + Input.GetAxis("Vertical") * Vector3.forward;
     }
 }

@@ -4,14 +4,17 @@ using UnityEngine;
 [RequireComponent(typeof(MoneyZone))]
 public class MoneyPool : MonoBehaviour
 {
-    private readonly float _moneyAngleX = -90f;
+    private readonly Quaternion _moneyAngle = Quaternion.Euler(-90f, 0, 0);
 
     [SerializeField] private Money _moneyPrefab;
 
     private MoneyZone _moneyZone;
     private Queue<Money> _spawnQueue = new Queue<Money>();
 
-    private void Awake() => _moneyZone = GetComponent<MoneyZone>();
+    private void Awake()
+    {
+        _moneyZone = GetComponent<MoneyZone>();
+    }
 
     public void Push(Money money)
     {
@@ -22,7 +25,7 @@ public class MoneyPool : MonoBehaviour
     public Money Pull()
     {
         if (_spawnQueue.Count == 0)
-            Instantiate(_moneyPrefab, _moneyZone.GetPosition(), Quaternion.Euler(_moneyAngleX, 0, 0)).Initialize(this);
+            Instantiate(_moneyPrefab, _moneyZone.GetPosition(), _moneyAngle).Initialize(this);
 
         return _spawnQueue.Dequeue();
     }

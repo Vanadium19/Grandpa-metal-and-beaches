@@ -15,5 +15,8 @@ internal class PlayerTracker : MonoBehaviour
         _lagZ = _target.position.z - _transform.position.z;
     }
 
-    private void LateUpdate() => _transform.position = new Vector3(_target.position.x - _lagX, _transform.position.y, _target.position.z - _lagZ);
+    private void LateUpdate()
+    {
+        _transform.position = new Vector3(_target.position.x - _lagX, _transform.position.y, _target.position.z - _lagZ);
+    }
 }
