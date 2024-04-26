@@ -37,4 +37,3 @@ internal class Pointer : MonoBehaviour
         _pointerTransform.position = screenPosition;
     }
 }
-
