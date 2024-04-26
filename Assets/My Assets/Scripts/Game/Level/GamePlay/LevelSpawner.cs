@@ -54,8 +54,12 @@ internal class LevelSpawner : MonoBehaviour
             return;
 
         for (int i = 0; i < _uncollectableScrapSpawnFactor; i++)
+        {
             foreach (var scrap in scraps)
+            {
                 Spawn(scrap);
+            }
+        }
     }
 
     private void Spawn(Scrap scrap)
