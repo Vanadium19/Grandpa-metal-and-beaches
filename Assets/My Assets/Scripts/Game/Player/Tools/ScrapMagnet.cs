@@ -15,9 +15,9 @@ internal class ScrapMagnet : MonoBehaviour
     private IEnumerator Attract(Transform scrap)
     {
         float elapsedTime = 0;
-        float _range = Random.Range(_minDistance, _maxDistance);
+        float range = Random.Range(_minDistance, _maxDistance);
 
-        while (Vector3.Distance(transform.position, scrap.position) >= _range)
+        while (Vector3.Distance(transform.position, scrap.position) >= range)
         {
             scrap.position = Vector3.MoveTowards(scrap.position, transform.position, _speed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
