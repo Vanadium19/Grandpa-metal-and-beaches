@@ -18,12 +18,14 @@ public class Player : MonoBehaviour
         _playerMover = GetComponent<PlayerMover>();
     }
 
-    public void StopMove(bool value)
+    public void StopMove()
     {
-        if (value)
             _playerMover.Stop();
-        else
-            _playerMover.SetSpeed(PlayerPrefs.GetFloat(GameSaverData.Speed));
+    }
+
+    public void ContinueMove()
+    {
+        _playerMover.SetSpeed(PlayerPrefs.GetFloat(GameSaverData.Speed));
     }
 
     public void StartHeightTracking()

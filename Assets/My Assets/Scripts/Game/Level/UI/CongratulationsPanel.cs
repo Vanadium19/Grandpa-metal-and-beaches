@@ -17,7 +17,7 @@ public class CongratulationsPanel : MonoBehaviour
     public void Activate(float targetValue)
     {
         gameObject.SetActive(true);
-        _player.StopMove(!IsFinished);
+        _player.StopMove();
         StartCoroutine(Congratulate(targetValue));
     }
 
@@ -37,7 +37,7 @@ public class CongratulationsPanel : MonoBehaviour
 
         yield return new WaitForSeconds(_closePanelDelay);
 
+        _player.ContinueMove();
         IsFinished = true;
-        _player.StopMove(!IsFinished);
     }
 }

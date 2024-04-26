@@ -24763,8 +24763,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 229907545}
         m_TargetAssemblyTypeName: Player, GMB.Player
-        m_MethodName: StopMove
-        m_Mode: 6
+        m_MethodName: ContinueMove
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
