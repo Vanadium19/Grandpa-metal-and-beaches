@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class Dumpster : MonoBehaviour
@@ -14,7 +14,7 @@ public class Dumpster : MonoBehaviour
     private AudioSource _audioSource;
     private float _musicDelayCounter;
 
-    public event UnityAction<Scrap> ScrapCollected;
+    public event Action<Scrap> ScrapCollected;
 
     private void Awake() => _audioSource = GetComponent<AudioSource>();
 

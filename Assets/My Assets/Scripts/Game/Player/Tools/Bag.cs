@@ -1,7 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Bag : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class Bag : MonoBehaviour
     private float _capacity;
     private List<Scrap> _content = new List<Scrap>();
 
-    public event UnityAction<float> ContentChanged;
+    public event Action<float> ContentChanged;
 
     public float Capacity => _capacity;
     private float CurrentWeight => _content.Sum(content => content.Info.Weight);

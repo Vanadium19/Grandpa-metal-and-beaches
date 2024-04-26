@@ -1,11 +1,11 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Wallet : MonoBehaviour
 {
     private float _money;
 
-    public event UnityAction<float> MoneyChanged;
+    public event Action<float> MoneyChanged;
 
     public float Money => _money;
 

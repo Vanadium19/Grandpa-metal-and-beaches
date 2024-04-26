@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public enum Alerts
 {
@@ -16,7 +16,7 @@ public class ScrapCollector : MonoBehaviour
 
     private float _level;
 
-    public event UnityAction<Alerts> Alarmed;
+    public event Action<Alerts> Alarmed;
 
     private void Awake() => _level = PlayerPrefs.GetFloat(GameSaverData.ScrapCollector);
 
