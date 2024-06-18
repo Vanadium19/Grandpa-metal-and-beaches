@@ -1,9 +1,8 @@
 {
-    "name": "GMB.Advertising",
+    "name": "GMB.Stats",
     "rootNamespace": "",
     "references": [
-        "GUID:ef7e0e3eb213f324c87b70a782844fb6",
-        "GUID:a00a5a85aa0854044a2f04d9aeace665"
+        "GUID:65a975ed4ffa4354182cf90b1019fefe"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

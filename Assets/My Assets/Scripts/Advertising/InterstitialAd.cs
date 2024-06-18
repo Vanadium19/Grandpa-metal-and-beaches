@@ -10,9 +10,15 @@ public class InterstitialAd : MonoBehaviour
 
     public event Action AdvertisingClosed;
 
-    public void Initialize(Button lockableButton) => _lockableButton = lockableButton;
+    public void Initialize(Button lockableButton)
+    {
+        _lockableButton = lockableButton;
+    }
 
-    public void Show() => Agava.YandexGames.InterstitialAd.Show(OnOpenCallback, OnCloseCallback);
+    public void Show()
+    {
+        Agava.YandexGames.InterstitialAd.Show(OnOpenCallback, OnCloseCallback);
+    }
 
     private void OnOpenCallback()
     {
