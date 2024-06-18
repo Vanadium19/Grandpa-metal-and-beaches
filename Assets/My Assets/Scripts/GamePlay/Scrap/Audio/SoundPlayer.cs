@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public abstract class SoundPlayer : MonoBehaviour
+internal abstract class SoundPlayer : MonoBehaviour
 {
     private AudioSource _audioSource;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+internal class PlayerStats : MonoBehaviour
 {
     private readonly int _firstElementIndex = 0;
     private readonly int _levelStep = 1;

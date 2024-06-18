@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class SpawnZone : MonoBehaviour
+internal class SpawnZone : MonoBehaviour
 {
     [SerializeField] private Transform _cornerPoint;
 
     private Transform _transform;
 
-    private void Awake() => _transform = transform;
+    private void Awake()
+    {
+        _transform = transform;
+    }
 
     public Vector3 GetRandomPointInZone()
     {

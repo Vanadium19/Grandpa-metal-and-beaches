@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressBar : MonoBehaviour
+internal class ProgressBar : MonoBehaviour
 {
     [SerializeField] private Dumpster _dumpster;
     [SerializeField] private Slider _slider;
@@ -11,9 +11,15 @@ public class ProgressBar : MonoBehaviour
     private float _targetWeight;
     private float _currentWeight;
 
-    private void OnEnable() => _dumpster.ScrapCollected += AddWeight;
+    private void OnEnable()
+    {
+        _dumpster.ScrapCollected += AddWeight;
+    }
 
-    private void OnDisable() => _dumpster.ScrapCollected -= AddWeight;
+    private void OnDisable()
+    {
+        _dumpster.ScrapCollected -= AddWeight;
+    }
 
     public void Initialize(float targetWeight, float currentWeight)
     {

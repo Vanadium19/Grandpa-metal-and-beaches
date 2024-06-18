@@ -13,11 +13,20 @@ internal class ButtonDisplay : MonoBehaviour
 
     private Animator _animator;
 
-    private void Awake() => _animator = GetComponent<Animator>();
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
-    public void SetAnimationTrigger(int triggerName) => _animator.SetTrigger(triggerName);
+    public void SetAnimationTrigger(int triggerName)
+    {
+        _animator.SetTrigger(triggerName);
+    }
 
-    public void SetSlider(float value) => _slider.value = value;
+    public void SetSlider(float value)
+    {
+        _slider.value = value;
+    }
 
     public void Off()
     {

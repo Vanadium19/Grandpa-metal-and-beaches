@@ -38,11 +38,14 @@ internal class YandexLeaderboardFiller : MonoBehaviour
         });
     }
 
-    private string GetAnonymousName() => YandexGamesSdk.Environment.i18n.lang switch
+    private string GetAnonymousName()
     {
-        Localizer.Russian => RussianAnonymousName,
-        Localizer.English => EnglishAnonymousName,
-        Localizer.Turkish => TurkishAnonymousName,
-        _ => EnglishAnonymousName,
-    };
+        return YandexGamesSdk.Environment.i18n.lang switch
+        {
+            Localizer.Russian => RussianAnonymousName,
+            Localizer.English => EnglishAnonymousName,
+            Localizer.Turkish => TurkishAnonymousName,
+            _ => EnglishAnonymousName,
+        };
+    }
 }

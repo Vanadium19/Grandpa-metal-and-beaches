@@ -2,15 +2,16 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(BoxCollider))]
-public class Money : MonoBehaviour
+internal class Money : MonoBehaviour
 {
     private readonly float _delay = 1f;
 
     private Animator _animator;
     private BoxCollider _collider;
     private MoneyPool _moneyPool;
+    private float _value;
 
-    public float Value { get; private set; }
+    public float Value => _value;
 
     private void Awake()
     {
@@ -31,7 +32,10 @@ public class Money : MonoBehaviour
         Invoke(nameof(Push), _delay);
     }
 
-    public void SetValue(float value) => Value = value;
+    public void SetValue(float value)
+    {
+        _value = value;
+    }
 
     private void Push()
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 internal class PlayerMover : MonoBehaviour
 {
+    private readonly float _zeroSpeed = 0;
+
     [SerializeField] private Animator _animator;
 
     private float _speed;
@@ -25,9 +27,9 @@ internal class PlayerMover : MonoBehaviour
         Rotate();
     }
 
-    public void Stop()
+    public void StopPlayer()
     {
-        _speed = 0;
+        _speed = _zeroSpeed;
     }
 
     public void SetSpeed(float speed)

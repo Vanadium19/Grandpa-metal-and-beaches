@@ -8,7 +8,7 @@ public static class StaticParams
         public static readonly int CollectMoney = Animator.StringToHash("CollectMoney");
         public static readonly int NoMoney = Animator.StringToHash("NoMoney");
         public static readonly int Buy = Animator.StringToHash("Buy");
-    }
+    };
 
     public static class GameNames
     {
@@ -24,5 +24,5 @@ public static class StaticParams
         public static readonly string Bag = "Bag";
         public static readonly string Speed = "Speed";
         public static readonly string ScrapCollector = "ScrapCollector";
-    }
+    };
 }

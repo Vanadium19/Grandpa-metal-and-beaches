@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Bag : MonoBehaviour
+internal class Bag : MonoBehaviour
 {
     [SerializeField] private PlayerStats _playerStats;
 
@@ -35,7 +35,10 @@ public class Bag : MonoBehaviour
         _playerStats.PlayerUpgraded -= ChangeCapacity;
     }
 
-    public bool CanAdd(Scrap scrap) => CurrentWeight + scrap.Info.Weight <= _capacity;
+    public bool CanAdd(Scrap scrap)
+    {
+        return CurrentWeight + scrap.Info.Weight <= _capacity;
+    }
 
     public void Add(Scrap scrap)
     {

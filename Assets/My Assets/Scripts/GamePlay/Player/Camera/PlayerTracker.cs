@@ -5,6 +5,7 @@ internal class PlayerTracker : MonoBehaviour
     [SerializeField] private Transform _target;
 
     private Transform _transform;
+    private Vector3 _position;
     private float _lagX;
     private float _lagZ;
 
@@ -17,6 +18,8 @@ internal class PlayerTracker : MonoBehaviour
 
     private void LateUpdate()
     {
-        _transform.position = new Vector3(_target.position.x - _lagX, _transform.position.y, _target.position.z - _lagZ);
+        _position = new Vector3(_target.position.x - _lagX, _transform.position.y, _target.position.z - _lagZ);
+
+        _transform.position = _position;
     }
 }

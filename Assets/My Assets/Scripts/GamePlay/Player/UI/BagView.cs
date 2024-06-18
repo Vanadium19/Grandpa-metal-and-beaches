@@ -8,9 +8,15 @@ internal class BagView : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Bag _bag;
 
-    private void OnEnable() => _bag.ContentChanged += OnContentChanged;
+    private void OnEnable()
+    {
+        _bag.ContentChanged += OnContentChanged;
+    }
 
-    private void OnDisable() => _bag.ContentChanged -= OnContentChanged;
+    private void OnDisable()
+    {
+        _bag.ContentChanged -= OnContentChanged;
+    }
 
     private void OnContentChanged(float weight)
     {

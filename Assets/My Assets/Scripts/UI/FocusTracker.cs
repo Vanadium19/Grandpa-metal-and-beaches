@@ -1,7 +1,7 @@
 using Agava.WebUtility;
 using UnityEngine;
 
-public class FocusTracker : MonoBehaviour
+internal class FocusTracker : MonoBehaviour
 {
     private float _currentTimeScale = 1f;
     private float _currentVolume;

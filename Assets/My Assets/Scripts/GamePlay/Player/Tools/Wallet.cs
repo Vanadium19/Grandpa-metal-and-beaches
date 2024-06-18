@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Wallet : MonoBehaviour
+internal class Wallet : MonoBehaviour
 {
     private float _money;
 

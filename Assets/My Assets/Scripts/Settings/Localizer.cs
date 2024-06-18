@@ -11,6 +11,8 @@ public class Localizer : MonoBehaviour
     public const string English = "en";
     public const string Turkish = "tr";
 
+    [SerializeField] private LeanLocalization _leanLocalization;
+
     private void Awake()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -25,19 +27,19 @@ public class Localizer : MonoBehaviour
         switch (languageCode)
         {
             case Russian:
-                LeanLocalization.SetCurrentLanguageAll(RussianCode);
+                _leanLocalization.SetCurrentLanguage(RussianCode);
                 break;
 
             case English:
-                LeanLocalization.SetCurrentLanguageAll(EnglishCode);
+                _leanLocalization.SetCurrentLanguage(EnglishCode);
                 break;
 
             case Turkish:
-                LeanLocalization.SetCurrentLanguageAll(TurkishCode);
+                _leanLocalization.SetCurrentLanguage(TurkishCode);
                 break;
 
             default:
-                LeanLocalization.SetCurrentLanguageAll(EnglishCode);
+                _leanLocalization.SetCurrentLanguage(EnglishCode);
                 break;
         }
     }

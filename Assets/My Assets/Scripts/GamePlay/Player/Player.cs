@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMover))]
-public class Player : MonoBehaviour
+internal class Player : MonoBehaviour
 {
     private readonly float _minPositionY = -7f;
 
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     public void StopMove()
     {
-        _playerMover.Stop();
+        _playerMover.StopPlayer();
     }
 
     public void ContinueMove()

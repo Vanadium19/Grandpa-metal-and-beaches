@@ -32,7 +32,10 @@ internal class UpgradePlayerButton : MonoBehaviour
         InitializeButton();
     }
 
-    private void Start() => InitializeButton();
+    private void Start()
+    {
+        InitializeButton();
+    }
 
     private void OnDisable()
     {

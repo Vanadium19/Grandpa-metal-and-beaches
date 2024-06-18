@@ -12,7 +12,9 @@ public class CongratulationsPanel : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _text;
 
-    public bool IsFinished { get; private set; }
+    private bool _isFinished;
+
+    public bool IsFinished => _isFinished;
 
     public void Activate(float targetValue)
     {
@@ -37,6 +39,6 @@ public class CongratulationsPanel : MonoBehaviour
         yield return _closePanelDelay;
 
         _player.ContinueMove();
-        IsFinished = true;
+        _isFinished = true;
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Level", menuName = "Levels/Create new Level", order = 52)]
-public class LevelGoals : ScriptableObject
+internal class LevelGoals : ScriptableObject
 {
     [SerializeField] private float _number;
     [SerializeField] private float _targetWeight;

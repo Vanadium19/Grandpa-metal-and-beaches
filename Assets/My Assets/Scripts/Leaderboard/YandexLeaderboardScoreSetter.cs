@@ -5,7 +5,10 @@ public class YandexLeaderboardScoreSetter : MonoBehaviour
 {
     private const string LeaderboardName = "Leaderboard";
 
-    public void UpdatePlayerScore(float weight) => SetPlayerScore((int)Mathf.Round(weight));
+    public void UpdatePlayerScore(float weight)
+    {
+        SetPlayerScore((int)Mathf.Round(weight));
+    }
 
     public void SetPlayerScore(int score)
     {

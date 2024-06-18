@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Water : MonoBehaviour
+internal class Water : MonoBehaviour
 {
     [SerializeField] private GameObject _alertPanel;
     [SerializeField] private AudioSource _alertSound;

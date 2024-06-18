@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomSoundPlayer : SoundPlayer
+internal class RandomSoundPlayer : SoundPlayer
 {
     [SerializeField] private List<AudioClip> _audioClips;
 

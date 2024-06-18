@@ -20,7 +20,10 @@ internal class LevelSpawner : MonoBehaviour
         _scrapCollectorLevel = GameSaver.CollectorLevel;
     }
 
-    public void Initialize(float targetWeight) => _targetWeight = targetWeight;
+    public void Initialize(float targetWeight)
+    {
+        _targetWeight = targetWeight;
+    }
 
     public void StartSpawn()
     {

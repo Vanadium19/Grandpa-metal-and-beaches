@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MoneyZone))]
-public class MoneyPool : MonoBehaviour
+internal class MoneyPool : MonoBehaviour
 {
     private readonly Quaternion _moneyAngle = Quaternion.Euler(-90f, 0, 0);
 

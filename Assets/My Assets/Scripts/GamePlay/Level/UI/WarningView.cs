@@ -6,9 +6,15 @@ internal class WarningView : MonoBehaviour
     [SerializeField] private GameObject[] _alerts;
     [SerializeField] private ScrapCollector _scrapCollector;
 
-    private void OnEnable() => _scrapCollector.Alarmed += Set;
+    private void OnEnable()
+    {
+        _scrapCollector.Alarmed += Set;
+    }
 
-    private void OnDisable() => _scrapCollector.Alarmed -= Set;
+    private void OnDisable()
+    {
+        _scrapCollector.Alarmed -= Set;
+    }
 
     private void Set(Alerts alert)
     {

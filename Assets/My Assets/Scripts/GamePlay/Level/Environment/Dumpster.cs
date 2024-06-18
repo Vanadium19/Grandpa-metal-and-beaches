@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class Dumpster : MonoBehaviour
+internal class Dumpster : MonoBehaviour
 {
     private readonly float _musicDelay = 3f;
     private readonly float _scrapMagnetDelay = 0.5f;
@@ -16,7 +16,10 @@ public class Dumpster : MonoBehaviour
 
     public event Action<Scrap> ScrapCollected;
 
-    private void Awake() => _audioSource = GetComponent<AudioSource>();
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {

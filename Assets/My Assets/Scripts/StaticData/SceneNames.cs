@@ -1,6 +1,6 @@
-public static class SceneNames
+public enum SceneNames
 {
-    public static readonly string StartMenu = "StartMenu";
-    public static readonly string Menu = "Menu";
-    public static readonly string Game = "Game";
-}
+    StartMenu = 0,
+    Menu,
+    Game
+};

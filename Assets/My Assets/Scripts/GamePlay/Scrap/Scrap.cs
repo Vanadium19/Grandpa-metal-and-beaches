@@ -1,14 +1,18 @@
 using UnityEngine;
 
-public class Scrap : MonoBehaviour
+internal class Scrap : MonoBehaviour
 {
     [SerializeField] private float _rotationAngleX;
     [SerializeField] private ScrapInfo _info;
 
-    public bool IsCollected { get; private set; }
+    private bool _isCollected;
 
     public ScrapInfo Info => _info;
+    public bool IsCollected => _isCollected;
     public float RotationAngleX => _rotationAngleX;
 
-    public void Collect() => IsCollected = true;
+    public void Collect()
+    {
+        _isCollected = true;
+    }
 }

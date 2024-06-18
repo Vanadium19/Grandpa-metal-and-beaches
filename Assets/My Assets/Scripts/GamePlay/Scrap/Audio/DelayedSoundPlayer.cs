@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DelayedSoundPlayer : SoundPlayer
+internal class DelayedSoundPlayer : SoundPlayer
 {
     private readonly float _delay = 0.3f;
 

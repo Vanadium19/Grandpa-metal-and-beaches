@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Scrap", menuName = "Scrap/Create new Scrap", order =51)]
-public class ScrapInfo : ScriptableObject
+internal class ScrapInfo : ScriptableObject
 {
     [SerializeField] private float _weight;
     [SerializeField] private float _price;

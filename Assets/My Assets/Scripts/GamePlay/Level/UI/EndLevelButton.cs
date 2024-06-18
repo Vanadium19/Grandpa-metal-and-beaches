@@ -48,5 +48,8 @@ internal class EndLevelButton : MonoBehaviour
         _interstitialAd.Show();
     }
 
-    private void OnAdvertisingClosed() => _sceneLoader.Load();
+    private void OnAdvertisingClosed()
+    {
+        _sceneLoader.Load();
+    }
 }

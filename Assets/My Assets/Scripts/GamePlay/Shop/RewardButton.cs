@@ -11,11 +11,23 @@ internal class RewardButton : MonoBehaviour
 
     private Button _button;
 
-    private void Awake() => _button = GetComponent<Button>();
+    private void Awake()
+    {
+        _button = GetComponent<Button>();
+    }
 
-    private void OnEnable() => _button.onClick.AddListener(AddReward);
+    private void OnEnable()
+    {
+        _button.onClick.AddListener(AddReward);
+    }
 
-    private void OnDisable() => _button.onClick.RemoveListener(AddReward);
+    private void OnDisable()
+    {
+        _button.onClick.RemoveListener(AddReward);
+    }
 
-    private void AddReward() => _videoAd.Show(_button, _wallet.AddMoney, _rewardMoneyCount);
+    private void AddReward()
+    {
+        _videoAd.Show(_button, _wallet.AddMoney, _rewardMoneyCount);
+    }
 }
