@@ -15,13 +15,25 @@ public class Bag : MonoBehaviour
     public float Capacity => _capacity;
     private float CurrentWeight => _content.Sum(content => content.Info.Weight);
 
-    private void Awake() => _capacity = PlayerPrefs.GetFloat(GameSaverData.Bag);
+    private void Awake()
+    {
+        _capacity = GameSaver.BagCapacity;
+    }
 
-    private void OnEnable() => _playerStats.PlayerUpgraded += ChangeCapacity;
+    private void OnEnable()
+    {
+        _playerStats.PlayerUpgraded += ChangeCapacity;
+    }
 
-    private void Start() => ContentChanged?.Invoke(_content.Count);
+    private void Start()
+    {
+        ContentChanged?.Invoke(_content.Count);
+    }
 
-    private void OnDisable() => _playerStats.PlayerUpgraded -= ChangeCapacity;
+    private void OnDisable()
+    {
+        _playerStats.PlayerUpgraded -= ChangeCapacity;
+    }
 
     public bool CanAdd(Scrap scrap) => CurrentWeight + scrap.Info.Weight <= _capacity;
 

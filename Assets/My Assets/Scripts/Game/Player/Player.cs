@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
     public void ContinueMove()
     {
-        _playerMover.SetSpeed(PlayerPrefs.GetFloat(GameSaverData.Speed));
+        _playerMover.SetSpeed(GameSaver.Speed);
     }
 
     public void StartHeightTracking()

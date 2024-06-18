@@ -6,6 +6,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(InterstitialAd))]
 internal class EndLevelButton : MonoBehaviour
 {
+    private readonly float _defaultWeight = 0;
+
     private Button _button;
     private SceneLoader _sceneLoader;
     private InterstitialAd _interstitialAd;
@@ -23,7 +25,10 @@ internal class EndLevelButton : MonoBehaviour
         _interstitialAd.AdvertisingClosed += OnAdvertisingClosed;
     }
 
-    private void Start() => _interstitialAd.Initialize(_button);
+    private void Start()
+    {
+        _interstitialAd.Initialize(_button);
+    }
 
     private void OnDisable()
     {
@@ -33,9 +38,8 @@ internal class EndLevelButton : MonoBehaviour
 
     private void SaveProgress()
     {
-        PlayerPrefs.SetInt(GameSaverData.Level, PlayerPrefs.GetInt(GameSaverData.Level, GameSaverData.LevelStep) + GameSaverData.LevelStep);
-        PlayerPrefs.SetFloat(GameSaverData.CurrentWeight, 0);
-        PlayerPrefs.Save();
+        GameSaver.SetNextLevel();
+        GameSaver.SetCurrentWeight(_defaultWeight);
     }
 
     private void FinishLevel()

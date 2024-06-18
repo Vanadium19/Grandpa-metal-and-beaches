@@ -15,11 +15,17 @@ internal class LevelSpawner : MonoBehaviour
     private float _targetWeight;
     private float _scrapCollectorLevel;
 
-    private void Awake() => _scrapCollectorLevel = PlayerPrefs.GetFloat(GameSaverData.ScrapCollector);
+    private void Awake()
+    {
+        _scrapCollectorLevel = GameSaver.CollectorLevel;
+    }
 
     public void Initialize(float targetWeight) => _targetWeight = targetWeight;
 
-    public void StartSpawn() => SpawnScraps();
+    public void StartSpawn()
+    {
+        SpawnScraps();
+    }
 
     private void SpawnScraps()
     {

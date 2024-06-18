@@ -10,7 +10,7 @@ internal class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        if (!PlayerPrefs.HasKey(GameSaverData.Tutorial + _name))
+        if (GameSaver.IsTutorialCompleted(_name) == false)
             TurnOnTutorial();
 
         enabled = false;
@@ -21,9 +21,7 @@ internal class Tutorial : MonoBehaviour
         ClosePanels();
         _tutorialPanel.SetActive(true);
         _menu.StopTime();
-
-        PlayerPrefs.SetInt(GameSaverData.Tutorial + _name, Convert.ToInt16(true));
-        PlayerPrefs.Save();
+        GameSaver.SaveTutorial(_name);
     }
 
     private void ClosePanels()

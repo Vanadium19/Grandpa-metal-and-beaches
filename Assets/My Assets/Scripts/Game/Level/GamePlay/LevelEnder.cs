@@ -13,11 +13,20 @@ internal class LevelEnder : MonoBehaviour
     private LeaderboardUpdater _leaderboardUpdater;
     private bool _isLevelEnded;
 
-    private void Awake() => _leaderboardUpdater = GetComponent<LeaderboardUpdater>();
+    private void Awake()
+    {
+        _leaderboardUpdater = GetComponent<LeaderboardUpdater>();
+    }
 
-    private void OnEnable() => _dumpster.ScrapCollected += UpdateProgress;
+    private void OnEnable()
+    {
+        _dumpster.ScrapCollected += UpdateProgress;
+    }
 
-    private void OnDisable() => _dumpster.ScrapCollected -= UpdateProgress;
+    private void OnDisable()
+    {
+        _dumpster.ScrapCollected -= UpdateProgress;
+    }
 
     public void Initialize(float targetWeight, float currentWeight)
     {
@@ -29,21 +38,14 @@ internal class LevelEnder : MonoBehaviour
 
     private void AddWeight(float weight)
     {
-        var allWeight = PlayerPrefs.GetFloat(GameSaverData.Weight) + weight;
-
         _currentWeight += weight;
-        SaveProgress(allWeight);
+
+        GameSaver.SetCurrentWeight(_currentWeight);
+        GameSaver.SetWeight(weight);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-_leaderboardUpdater.Execute(allWeight);
+_leaderboardUpdater.Execute(GameSaver.Weight);
 #endif
-    }
-
-    private void SaveProgress(float allWeight)
-    {
-        PlayerPrefs.SetFloat(GameSaverData.Weight, allWeight);
-        PlayerPrefs.SetFloat(GameSaverData.CurrentWeight, _currentWeight);
-        PlayerPrefs.Save();
     }
 
     private IEnumerator FinishLevel()

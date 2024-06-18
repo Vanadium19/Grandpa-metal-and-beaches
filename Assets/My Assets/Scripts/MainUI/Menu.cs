@@ -8,9 +8,15 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private FocusTracker _focusTracker;
 
-    public void OpenPanel(GameObject panel) => panel.SetActive(true);
+    public void OpenPanel(GameObject panel)
+    {
+        panel.SetActive(true);
+    }
 
-    public void ClosePanel(GameObject panel) => panel.SetActive(false);
+    public void ClosePanel(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
 
     public void ContinueTime()
     {
@@ -26,7 +32,7 @@ public class Menu : MonoBehaviour
 
     public void ContinueMusic()
     {
-        var volume = PlayerPrefs.GetFloat(GameSaverData.Audio, GameSaverData.DefaultVolume);
+        var volume = GameSaver.Volume;
 
         AudioListener.volume = volume;
         _focusTracker.SetCurrentVolume(volume);

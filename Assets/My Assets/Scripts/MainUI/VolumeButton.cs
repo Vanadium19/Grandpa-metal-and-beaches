@@ -23,11 +23,8 @@ internal class VolumeButton : MonoBehaviour
     private void OnEnable()
     {
         _volumeButton.onClick.AddListener(Change);
-    }
 
-    private void Start()
-    {
-        _icon.sprite = AudioListener.volume == _maxVolume ? _volumeOnImage : _volumeOffImage;
+        _icon.sprite = Mathf.Approximately(AudioListener.volume, _maxVolume) ? _volumeOnImage : _volumeOffImage;
     }
 
     private void OnDisable()
@@ -37,13 +34,21 @@ internal class VolumeButton : MonoBehaviour
 
     public void Change()
     {
-        var volume = Mathf.Approximately(AudioListener.volume, _maxVolume) ? _minVolume : _maxVolume;
+        float volume = AudioListener.volume;
 
-        AudioListener.volume = volume;
+        if (Mathf.Approximately(volume, _maxVolume))
+        {
+            volume = _minVolume;
+            _icon.sprite = _volumeOffImage;
+        }
+        else
+        {
+            volume = _maxVolume;
+            _icon.sprite = _volumeOnImage;
+        }
+
         _focusTracker.SetCurrentVolume(volume);
-        _icon.sprite = Mathf.Approximately(volume, _minVolume) ? _volumeOffImage : _volumeOnImage;
-
-        PlayerPrefs.SetFloat(GameSaverData.Audio, volume);
-        PlayerPrefs.Save();
+        AudioListener.volume = volume;
+        GameSaver.SetVolume(volume);
     }
 }

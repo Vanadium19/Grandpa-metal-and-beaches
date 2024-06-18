@@ -18,11 +18,20 @@ public class ScrapCollector : MonoBehaviour
 
     public event Action<Alerts> Alarmed;
 
-    private void Awake() => _level = PlayerPrefs.GetFloat(GameSaverData.ScrapCollector);
+    private void Awake()
+    {
+        _level = GameSaver.CollectorLevel;
+    }
 
-    private void OnEnable() => _playerStats.PlayerUpgraded += SetLevel;
+    private void OnEnable()
+    {
+        _playerStats.PlayerUpgraded += SetLevel;
+    }
 
-    private void OnDisable() => _playerStats.PlayerUpgraded -= SetLevel;
+    private void OnDisable()
+    {
+        _playerStats.PlayerUpgraded -= SetLevel;
+    }
 
     public void Collect(Scrap scrap)
     {
@@ -42,5 +51,8 @@ public class ScrapCollector : MonoBehaviour
         _scrapSounds.Play();
     }
 
-    private void SetLevel(float level) => _level = level;
+    private void SetLevel(float level)
+    {
+        _level = level;
+    }
 }

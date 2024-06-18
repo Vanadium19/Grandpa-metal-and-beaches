@@ -6,21 +6,21 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     private readonly int _firstElementIndex = 0;
+    private readonly int _levelStep = 1;
 
     [SerializeField] private List<Stat> _stats;
 
-    private string _levelName;
+    private string _statLevelName;
     private Stat _nextLevelStat;
 
     public event Action<float> PlayerUpgraded;
 
     public int MaxLevel => _stats.Count;
-    public int CurrentLevel => PlayerPrefs.GetInt(_levelName, GameSaverData.LevelStep);
+    public int CurrentLevel => GameSaver.GetStatLevelNumber(_statLevelName);
 
     private void Awake()
     {
-        _levelName = _stats[_firstElementIndex].GetType().ToString();
-        SetNextStat();
+        _statLevelName = _stats[_firstElementIndex].GetType().ToString();
     }
 
     public float GetPrice()
@@ -34,19 +34,12 @@ public class PlayerStats : MonoBehaviour
     public void UpdateLevel()
     {
         PlayerUpgraded?.Invoke(_nextLevelStat.Value);
-        SaveNewStat();
+        GameSaver.SetNextStatLevel(_statLevelName, _nextLevelStat.Name, _nextLevelStat.Value);
         SetNextStat();
-    }
-
-    private void SaveNewStat()
-    {
-        PlayerPrefs.SetFloat(_nextLevelStat.Name, _nextLevelStat.Value);
-        PlayerPrefs.SetInt(_levelName, _nextLevelStat.Level);
-        PlayerPrefs.Save();
     }
 
     private void SetNextStat()
     {
-        _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + GameSaverData.LevelStep);
+        _nextLevelStat = _stats.FirstOrDefault(stat => stat.Level == CurrentLevel + _levelStep);
     }
 }
