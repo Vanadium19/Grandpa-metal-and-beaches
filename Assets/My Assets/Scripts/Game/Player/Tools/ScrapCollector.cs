@@ -12,7 +12,7 @@ public class ScrapCollector : MonoBehaviour
     [SerializeField] private Bag _bag;
     [SerializeField] private ScrapMagnet _scrapMagnet;
     [SerializeField] private PlayerStats _playerStats;
-    [SerializeField] private ScrapSounds _scrapSounds;
+    [SerializeField] private SoundPlayer _soundPlayer;
 
     private float _level;
 
@@ -48,7 +48,7 @@ public class ScrapCollector : MonoBehaviour
         scrap.Collect();
         _bag.Add(scrap);
         _scrapMagnet.StartAttract(scrap.transform);
-        _scrapSounds.Play();
+        _soundPlayer.Play();
     }
 
     private void SetLevel(float level)

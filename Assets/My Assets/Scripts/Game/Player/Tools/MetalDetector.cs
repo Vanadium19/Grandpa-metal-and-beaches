@@ -3,7 +3,7 @@ using UnityEngine;
 internal class MetalDetector : MonoBehaviour
 {
     [SerializeField] private ScrapCollector _scrapCollector;
-    [SerializeField] private MoneySound _moneySound;
+    [SerializeField] private SoundPlayer _soundPlayer;
     [SerializeField] private Wallet _wallet;
 
     private void OnTriggerEnter(Collider collider)
@@ -17,7 +17,7 @@ internal class MetalDetector : MonoBehaviour
     private void CollectMoney(Money money)
     {
         _wallet.AddMoney(money.Value);
-        _moneySound.Play();
+        _soundPlayer.Play();
         money.Collect();
     }
 }

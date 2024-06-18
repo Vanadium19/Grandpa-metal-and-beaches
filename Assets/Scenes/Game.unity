@@ -2324,7 +2324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scrapCollector: {fileID: 229907539}
-  _moneySound: {fileID: 388427982}
+  _soundPlayer: {fileID: 388427982}
   _wallet: {fileID: 229907546}
 --- !u!65 &132733403
 BoxCollider:
@@ -3280,7 +3280,7 @@ MonoBehaviour:
   _bag: {fileID: 229907538}
   _scrapMagnet: {fileID: 132733404}
   _playerStats: {fileID: 1825009543}
-  _scrapSounds: {fileID: 1897263734}
+  _soundPlayer: {fileID: 1897263734}
 --- !u!114 &229907540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5320,7 +5320,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 388427980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b43329bc39d8b40ba248e9d897f23e, type: 3}
+  m_Script: {fileID: 11500000, guid: 092ed2391347a4940bd900e504ae9bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &388427983
@@ -70460,13 +70460,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _axisOptions: 0
   _background: {fileID: 8170153791724964229}
+  _handle: {fileID: 8170153793054372767}
   _handleRange: 1
   _deadZone: 0
-  _axisOptions: 0
   _snapX: 0
   _snapY: 0
-  _handle: {fileID: 8170153793054372767}
 --- !u!114 &8170153793054372764
 MonoBehaviour:
   m_ObjectHideFlags: 0
