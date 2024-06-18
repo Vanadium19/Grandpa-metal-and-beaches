@@ -8,7 +8,7 @@ public enum AxisOptions
     Vertical
 };
 
-internal class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
+public class FloatingJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     private readonly float _snappingValue = 1f;
     private readonly float _snappingZeroValue = 0f;
