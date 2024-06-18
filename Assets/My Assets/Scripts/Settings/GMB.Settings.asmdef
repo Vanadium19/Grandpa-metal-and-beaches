@@ -1,0 +1,19 @@
+{
+    "name": "GMB.Settings",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ef7e0e3eb213f324c87b70a782844fb6",
+        "GUID:218c8d088c76f5f45b9b3de347da2c05",
+        "GUID:65a975ed4ffa4354182cf90b1019fefe",
+        "GUID:7dbc78e81ddd0914f8d886112e909274"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

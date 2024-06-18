@@ -12,7 +12,13 @@ internal class WalletView : MonoBehaviour
         _wallet.MoneyChanged += OnMoneyChanged;
     }
 
-    private void OnDisable() => _wallet.MoneyChanged -= OnMoneyChanged;
+    private void OnDisable()
+    {
+        _wallet.MoneyChanged -= OnMoneyChanged;
+    }
 
-    private void OnMoneyChanged(float money) => _money.text = money.ToString();
+    private void OnMoneyChanged(float money)
+    {
+        _money.text = money.ToString();
+    }
 }

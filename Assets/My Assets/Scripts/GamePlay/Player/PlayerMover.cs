@@ -25,9 +25,15 @@ internal class PlayerMover : MonoBehaviour
         Rotate();
     }
 
-    public void Stop() => _speed = 0;
+    public void Stop()
+    {
+        _speed = 0;
+    }
 
-    public void SetSpeed(float speed) => _speed = speed;
+    public void SetSpeed(float speed)
+    {
+        _speed = speed;
+    }
 
     private void Rotate()
     {
@@ -39,6 +45,6 @@ internal class PlayerMover : MonoBehaviour
     {
         var horizontalVelocity = _rigidbody.velocity.y * Vector3.up;
         _rigidbody.velocity = horizontalVelocity + _playerInput.MoveInput * _speed;
-        _animator.SetBool(AnimatorStaticData.Names.Walking, _playerInput.MoveInput != Vector3.zero);
+        _animator.SetBool(StaticParams.AnimatorNames.Walking, _playerInput.MoveInput != Vector3.zero);
     }
 }

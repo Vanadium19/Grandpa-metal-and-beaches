@@ -1,0 +1,16 @@
+{
+    "name": "GMB.Stats",
+    "rootNamespace": "",
+    "references": [
+        "GUID:65a975ed4ffa4354182cf90b1019fefe"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

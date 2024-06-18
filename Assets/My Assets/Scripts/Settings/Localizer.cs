@@ -2,7 +2,7 @@ using Agava.YandexGames;
 using Lean.Localization;
 using UnityEngine;
 
-internal class Localizer : MonoBehaviour
+public class Localizer : MonoBehaviour
 {
     public const string RussianCode = "Russian";
     public const string EnglishCode = "English";
