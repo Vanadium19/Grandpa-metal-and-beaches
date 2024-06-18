@@ -1,14 +1,20 @@
 using UnityEngine;
 
-internal class ATM : MonoBehaviour
+internal class ÑashMachine : MonoBehaviour
 {
     [SerializeField] private GameObject _pointer;
     [SerializeField] private Dumpster _dumpster;
     [SerializeField] private MoneyPool _moneyPool;
 
-    private void OnEnable() => _dumpster.ScrapCollected += GiveMoney;
+    private void OnEnable()
+    {
+        _dumpster.ScrapCollected += GiveMoney;
+    }
 
-    private void OnDisable() => _dumpster.ScrapCollected -= GiveMoney;
+    private void OnDisable()
+    {
+        _dumpster.ScrapCollected -= GiveMoney;
+    }
 
     private void OnTriggerEnter(Collider collider)
     {

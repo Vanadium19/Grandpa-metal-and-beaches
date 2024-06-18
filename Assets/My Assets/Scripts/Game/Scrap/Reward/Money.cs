@@ -26,7 +26,7 @@ public class Money : MonoBehaviour
 
     public void Collect()
     {
-        _animator.SetTrigger(AnimatorNames.CollectMoney);
+        _animator.SetTrigger(AnimatorStaticData.Names.CollectMoney);
         _collider.enabled = false;
         Invoke(nameof(Push), _delay);
     }

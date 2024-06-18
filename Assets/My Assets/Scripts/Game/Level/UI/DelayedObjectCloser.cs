@@ -1,12 +1,15 @@
 using UnityEngine;
 
-internal class AlertCloser : MonoBehaviour
+internal class DelayedObjectCloser : MonoBehaviour
 {
     [SerializeField] private float _delay = 3f;
 
     private float _elapsedTime = 0;
 
-    private void OnEnable() => _elapsedTime = 0;
+    private void OnEnable()
+    {
+        _elapsedTime = 0;
+    }
 
     private void Update()
     {
