@@ -3261,7 +3261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: Turkish
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
@@ -4907,7 +4907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041B\u0438\u0434\u0435\u0440\u0431\u043E\u0440\u0434"
+  m_text: "Liderler S\u0131ralamas\u0131"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -4934,7 +4934,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 60.85
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5056,7 +5056,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0418\u0433\u0440\u0430\u0442\u044C"
+  m_text: Oynamak
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -5164,10 +5164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377a3bc0c62467e49896ac32b94a5ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstLevelStats:
-  - {fileID: 11400000, guid: b7575ea5c2b82c54ea1633388fb53c74, type: 2}
-  - {fileID: 11400000, guid: da49947dda2338b4aaec0e5a3e4bb88d, type: 2}
-  - {fileID: 11400000, guid: 166a239a61233f74c8cd728209f9bf84, type: 2}
 --- !u!4 &2134524507
 Transform:
   m_ObjectHideFlags: 0
@@ -5195,6 +5191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a2a083c33793e4d9707571c0d866d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _leanLocalization: {fileID: 1418465228}
 --- !u!114 &2134524510
 MonoBehaviour:
   m_ObjectHideFlags: 0
