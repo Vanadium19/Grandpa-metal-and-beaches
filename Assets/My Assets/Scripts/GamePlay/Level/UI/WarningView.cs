@@ -1,3 +1,4 @@
+using GMB.StaticData;
 using UnityEngine;
 
 internal class WarningView : MonoBehaviour

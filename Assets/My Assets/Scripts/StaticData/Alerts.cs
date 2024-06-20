@@ -1,5 +1,8 @@
-public enum Alerts
+namespace GMB.StaticData
 {
-    BagCrowded = 0,
-    OutOfLevel,
-};
+    public enum Alerts
+    {
+        BagCrowded = 0,
+        OutOfLevel,
+    };
+}

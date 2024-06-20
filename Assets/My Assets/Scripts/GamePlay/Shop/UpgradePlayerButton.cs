@@ -1,5 +1,6 @@
 using System;
 using GMB.Advertising;
+using GMB.StaticData;
 using UnityEngine;
 using UnityEngine.UI;
 

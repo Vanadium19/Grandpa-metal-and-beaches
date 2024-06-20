@@ -1,3 +1,4 @@
+using GMB.StaticData;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerInput))]

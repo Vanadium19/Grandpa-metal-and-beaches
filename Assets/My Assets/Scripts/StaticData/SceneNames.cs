@@ -1,6 +1,9 @@
-public enum SceneNames
+namespace GMB.StaticData
 {
-    StartMenu = 0,
-    Menu,
-    Game,
-};
+    public enum SceneNames
+    {
+        StartMenu = 0,
+        Menu,
+        Game,
+    };
+}

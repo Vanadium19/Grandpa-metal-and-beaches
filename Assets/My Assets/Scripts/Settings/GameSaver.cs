@@ -1,3 +1,4 @@
+using GMB.StaticData;
 using GMB.StatsConfig;
 using UnityEngine;
 

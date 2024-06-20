@@ -1,4 +1,5 @@
 using System;
+using GMB.StaticData;
 using UnityEngine;
 
 internal class ScrapCollector : MonoBehaviour
