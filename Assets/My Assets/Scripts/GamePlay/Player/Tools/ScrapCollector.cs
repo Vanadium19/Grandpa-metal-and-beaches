@@ -4,7 +4,7 @@ using UnityEngine;
 internal enum Alerts
 {
     BagCrowded = 0,
-    OutOfLevel
+    OutOfLevel,
 };
 
 internal class ScrapCollector : MonoBehaviour

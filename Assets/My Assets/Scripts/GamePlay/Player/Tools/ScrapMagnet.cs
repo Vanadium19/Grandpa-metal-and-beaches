@@ -22,7 +22,9 @@ internal class ScrapMagnet : MonoBehaviour
 
         while (Vector3.Distance(transform.position, scrap.position) >= range)
         {
-            scrap.position = Vector3.MoveTowards(scrap.position, transform.position, _speed * Time.deltaTime);
+            scrap.position = Vector3.MoveTowards(scrap.position,
+                transform.position, _speed * Time.deltaTime);
+
             elapsedTime += Time.deltaTime;
 
             if (elapsedTime >= _delay)

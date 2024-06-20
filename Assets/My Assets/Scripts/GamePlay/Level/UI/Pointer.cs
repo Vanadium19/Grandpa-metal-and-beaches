@@ -33,8 +33,11 @@ internal class Pointer : MonoBehaviour
 
         float clampedX = Mathf.Clamp(screenPosition.x, indent, Screen.width - indent);
         float clampedY = Mathf.Clamp(screenPosition.y, indent, Screen.height - indent);
+        Vector3 clampedPosition = new Vector3(clampedX, clampedY, screenPosition.z);
+
         screenPosition = Mathf.Approximately(clampedY, Screen.height - indent) ?
-            new Vector3(Screen.width / _screenWidthFactor, indent, 0) : new Vector3(clampedX, clampedY, screenPosition.z);
+            new Vector3(Screen.width / _screenWidthFactor, indent, 0) : clampedPosition;
+            
 
         _pointerTransform.position = screenPosition;
     }
