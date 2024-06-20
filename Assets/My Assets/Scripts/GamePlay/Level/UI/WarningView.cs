@@ -1,3 +1,4 @@
+using GMB.GamePlay.PlayerEnvironment;
 using GMB.StaticData;
 using UnityEngine;
 

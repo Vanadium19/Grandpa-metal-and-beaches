@@ -1,3 +1,4 @@
+using GMB.GamePlay.PlayerEnvironment;
 using UnityEngine;
 
 namespace GMB.GamePlay.Level

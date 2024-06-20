@@ -1,4 +1,5 @@
 using System.Collections;
+using GMB.GamePlay.PlayerEnvironment;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
