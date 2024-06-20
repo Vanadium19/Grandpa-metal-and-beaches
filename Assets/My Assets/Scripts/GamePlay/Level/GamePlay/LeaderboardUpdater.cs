@@ -1,4 +1,5 @@
 using System.Collections;
+using GMB.YandexLeaderboard;
 using UnityEngine;
 
 [RequireComponent(typeof(YandexLeaderboardScoreSetter))]
