@@ -1,14 +1,17 @@
 using UnityEngine.UI;
 
-internal class RaycastTarget : Graphic
+namespace GMB.UI
 {
-    public override void SetMaterialDirty()
+    internal class RaycastTarget : Graphic
     {
-        return;
-    }
+        public override void SetMaterialDirty()
+        {
+            return;
+        }
 
-    public override void SetVerticesDirty()
-    {
-        return;
+        public override void SetVerticesDirty()
+        {
+            return;
+        }
     }
 }

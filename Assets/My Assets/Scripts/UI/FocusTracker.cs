@@ -1,57 +1,60 @@
 using Agava.WebUtility;
 using UnityEngine;
 
-internal class FocusTracker : MonoBehaviour
+namespace GMB.UI
 {
-    private float _currentTimeScale = 1f;
-    private float _currentVolume;
-
-    private void Awake()
+    internal class FocusTracker : MonoBehaviour
     {
-        _currentVolume = GameSaver.Volume;
-    }
+        private float _currentTimeScale = 1f;
+        private float _currentVolume;
 
-    private void OnEnable()
-    {
-        Application.focusChanged += OnInBackgroundChangeApp;
-        WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
-    }
+        private void Awake()
+        {
+            _currentVolume = GameSaver.Volume;
+        }
 
-    private void OnDisable()
-    {
-        Application.focusChanged -= OnInBackgroundChangeApp;
-        WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
-    }
+        private void OnEnable()
+        {
+            Application.focusChanged += OnInBackgroundChangeApp;
+            WebApplication.InBackgroundChangeEvent += OnInBackgroundChangeWeb;
+        }
 
-    public void SetCurrentTimeScale(float value)
-    {
-        _currentTimeScale = value;
-    }
+        private void OnDisable()
+        {
+            Application.focusChanged -= OnInBackgroundChangeApp;
+            WebApplication.InBackgroundChangeEvent -= OnInBackgroundChangeWeb;
+        }
 
-    public void SetCurrentVolume(float value)
-    {
-        _currentVolume = value;
-    }
+        public void SetCurrentTimeScale(float value)
+        {
+            _currentTimeScale = value;
+        }
 
-    private void OnInBackgroundChangeApp(bool inApp)
-    {
-        MuteAudio(!inApp);
-        PauseGame(!inApp);
-    }
+        public void SetCurrentVolume(float value)
+        {
+            _currentVolume = value;
+        }
 
-    private void OnInBackgroundChangeWeb(bool isBackground)
-    {
-        MuteAudio(isBackground);
-        PauseGame(isBackground);
-    }
+        private void OnInBackgroundChangeApp(bool inApp)
+        {
+            MuteAudio(!inApp);
+            PauseGame(!inApp);
+        }
 
-    private void MuteAudio(bool value)
-    {
-        AudioListener.volume = value ? 0 : _currentVolume;
-    }
+        private void OnInBackgroundChangeWeb(bool isBackground)
+        {
+            MuteAudio(isBackground);
+            PauseGame(isBackground);
+        }
 
-    private void PauseGame(bool value)
-    {
-        Time.timeScale = value ? 0 : _currentTimeScale;
+        private void MuteAudio(bool value)
+        {
+            AudioListener.volume = value ? 0 : _currentVolume;
+        }
+
+        private void PauseGame(bool value)
+        {
+            Time.timeScale = value ? 0 : _currentTimeScale;
+        }
     }
 }
