@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public class Stat : ScriptableObject
 {
     [SerializeField] private int _level;
