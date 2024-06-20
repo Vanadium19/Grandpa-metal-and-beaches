@@ -1,45 +1,49 @@
 using System;
 using System.Collections.Generic;
+using GMB.Settings;
 using UnityEngine;
 
-internal class LevelStarter : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private List<LevelSpawner> _levelSpawners;
-    [SerializeField] private LevelEnder _levelEnder;
-    [SerializeField] private LevelsPool _levelsPool;
-    [SerializeField] private ProgressBar _progressBar;
-
-    private LevelGoals _levelGoals;
-
-    private void Awake()
+    internal class LevelStarter : MonoBehaviour
     {
-        FindLevelGoals();
-        Initialize();
-    }
+        [SerializeField] private List<LevelSpawner> _levelSpawners;
+        [SerializeField] private LevelEnder _levelEnder;
+        [SerializeField] private LevelsPool _levelsPool;
+        [SerializeField] private ProgressBar _progressBar;
 
-    private void Start()
-    {
-        foreach (var levelSpawner in _levelSpawners)
-            levelSpawner.StartSpawn();
-    }
+        private LevelGoals _levelGoals;
 
-    private void Initialize()
-    {
-        float targetWeight = _levelGoals.TargetWeight;
-        float currentWeight = GameSaver.CurrentWeight;
+        private void Awake()
+        {
+            FindLevelGoals();
+            Initialize();
+        }
 
-        foreach (var levelSpawner in _levelSpawners)
-            levelSpawner.Initialize(Mathf.Max(0, targetWeight - currentWeight));
+        private void Start()
+        {
+            foreach (var levelSpawner in _levelSpawners)
+                levelSpawner.StartSpawn();
+        }
 
-        _levelEnder.Initialize(targetWeight, currentWeight);
-        _progressBar.Initialize(targetWeight, currentWeight);
-    }
+        private void Initialize()
+        {
+            float targetWeight = _levelGoals.TargetWeight;
+            float currentWeight = GameSaver.CurrentWeight;
 
-    private void FindLevelGoals()
-    {
-        _levelGoals = _levelsPool.GetCurrentLevel();
+            foreach (var levelSpawner in _levelSpawners)
+                levelSpawner.Initialize(Mathf.Max(0, targetWeight - currentWeight));
 
-        if (_levelGoals == null)
-            throw new ArgumentOutOfRangeException(nameof(LevelGoals));
+            _levelEnder.Initialize(targetWeight, currentWeight);
+            _progressBar.Initialize(targetWeight, currentWeight);
+        }
+
+        private void FindLevelGoals()
+        {
+            _levelGoals = _levelsPool.GetCurrentLevel();
+
+            if (_levelGoals == null)
+                throw new ArgumentOutOfRangeException(nameof(LevelGoals));
+        }
     }
 }

@@ -1,16 +1,19 @@
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-internal abstract class SoundPlayer : MonoBehaviour
+namespace GMB.GamePlay.ScrapConfig
 {
-    private AudioSource _audioSource;
-
-    protected AudioSource Source => _audioSource;
-
-    private void Awake()
+    [RequireComponent(typeof(AudioSource))]
+    internal abstract class SoundPlayer : MonoBehaviour
     {
-        _audioSource = GetComponent<AudioSource>();
-    }
+        private AudioSource _audioSource;
 
-    public abstract void Play();
+        protected AudioSource Source => _audioSource;
+
+        private void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        public abstract void Play();
+    }
 }

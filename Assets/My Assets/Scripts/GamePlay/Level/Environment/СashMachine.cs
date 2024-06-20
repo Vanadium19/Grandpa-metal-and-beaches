@@ -1,34 +1,39 @@
+using GMB.GamePlay.PlayerEnvironment;
+using GMB.GamePlay.ScrapConfig;
 using UnityEngine;
 
-internal class ÑashMachine : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private GameObject _pointer;
-    [SerializeField] private Dumpster _dumpster;
-    [SerializeField] private MoneyPool _moneyPool;
-
-    private void OnEnable()
+    internal class ÑashMachine : MonoBehaviour
     {
-        _dumpster.ScrapCollected += GiveMoney;
-    }
+        [SerializeField] private GameObject _pointer;
+        [SerializeField] private Dumpster _dumpster;
+        [SerializeField] private MoneyPool _moneyPool;
 
-    private void OnDisable()
-    {
-        _dumpster.ScrapCollected -= GiveMoney;
-    }
+        private void OnEnable()
+        {
+            _dumpster.ScrapCollected += GiveMoney;
+        }
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.TryGetComponent(out Player player))
-            _pointer.SetActive(false);
-    }
+        private void OnDisable()
+        {
+            _dumpster.ScrapCollected -= GiveMoney;
+        }
 
-    private void GiveMoney(Scrap scrap)
-    {
-        var money = _moneyPool.Pull();
+        private void OnTriggerEnter(Collider collider)
+        {
+            if (collider.TryGetComponent(out Player player))
+                _pointer.SetActive(false);
+        }
 
-        money.gameObject.SetActive(true);
-        money.SetValue(scrap.Info.Price);
+        private void GiveMoney(Scrap scrap)
+        {
+            var money = _moneyPool.Pull();
 
-        _pointer.SetActive(true);
+            money.gameObject.SetActive(true);
+            money.SetValue(scrap.Info.Price);
+
+            _pointer.SetActive(true);
+        }
     }
 }

@@ -1,82 +1,87 @@
 using System.Collections.Generic;
 using System.Linq;
+using GMB.GamePlay.ScrapConfig;
+using GMB.Settings;
 using UnityEngine;
 
-internal class LevelSpawner : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    private readonly int _uncollectableScrapSpawnFactor = 5;
-    private readonly float _randomSpawnFactor = 10f;
-    private readonly float _maxAngleY = 359f;
-    private readonly float _angleXFactor = 5f;
-
-    [SerializeField] private SpawnZone _spawnZone;
-    [SerializeField] private List<Scrap> _scraps;
-
-    private float _targetWeight;
-    private float _scrapCollectorLevel;
-
-    private void Awake()
+    internal class LevelSpawner : MonoBehaviour
     {
-        _scrapCollectorLevel = GameSaver.CollectorLevel;
-    }
+        private readonly int _uncollectableScrapSpawnFactor = 5;
+        private readonly float _randomSpawnFactor = 10f;
+        private readonly float _maxAngleY = 359f;
+        private readonly float _angleXFactor = 5f;
 
-    public void Initialize(float targetWeight)
-    {
-        _targetWeight = targetWeight;
-    }
+        [SerializeField] private SpawnZone _spawnZone;
+        [SerializeField] private List<Scrap> _scraps;
 
-    public void StartSpawn()
-    {
-        SpawnScraps();
-    }
+        private float _targetWeight;
+        private float _scrapCollectorLevel;
 
-    private void SpawnScraps()
-    {
-        var scraps = _scraps.Where(scrap => scrap.Info.Rank <= _scrapCollectorLevel).ToList();
-        SpawnCollectableScrap(scraps);
-
-        scraps = _scraps.Where(scrap => scrap.Info.Rank > _scrapCollectorLevel).ToList();
-        SpawnUncollectableScrap(scraps);
-    }
-
-    private void SpawnCollectableScrap(List<Scrap> scraps)
-    {
-        if (scraps == null)
-            return;
-
-        float currentSpawnWeight = 0;
-        float targetWeight = _targetWeight + Random.Range(0, _randomSpawnFactor);
-
-        while (currentSpawnWeight < targetWeight)
+        private void Awake()
         {
-            foreach (var scrap in scraps)
+            _scrapCollectorLevel = GameSaver.CollectorLevel;
+        }
+
+        public void Initialize(float targetWeight)
+        {
+            _targetWeight = targetWeight;
+        }
+
+        public void StartSpawn()
+        {
+            SpawnScraps();
+        }
+
+        private void SpawnScraps()
+        {
+            var scraps = _scraps.Where(scrap => scrap.Info.Rank <= _scrapCollectorLevel).ToList();
+            SpawnCollectableScrap(scraps);
+
+            scraps = _scraps.Where(scrap => scrap.Info.Rank > _scrapCollectorLevel).ToList();
+            SpawnUncollectableScrap(scraps);
+        }
+
+        private void SpawnCollectableScrap(List<Scrap> scraps)
+        {
+            if (scraps == null)
+                return;
+
+            float currentSpawnWeight = 0;
+            float targetWeight = _targetWeight + Random.Range(0, _randomSpawnFactor);
+
+            while (currentSpawnWeight < targetWeight)
             {
-                Spawn(scrap);
-                currentSpawnWeight += scrap.Info.Weight;
+                foreach (var scrap in scraps)
+                {
+                    Spawn(scrap);
+                    currentSpawnWeight += scrap.Info.Weight;
+                }
             }
         }
-    }
 
-    private void SpawnUncollectableScrap(List<Scrap> scraps)
-    {
-        if (scraps == null)
-            return;
-
-        for (int i = 0; i < _uncollectableScrapSpawnFactor; i++)
+        private void SpawnUncollectableScrap(List<Scrap> scraps)
         {
-            foreach (var scrap in scraps)
+            if (scraps == null)
+                return;
+
+            for (int i = 0; i < _uncollectableScrapSpawnFactor; i++)
             {
-                Spawn(scrap);
+                foreach (var scrap in scraps)
+                {
+                    Spawn(scrap);
+                }
             }
         }
-    }
 
-    private void Spawn(Scrap scrap)
-    {
-        float angleX = Random.Range(scrap.RotationAngleX - _angleXFactor, scrap.RotationAngleX + _angleXFactor);
-        float angleY = Random.Range(0, _maxAngleY);
+        private void Spawn(Scrap scrap)
+        {
+            float angleX = Random.Range(scrap.RotationAngleX - _angleXFactor, scrap.RotationAngleX + _angleXFactor);
+            float angleY = Random.Range(0, _maxAngleY);
 
-        Quaternion rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
-        Instantiate(scrap, _spawnZone.GetRandomPointInZone(), rotation);
+            Quaternion rotation = Quaternion.Euler(new Vector3(angleX, angleY, 0));
+            Instantiate(scrap, _spawnZone.GetRandomPointInZone(), rotation);
+        }
     }
 }

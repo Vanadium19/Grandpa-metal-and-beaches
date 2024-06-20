@@ -3,32 +3,35 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+namespace GMB.UI
 {
-    private readonly float _percentFactor = 100f;
-
-    [Range(0, 2)]
-    [Tooltip("0 - StartMenu, 1 - Game, 2 - Menu")]
-    [SerializeField] private int _sceneNumber;
-
-    [SerializeField] private GameObject _loadPanel;
-    [SerializeField] private TMP_Text _percent;
-
-    public void Load()
+    public class SceneLoader : MonoBehaviour
     {
-        _loadPanel.SetActive(true);
-        StartCoroutine(StartLoad());
-    }
+        private readonly float _percentFactor = 100f;
 
-    private IEnumerator StartLoad()
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_sceneNumber);
+        [Range(0, 2)]
+        [Tooltip("0 - StartMenu, 1 - Game, 2 - Menu")]
+        [SerializeField] private int _sceneNumber;
 
-        while (asyncLoad.isDone == false)
+        [SerializeField] private GameObject _loadPanel;
+        [SerializeField] private TMP_Text _percent;
+
+        public void Load()
         {
-            float percent = Mathf.Round(asyncLoad.progress * _percentFactor);
-            _percent.text = $"{percent}%";
-            yield return null;
+            _loadPanel.SetActive(true);
+            StartCoroutine(StartLoad());
+        }
+
+        private IEnumerator StartLoad()
+        {
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_sceneNumber);
+
+            while (asyncLoad.isDone == false)
+            {
+                float percent = Mathf.Round(asyncLoad.progress * _percentFactor);
+                _percent.text = $"{percent}%";
+                yield return null;
+            }
         }
     }
 }

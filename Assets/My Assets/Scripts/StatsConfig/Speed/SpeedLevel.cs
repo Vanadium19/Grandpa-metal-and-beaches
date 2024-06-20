@@ -1,10 +1,14 @@
+using GMB.StaticData;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Stat", menuName = "Stats/Create new SpeedLevel", order = 54)]
-public class SpeedLevel : Stat
+namespace GMB.StatsConfig
 {
-    public SpeedLevel()
+    [CreateAssetMenu(fileName = "New Stat", menuName = "Stats/Create new SpeedLevel", order = 54)]
+    public class SpeedLevel : Stat
     {
-        SetName(StaticParams.GameNames.Speed);
+        private void Awake()
+        {
+            SetName(StaticGameData.Speed);
+        }
     }
 }

@@ -1,42 +1,46 @@
+using GMB.GamePlay.ScrapConfig;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-internal class ProgressBar : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private Dumpster _dumpster;
-    [SerializeField] private Slider _slider;
-    [SerializeField] private TMP_Text _text;
-
-    private float _targetWeight;
-    private float _currentWeight;
-
-    private void OnEnable()
+    internal class ProgressBar : MonoBehaviour
     {
-        _dumpster.ScrapCollected += AddWeight;
-    }
+        [SerializeField] private Dumpster _dumpster;
+        [SerializeField] private Slider _slider;
+        [SerializeField] private TMP_Text _text;
 
-    private void OnDisable()
-    {
-        _dumpster.ScrapCollected -= AddWeight;
-    }
+        private float _targetWeight;
+        private float _currentWeight;
 
-    public void Initialize(float targetWeight, float currentWeight)
-    {
-        _targetWeight = targetWeight;
-        _currentWeight = currentWeight;
-        UpdateDisplay();
-    }
+        private void OnEnable()
+        {
+            _dumpster.ScrapCollected += AddWeight;
+        }
 
-    private void UpdateDisplay()
-    {
-        _slider.value = _currentWeight / _targetWeight;
-        _text.text = $"{_currentWeight}/{_targetWeight}";
-    }
+        private void OnDisable()
+        {
+            _dumpster.ScrapCollected -= AddWeight;
+        }
 
-    private void AddWeight(Scrap scrap)
-    {
-        _currentWeight += scrap.Info.Weight;
-        UpdateDisplay();
+        public void Initialize(float targetWeight, float currentWeight)
+        {
+            _targetWeight = targetWeight;
+            _currentWeight = currentWeight;
+            UpdateDisplay();
+        }
+
+        private void UpdateDisplay()
+        {
+            _slider.value = _currentWeight / _targetWeight;
+            _text.text = $"{_currentWeight}/{_targetWeight}";
+        }
+
+        private void AddWeight(Scrap scrap)
+        {
+            _currentWeight += scrap.Info.Weight;
+            UpdateDisplay();
+        }
     }
 }

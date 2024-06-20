@@ -1,32 +1,36 @@
 using System.Collections;
+using GMB.YandexLeaderboard;
 using UnityEngine;
 
-[RequireComponent(typeof(YandexLeaderboardScoreSetter))]
-internal class LeaderboardUpdater : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    private readonly float _delayTime = 2f;
-
-    private YandexLeaderboardScoreSetter _leaderboardScoreSetter;
-    private Coroutine _scoreUpdating;
-    private WaitForSeconds _delay;
-
-    private void Awake()
+    [RequireComponent(typeof(YandexLeaderboardScoreSetter))]
+    internal class LeaderboardUpdater : MonoBehaviour
     {
-        _leaderboardScoreSetter = GetComponent<YandexLeaderboardScoreSetter>();
-        _delay = new WaitForSeconds(_delayTime);
-    }
+        private readonly float _delayTime = 2f;
 
-    public void Execute(float weight)
-    {
-        if (_scoreUpdating != null)
-            StopCoroutine(_scoreUpdating);
+        private YandexLeaderboardScoreSetter _leaderboardScoreSetter;
+        private Coroutine _scoreUpdating;
+        private WaitForSeconds _delay;
 
-        _scoreUpdating = StartCoroutine(UpdateLeaderboardScore(weight));
-    }
+        private void Awake()
+        {
+            _leaderboardScoreSetter = GetComponent<YandexLeaderboardScoreSetter>();
+            _delay = new WaitForSeconds(_delayTime);
+        }
 
-    private IEnumerator UpdateLeaderboardScore(float weight)
-    {
-        yield return _delay;
-        _leaderboardScoreSetter.UpdatePlayerScore(weight);
+        public void Execute(float weight)
+        {
+            if (_scoreUpdating != null)
+                StopCoroutine(_scoreUpdating);
+
+            _scoreUpdating = StartCoroutine(UpdateLeaderboardScore(weight));
+        }
+
+        private IEnumerator UpdateLeaderboardScore(float weight)
+        {
+            yield return _delay;
+            _leaderboardScoreSetter.UpdatePlayerScore(weight);
+        }
     }
 }
