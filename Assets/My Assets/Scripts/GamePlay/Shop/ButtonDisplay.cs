@@ -2,41 +2,44 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Animator))]
-internal class ButtonDisplay : MonoBehaviour
+namespace GMB.GamePlay.Shop
 {
-    private readonly string _maxText = "max";
-
-    [SerializeField] private Slider _slider;
-    [SerializeField] private TMP_Text _price;
-    [SerializeField] private GameObject _videoAdIcon;
-
-    private Animator _animator;
-
-    private void Awake()
+    [RequireComponent(typeof(Animator))]
+    internal class ButtonDisplay : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-    }
+        private readonly string _maxText = "max";
 
-    public void SetAnimationTrigger(int triggerName)
-    {
-        _animator.SetTrigger(triggerName);
-    }
+        [SerializeField] private Slider _slider;
+        [SerializeField] private TMP_Text _price;
+        [SerializeField] private GameObject _videoAdIcon;
 
-    public void SetSlider(float value)
-    {
-        _slider.value = value;
-    }
+        private Animator _animator;
 
-    public void Off()
-    {
-        _videoAdIcon.SetActive(false);
-        _price.text = _maxText;
-    }
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
 
-    public void UpdatePrice(bool isSalePrice, float price)
-    {
-        _videoAdIcon.SetActive(isSalePrice);
-        _price.text = price.ToString();
+        public void SetAnimationTrigger(int triggerName)
+        {
+            _animator.SetTrigger(triggerName);
+        }
+
+        public void SetSlider(float value)
+        {
+            _slider.value = value;
+        }
+
+        public void Off()
+        {
+            _videoAdIcon.SetActive(false);
+            _price.text = _maxText;
+        }
+
+        public void UpdatePrice(bool isSalePrice, float price)
+        {
+            _videoAdIcon.SetActive(isSalePrice);
+            _price.text = price.ToString();
+        }
     }
 }

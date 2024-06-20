@@ -1,5 +1,6 @@
 using System;
 using GMB.GamePlay.ScrapConfig;
+using GMB.GamePlay.Shop;
 using GMB.Settings;
 using GMB.StaticData;
 using UnityEngine;
