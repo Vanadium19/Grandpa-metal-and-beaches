@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using GMB.Settings;
 using UnityEngine;
 
 internal class LevelStarter : MonoBehaviour

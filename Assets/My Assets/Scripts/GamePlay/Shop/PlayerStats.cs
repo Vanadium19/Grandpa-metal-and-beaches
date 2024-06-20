@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GMB.Settings;
 using GMB.StatsConfig;
 using UnityEngine;
 

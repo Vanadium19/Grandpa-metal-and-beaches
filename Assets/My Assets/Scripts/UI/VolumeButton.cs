@@ -1,3 +1,4 @@
+using GMB.Settings;
 using UnityEngine;
 using UnityEngine.UI;
 

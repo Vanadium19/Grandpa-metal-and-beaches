@@ -1,4 +1,5 @@
 using Agava.WebUtility;
+using GMB.Settings;
 using UnityEngine;
 
 namespace GMB.UI

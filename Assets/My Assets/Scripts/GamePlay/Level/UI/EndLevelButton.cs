@@ -1,4 +1,5 @@
 using GMB.Advertising;
+using GMB.Settings;
 using GMB.UI;
 using UnityEngine;
 using UnityEngine.UI;

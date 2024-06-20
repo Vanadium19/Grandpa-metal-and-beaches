@@ -1,4 +1,5 @@
 using System.Collections;
+using GMB.Settings;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMover))]

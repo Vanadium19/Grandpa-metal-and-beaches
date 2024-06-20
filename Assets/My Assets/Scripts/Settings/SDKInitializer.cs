@@ -4,7 +4,7 @@ using GMB.StaticData;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Source.Yandex
+namespace GMB.Settings
 {
     internal sealed class SDKInitializer : MonoBehaviour
     {

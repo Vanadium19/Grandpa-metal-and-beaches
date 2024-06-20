@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Agava.YandexGames;
+using GMB.Settings;
 using UnityEngine;
 
 internal class YandexLeaderboardFiller : MonoBehaviour

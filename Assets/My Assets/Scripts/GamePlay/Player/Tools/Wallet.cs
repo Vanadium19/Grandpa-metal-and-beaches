@@ -1,4 +1,5 @@
 using System;
+using GMB.Settings;
 using UnityEngine;
 
 internal class Wallet : MonoBehaviour

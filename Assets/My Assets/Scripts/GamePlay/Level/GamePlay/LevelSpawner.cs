@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using GMB.Settings;
 using UnityEngine;
 
 internal class LevelSpawner : MonoBehaviour
