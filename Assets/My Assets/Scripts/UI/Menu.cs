@@ -1,46 +1,50 @@
+using GMB.Settings;
 using UnityEngine;
 
-public class Menu : MonoBehaviour
+namespace GMB.UI
 {
-    private readonly float _pauseTimeScale = 0f;
-    private readonly float _playTimeScale = 1f;
-    private readonly float _minVolume = 0;
-
-    [SerializeField] private FocusTracker _focusTracker;
-
-    public void OpenPanel(GameObject panel)
+    public class Menu : MonoBehaviour
     {
-        panel.SetActive(true);
-    }
+        private readonly float _pauseTimeScale = 0f;
+        private readonly float _playTimeScale = 1f;
+        private readonly float _minVolume = 0;
 
-    public void ClosePanel(GameObject panel)
-    {
-        panel.SetActive(false);
-    }
+        [SerializeField] private FocusTracker _focusTracker;
 
-    public void ContinueTime()
-    {
-        Time.timeScale = _playTimeScale;
-        _focusTracker.SetCurrentTimeScale(_playTimeScale);
-    }
+        public void OpenPanel(GameObject panel)
+        {
+            panel.SetActive(true);
+        }
 
-    public void StopTime()
-    {
-        Time.timeScale = _pauseTimeScale;
-        _focusTracker.SetCurrentTimeScale(_pauseTimeScale);
-    }
+        public void ClosePanel(GameObject panel)
+        {
+            panel.SetActive(false);
+        }
 
-    public void ContinueMusic()
-    {
-        var volume = GameSaver.Volume;
+        public void ContinueTime()
+        {
+            Time.timeScale = _playTimeScale;
+            _focusTracker.SetCurrentTimeScale(_playTimeScale);
+        }
 
-        AudioListener.volume = volume;
-        _focusTracker.SetCurrentVolume(volume);
-    }
+        public void StopTime()
+        {
+            Time.timeScale = _pauseTimeScale;
+            _focusTracker.SetCurrentTimeScale(_pauseTimeScale);
+        }
 
-    public void StopMusic()
-    {
-        AudioListener.volume = _minVolume;
-        _focusTracker.SetCurrentVolume(_minVolume);
+        public void ContinueMusic()
+        {
+            var volume = GameSaver.Volume;
+
+            AudioListener.volume = volume;
+            _focusTracker.SetCurrentVolume(volume);
+        }
+
+        public void StopMusic()
+        {
+            AudioListener.volume = _minVolume;
+            _focusTracker.SetCurrentVolume(_minVolume);
+        }
     }
 }

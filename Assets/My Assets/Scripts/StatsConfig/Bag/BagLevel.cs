@@ -1,10 +1,14 @@
+using GMB.StaticData;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Stat", menuName = "Stats/Create new BagLevel", order = 54)]
-public class BagLevel : Stat
+namespace GMB.StatsConfig
 {
-    public BagLevel()
+    [CreateAssetMenu(fileName = "New Stat", menuName = "Stats/Create new BagLevel", order = 54)]
+    public class BagLevel : Stat
     {
-        SetName(StaticParams.GameNames.Bag);
+        private void Awake()
+        {
+            SetName(StaticGameData.Bag);
+        }
     }
 }

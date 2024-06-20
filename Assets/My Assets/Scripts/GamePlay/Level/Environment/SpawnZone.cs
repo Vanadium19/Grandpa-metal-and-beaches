@@ -1,23 +1,26 @@
 using UnityEngine;
 
-internal class SpawnZone : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private Transform _cornerPoint;
-
-    private Transform _transform;
-
-    private void Awake()
+    internal class SpawnZone : MonoBehaviour
     {
-        _transform = transform;
-    }
+        [SerializeField] private Transform _cornerPoint;
 
-    public Vector3 GetRandomPointInZone()
-    {
-        Vector3 point = _transform.position;
+        private Transform _transform;
 
-        point += Vector3.right * Random.Range(-_cornerPoint.localPosition.x, _cornerPoint.localPosition.x);
-        point += Vector3.forward * Random.Range(-_cornerPoint.localPosition.z, _cornerPoint.localPosition.z);
+        private void Awake()
+        {
+            _transform = transform;
+        }
 
-        return point;
+        public Vector3 GetRandomPointInZone()
+        {
+            Vector3 point = _transform.position;
+
+            point += Vector3.right * Random.Range(-_cornerPoint.localPosition.x, _cornerPoint.localPosition.x);
+            point += Vector3.forward * Random.Range(-_cornerPoint.localPosition.z, _cornerPoint.localPosition.z);
+
+            return point;
+        }
     }
 }

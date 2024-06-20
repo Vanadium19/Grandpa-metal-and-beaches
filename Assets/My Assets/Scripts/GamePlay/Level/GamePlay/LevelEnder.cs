@@ -1,67 +1,72 @@
 using System.Collections;
+using GMB.GamePlay.ScrapConfig;
+using GMB.Settings;
 using UnityEngine;
 
-[RequireComponent(typeof(LeaderboardUpdater))]
-internal class LevelEnder : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private GameObject _endLevelButton;
-    [SerializeField] private Dumpster _dumpster;
-    [SerializeField] private CongratulationsPanel _congratulationsPanel;
-
-    private float _targetWeight;
-    private float _currentWeight;
-    private LeaderboardUpdater _leaderboardUpdater;
-    private bool _isLevelEnded;
-
-    private void Awake()
+    [RequireComponent(typeof(LeaderboardUpdater))]
+    internal class LevelEnder : MonoBehaviour
     {
-        _leaderboardUpdater = GetComponent<LeaderboardUpdater>();
-    }
+        [SerializeField] private GameObject _endLevelButton;
+        [SerializeField] private Dumpster _dumpster;
+        [SerializeField] private CongratulationsPanel _congratulationsPanel;
 
-    private void OnEnable()
-    {
-        _dumpster.ScrapCollected += UpdateProgress;
-    }
+        private float _targetWeight;
+        private float _currentWeight;
+        private LeaderboardUpdater _leaderboardUpdater;
+        private bool _isLevelEnded;
 
-    private void OnDisable()
-    {
-        _dumpster.ScrapCollected -= UpdateProgress;
-    }
+        private void Awake()
+        {
+            _leaderboardUpdater = GetComponent<LeaderboardUpdater>();
+        }
 
-    public void Initialize(float targetWeight, float currentWeight)
-    {
-        _targetWeight = targetWeight;
-        _currentWeight = currentWeight;
-        _isLevelEnded = _currentWeight >= _targetWeight;
-        _endLevelButton.SetActive(_isLevelEnded);
-    }
+        private void OnEnable()
+        {
+            _dumpster.ScrapCollected += UpdateProgress;
+        }
 
-    private void AddWeight(float weight)
-    {
-        _currentWeight += weight;
+        private void OnDisable()
+        {
+            _dumpster.ScrapCollected -= UpdateProgress;
+        }
 
-        GameSaver.SetCurrentWeight(_currentWeight);
-        GameSaver.SetWeight(weight);
+        public void Initialize(float targetWeight, float currentWeight)
+        {
+            _targetWeight = targetWeight;
+            _currentWeight = currentWeight;
+            _isLevelEnded = _currentWeight >= _targetWeight;
+            _endLevelButton.SetActive(_isLevelEnded);
+        }
+
+        private void AddWeight(float weight)
+        {
+            _currentWeight += weight;
+
+            GameSaver.SetCurrentWeight(_currentWeight);
+            GameSaver.SetWeight(weight);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
 _leaderboardUpdater.Execute(GameSaver.Weight);
 #endif
-    }
+        }
 
-    private IEnumerator FinishLevel()
-    {
-        _isLevelEnded = true;
-        _congratulationsPanel.Activate(_targetWeight);
-        yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
-        _congratulationsPanel.gameObject.SetActive(false);
-        _endLevelButton.SetActive(true);
-    }
+        private IEnumerator FinishLevel()
+        {
+            _isLevelEnded = true;
+            _congratulationsPanel.Activate(_targetWeight);
+            yield return new WaitUntil(() => _congratulationsPanel.IsFinished);
+            _congratulationsPanel.gameObject.SetActive(false);
+            _endLevelButton.SetActive(true);
+        }
 
-    private void UpdateProgress(Scrap scrap)
-    {
-        AddWeight(scrap.Info.Weight);
+        private void UpdateProgress(Scrap scrap)
+        {
+            AddWeight(scrap.Info.Weight);
 
-        if (!_isLevelEnded && _currentWeight >= _targetWeight)
-            StartCoroutine(FinishLevel());
+            if (!_isLevelEnded && _currentWeight >= _targetWeight)
+                StartCoroutine(FinishLevel());
+        }
     }
 }
