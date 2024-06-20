@@ -1,10 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Stat", menuName = "Stats/Create new ScrapCollectorLevel", order = 54)]
-public class ScrapCollectorLevel : Stat
+namespace GMB.StatsConfig
 {
-    public ScrapCollectorLevel()
+    [CreateAssetMenu(fileName = "New Stat", menuName = "Stats/Create new ScrapCollectorLevel", order = 54)]
+    public class ScrapCollectorLevel : Stat
     {
-        SetName(StaticGameData.ScrapCollector);
+        public ScrapCollectorLevel()
+        {
+            SetName(StaticGameData.ScrapCollector);
+        }
     }
 }

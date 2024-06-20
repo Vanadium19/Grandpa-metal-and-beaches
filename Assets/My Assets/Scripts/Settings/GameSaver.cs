@@ -1,3 +1,4 @@
+using GMB.StatsConfig;
 using UnityEngine;
 
 public static class GameSaver

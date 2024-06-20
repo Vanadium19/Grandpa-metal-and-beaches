@@ -1,10 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Stat", menuName = "Stats/Create new BagLevel", order = 54)]
-public class BagLevel : Stat
+namespace GMB.StatsConfig
 {
-    public BagLevel()
+    [CreateAssetMenu(fileName = "New Stat", menuName = "Stats/Create new BagLevel", order = 54)]
+    public class BagLevel : Stat
     {
-        SetName(StaticGameData.Bag);
+        public BagLevel()
+        {
+            SetName(StaticGameData.Bag);
+        }
     }
 }
