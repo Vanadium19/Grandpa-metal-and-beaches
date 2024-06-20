@@ -1,25 +1,28 @@
 using GMB.StaticData;
 using UnityEngine;
 
-internal class WarningView : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [Tooltip("0 - BagCrowded, 1 - OutOfLevel")]
-    [SerializeField] private GameObject[] _alerts;
-    [SerializeField] private ScrapCollector _scrapCollector;
-
-    private void OnEnable()
+    internal class WarningView : MonoBehaviour
     {
-        _scrapCollector.Alarmed += Set;
-    }
+        [Tooltip("0 - BagCrowded, 1 - OutOfLevel")]
+        [SerializeField] private GameObject[] _alerts;
+        [SerializeField] private ScrapCollector _scrapCollector;
 
-    private void OnDisable()
-    {
-        _scrapCollector.Alarmed -= Set;
-    }
+        private void OnEnable()
+        {
+            _scrapCollector.Alarmed += Set;
+        }
 
-    private void Set(Alerts alert)
-    {
-        for (int i = 0; i < _alerts.Length; i++)
-            _alerts[i].SetActive(i == (int)alert);
+        private void OnDisable()
+        {
+            _scrapCollector.Alarmed -= Set;
+        }
+
+        private void Set(Alerts alert)
+        {
+            for (int i = 0; i < _alerts.Length; i++)
+                _alerts[i].SetActive(i == (int)alert);
+        }
     }
 }

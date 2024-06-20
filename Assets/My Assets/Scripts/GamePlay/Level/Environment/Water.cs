@@ -1,26 +1,29 @@
 using UnityEngine;
 
-internal class Water : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private GameObject _alertPanel;
-    [SerializeField] private AudioSource _alertSound;
-
-    private void OnTriggerEnter(Collider collider)
+    internal class Water : MonoBehaviour
     {
-        if (collider.TryGetComponent(out Player player))
+        [SerializeField] private GameObject _alertPanel;
+        [SerializeField] private AudioSource _alertSound;
+
+        private void OnTriggerEnter(Collider collider)
         {
-            player.StartHeightTracking();
-            _alertPanel.SetActive(true);
-            _alertSound.Play();
+            if (collider.TryGetComponent(out Player player))
+            {
+                player.StartHeightTracking();
+                _alertPanel.SetActive(true);
+                _alertSound.Play();
+            }
         }
-    }
 
-    private void OnTriggerExit(Collider collider)
-    {
-        if (collider.TryGetComponent(out Player player))
+        private void OnTriggerExit(Collider collider)
         {
-            player.StopHeightTracking();
-            _alertPanel.SetActive(false);
+            if (collider.TryGetComponent(out Player player))
+            {
+                player.StopHeightTracking();
+                _alertPanel.SetActive(false);
+            }
         }
     }
 }

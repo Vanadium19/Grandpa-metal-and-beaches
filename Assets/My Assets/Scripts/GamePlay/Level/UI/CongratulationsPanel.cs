@@ -3,42 +3,45 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CongratulationsPanel : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    private readonly WaitForSeconds _additionDelay = new WaitForSeconds(0.01f);
-    private readonly WaitForSeconds _closePanelDelay = new WaitForSeconds(2f);
-
-    [SerializeField] private Player _player;
-    [SerializeField] private Slider _slider;
-    [SerializeField] private TMP_Text _text;
-
-    private bool _isFinished;
-
-    public bool IsFinished => _isFinished;
-
-    public void Activate(float targetValue)
+    public class CongratulationsPanel : MonoBehaviour
     {
-        gameObject.SetActive(true);
-        _player.StopMove();
-        StartCoroutine(Congratulate(targetValue));
-    }
+        private readonly WaitForSeconds _additionDelay = new WaitForSeconds(0.01f);
+        private readonly WaitForSeconds _closePanelDelay = new WaitForSeconds(2f);
 
-    private IEnumerator Congratulate(float targetValue)
-    {
-        float value = 0;
+        [SerializeField] private Player _player;
+        [SerializeField] private Slider _slider;
+        [SerializeField] private TMP_Text _text;
 
-        while (value <= targetValue)
+        private bool _isFinished;
+
+        public bool IsFinished => _isFinished;
+
+        public void Activate(float targetValue)
         {
-            _slider.value = value / targetValue;
-            _text.text = $"{value}/{targetValue}";
-            value++;
-
-            yield return _additionDelay;
+            gameObject.SetActive(true);
+            _player.StopMove();
+            StartCoroutine(Congratulate(targetValue));
         }
 
-        yield return _closePanelDelay;
+        private IEnumerator Congratulate(float targetValue)
+        {
+            float value = 0;
 
-        _player.ContinueMove();
-        _isFinished = true;
+            while (value <= targetValue)
+            {
+                _slider.value = value / targetValue;
+                _text.text = $"{value}/{targetValue}";
+                value++;
+
+                yield return _additionDelay;
+            }
+
+            yield return _closePanelDelay;
+
+            _player.ContinueMove();
+            _isFinished = true;
+        }
     }
 }

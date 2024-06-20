@@ -1,24 +1,27 @@
 using UnityEngine;
 
-internal class DumpsterPointerSwitch : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    private readonly float _percentFactor = 0.8f;
-
-    [SerializeField] private Bag _bag;
-    [SerializeField] private Pointer _pointer;
-
-    private void OnEnable()
+    internal class DumpsterPointerSwitch : MonoBehaviour
     {
-        _bag.ContentChanged += TurnOnPointer;
-    }
+        private readonly float _percentFactor = 0.8f;
 
-    private void OnDisable()
-    {
-        _bag.ContentChanged -= TurnOnPointer;
-    }
+        [SerializeField] private Bag _bag;
+        [SerializeField] private Pointer _pointer;
 
-    private void TurnOnPointer(float weight)
-    {
-        _pointer.gameObject.SetActive(weight >= _percentFactor * _bag.Capacity);
+        private void OnEnable()
+        {
+            _bag.ContentChanged += TurnOnPointer;
+        }
+
+        private void OnDisable()
+        {
+            _bag.ContentChanged -= TurnOnPointer;
+        }
+
+        private void TurnOnPointer(float weight)
+        {
+            _pointer.gameObject.SetActive(weight >= _percentFactor * _bag.Capacity);
+        }
     }
 }

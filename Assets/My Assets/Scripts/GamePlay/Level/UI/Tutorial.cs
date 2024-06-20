@@ -2,35 +2,38 @@ using GMB.Settings;
 using GMB.UI;
 using UnityEngine;
 
-internal class Tutorial : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private string _name;
-    [SerializeField] private Menu _menu;
-    [SerializeField] private GameObject _tutorialPanel;
-    [SerializeField] private GameObject[] _closablePanels;
-
-    private void Start()
+    internal class Tutorial : MonoBehaviour
     {
-        if (GameSaver.IsTutorialCompleted(_name) == false)
-            TurnOnTutorial();
+        [SerializeField] private string _name;
+        [SerializeField] private Menu _menu;
+        [SerializeField] private GameObject _tutorialPanel;
+        [SerializeField] private GameObject[] _closablePanels;
 
-        enabled = false;
-    }
+        private void Start()
+        {
+            if (GameSaver.IsTutorialCompleted(_name) == false)
+                TurnOnTutorial();
 
-    private void TurnOnTutorial()
-    {
-        ClosePanels();
-        _tutorialPanel.SetActive(true);
-        _menu.StopTime();
-        GameSaver.SaveTutorial(_name);
-    }
+            enabled = false;
+        }
 
-    private void ClosePanels()
-    {
-        if (_closablePanels.Length == 0)
-            return;
+        private void TurnOnTutorial()
+        {
+            ClosePanels();
+            _tutorialPanel.SetActive(true);
+            _menu.StopTime();
+            GameSaver.SaveTutorial(_name);
+        }
 
-        foreach (var closablePanel in _closablePanels)
-            closablePanel.SetActive(false);
+        private void ClosePanels()
+        {
+            if (_closablePanels.Length == 0)
+                return;
+
+            foreach (var closablePanel in _closablePanels)
+                closablePanel.SetActive(false);
+        }
     }
 }

@@ -1,21 +1,24 @@
 using UnityEngine;
 
-internal class DelayedObjectCloser : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private float _delay = 3f;
-
-    private float _elapsedTime = 0;
-
-    private void OnEnable()
+    internal class DelayedObjectCloser : MonoBehaviour
     {
-        _elapsedTime = 0;
-    }
+        [SerializeField] private float _delay = 3f;
 
-    private void Update()
-    {
-        if (_elapsedTime >= _delay)
-            gameObject.SetActive(false);
+        private float _elapsedTime = 0;
 
-        _elapsedTime += Time.deltaTime;
+        private void OnEnable()
+        {
+            _elapsedTime = 0;
+        }
+
+        private void Update()
+        {
+            if (_elapsedTime >= _delay)
+                gameObject.SetActive(false);
+
+            _elapsedTime += Time.deltaTime;
+        }
     }
 }

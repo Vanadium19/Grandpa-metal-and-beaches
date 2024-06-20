@@ -1,17 +1,20 @@
 using UnityEngine;
 
-internal class Market : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private GameObject _pointer;
-    [SerializeField] private GameObject _updateMenu;
-
-    private void OnTriggerEnter(Collider collider)
+    internal class Market : MonoBehaviour
     {
-        if (collider.TryGetComponent(out Player player))
+        [SerializeField] private GameObject _pointer;
+        [SerializeField] private GameObject _updateMenu;
+
+        private void OnTriggerEnter(Collider collider)
         {
-            player.StopMove();
-            _pointer.SetActive(false);
-            _updateMenu.SetActive(true);
+            if (collider.TryGetComponent(out Player player))
+            {
+                player.StopMove();
+                _pointer.SetActive(false);
+                _updateMenu.SetActive(true);
+            }
         }
     }
 }

@@ -3,14 +3,17 @@ using System.Linq;
 using GMB.Settings;
 using UnityEngine;
 
-internal class LevelsPool : MonoBehaviour
+namespace GMB.GamePlay.Level
 {
-    [SerializeField] private List<LevelGoals> _levelGoals;
-
-    public LevelGoals GetCurrentLevel()
+    internal class LevelsPool : MonoBehaviour
     {
-        var levelNumber = Mathf.Min(GameSaver.LevelNumber, _levelGoals.Count);
+        [SerializeField] private List<LevelGoals> _levelGoals;
 
-        return _levelGoals.FirstOrDefault(levelGoal => levelGoal.Number == levelNumber);
+        public LevelGoals GetCurrentLevel()
+        {
+            var levelNumber = Mathf.Min(GameSaver.LevelNumber, _levelGoals.Count);
+
+            return _levelGoals.FirstOrDefault(levelGoal => levelGoal.Number == levelNumber);
+        }
     }
 }
