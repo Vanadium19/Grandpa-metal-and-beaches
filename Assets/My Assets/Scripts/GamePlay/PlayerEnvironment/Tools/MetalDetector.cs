@@ -1,3 +1,4 @@
+using GMB.GamePlay.ScrapConfig;
 using UnityEngine;
 
 namespace GMB.GamePlay.PlayerEnvironment

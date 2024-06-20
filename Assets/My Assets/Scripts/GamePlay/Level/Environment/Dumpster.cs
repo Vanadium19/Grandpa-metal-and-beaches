@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using GMB.GamePlay.PlayerEnvironment;
+using GMB.GamePlay.ScrapConfig;
 using UnityEngine;
 
 namespace GMB.GamePlay.Level

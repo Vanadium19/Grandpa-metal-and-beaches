@@ -1,18 +1,21 @@
 using UnityEngine;
 
-internal class Scrap : MonoBehaviour
+namespace GMB.GamePlay.ScrapConfig
 {
-    [SerializeField] private float _rotationAngleX;
-    [SerializeField] private ScrapInfo _info;
-
-    private bool _isCollected;
-
-    public ScrapInfo Info => _info;
-    public bool IsCollected => _isCollected;
-    public float RotationAngleX => _rotationAngleX;
-
-    public void Collect()
+    internal class Scrap : MonoBehaviour
     {
-        _isCollected = true;
+        [SerializeField] private float _rotationAngleX;
+        [SerializeField] private ScrapInfo _info;
+
+        private bool _isCollected;
+
+        public ScrapInfo Info => _info;
+        public bool IsCollected => _isCollected;
+        public float RotationAngleX => _rotationAngleX;
+
+        public void Collect()
+        {
+            _isCollected = true;
+        }
     }
 }

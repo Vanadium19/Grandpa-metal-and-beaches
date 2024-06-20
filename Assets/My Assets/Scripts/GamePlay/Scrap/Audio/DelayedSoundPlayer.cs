@@ -1,23 +1,26 @@
 using UnityEngine;
 
-internal class DelayedSoundPlayer : SoundPlayer
+namespace GMB.GamePlay.ScrapConfig
 {
-    private readonly float _delay = 0.3f;
-
-    private float _delayCounter;
-
-    private void Update()
+    internal class DelayedSoundPlayer : SoundPlayer
     {
-        if (_delayCounter > 0)
-            _delayCounter -= Time.deltaTime;
-    }
+        private readonly float _delay = 0.3f;
 
-    public override void Play()
-    {
-        if (_delayCounter > 0)
-            return;
+        private float _delayCounter;
 
-        Source.Play();
-        _delayCounter = _delay;
+        private void Update()
+        {
+            if (_delayCounter > 0)
+                _delayCounter -= Time.deltaTime;
+        }
+
+        public override void Play()
+        {
+            if (_delayCounter > 0)
+                return;
+
+            Source.Play();
+            _delayCounter = _delay;
+        }
     }
 }

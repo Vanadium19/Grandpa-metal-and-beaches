@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GMB.GamePlay.ScrapConfig;
 using GMB.Settings;
 using UnityEngine;
 
