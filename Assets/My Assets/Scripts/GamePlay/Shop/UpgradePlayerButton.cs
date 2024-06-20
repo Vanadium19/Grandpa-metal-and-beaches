@@ -53,7 +53,7 @@ internal class UpgradePlayerButton : MonoBehaviour
     {
         _playerStats.UpdateLevel();
         _wallet.RemoveMoney(price);
-        _buttonDisplay.SetAnimationTrigger(StaticParams.AnimatorNames.Buy);
+        _buttonDisplay.SetAnimationTrigger(StaticAnimatorData.Buy);
     }
 
     private void OffButton()
@@ -75,7 +75,7 @@ internal class UpgradePlayerButton : MonoBehaviour
         else if (_wallet.CanBuy(_currentPrice))
             Buy(_currentPrice);
         else
-            _buttonDisplay.SetAnimationTrigger(StaticParams.AnimatorNames.NoMoney);
+            _buttonDisplay.SetAnimationTrigger(StaticAnimatorData.NoMoney);
     }
 
     private void UpdateButton(float money)

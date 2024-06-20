@@ -47,6 +47,6 @@ internal class PlayerMover : MonoBehaviour
     {
         var horizontalVelocity = _rigidbody.velocity.y * Vector3.up;
         _rigidbody.velocity = horizontalVelocity + _playerInput.MoveInput * _speed;
-        _animator.SetBool(StaticParams.AnimatorNames.Walking, _playerInput.MoveInput != Vector3.zero);
+        _animator.SetBool(StaticAnimatorData.Walking, _playerInput.MoveInput != Vector3.zero);
     }
 }

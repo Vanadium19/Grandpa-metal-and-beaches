@@ -5,6 +5,6 @@ public class BagLevel : Stat
 {
     public BagLevel()
     {
-        SetName(StaticParams.GameNames.Bag);
+        SetName(StaticGameData.Bag);
     }
 }

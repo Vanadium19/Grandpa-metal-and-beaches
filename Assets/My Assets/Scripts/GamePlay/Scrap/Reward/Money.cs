@@ -27,7 +27,7 @@ internal class Money : MonoBehaviour
 
     public void Collect()
     {
-        _animator.SetTrigger(StaticParams.AnimatorNames.CollectMoney);
+        _animator.SetTrigger(StaticAnimatorData.CollectMoney);
         _collider.enabled = false;
         Invoke(nameof(Push), _delay);
     }

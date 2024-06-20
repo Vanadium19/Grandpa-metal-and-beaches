@@ -5,6 +5,6 @@ public class ScrapCollectorLevel : Stat
 {
     public ScrapCollectorLevel()
     {
-        SetName(StaticParams.GameNames.ScrapCollector);
+        SetName(StaticGameData.ScrapCollector);
     }
 }

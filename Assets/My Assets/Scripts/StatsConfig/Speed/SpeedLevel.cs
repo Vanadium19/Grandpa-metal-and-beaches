@@ -5,6 +5,6 @@ public class SpeedLevel : Stat
 {
     public SpeedLevel()
     {
-        SetName(StaticParams.GameNames.Speed);
+        SetName(StaticGameData.Speed);
     }
 }

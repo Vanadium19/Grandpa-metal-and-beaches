@@ -1,12 +1,6 @@
 using System;
 using UnityEngine;
 
-internal enum Alerts
-{
-    BagCrowded = 0,
-    OutOfLevel,
-};
-
 internal class ScrapCollector : MonoBehaviour
 {
     [SerializeField] private Bag _bag;
