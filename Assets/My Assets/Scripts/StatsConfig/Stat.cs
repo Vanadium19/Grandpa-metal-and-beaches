@@ -17,7 +17,7 @@ namespace GMB.StatsConfig
 
         protected void SetName(string value)
         {
-            _name = name;
+            _name = value;
         }
     }
 }
