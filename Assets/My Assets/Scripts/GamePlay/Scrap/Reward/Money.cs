@@ -1,7 +1,7 @@
 using GMB.StaticData;
 using UnityEngine;
 
-namespace GMB.GamePlay.ScrapConfig
+namespace GMB.GamePlay.ScrapConfig.Reward
 {
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(BoxCollider))]

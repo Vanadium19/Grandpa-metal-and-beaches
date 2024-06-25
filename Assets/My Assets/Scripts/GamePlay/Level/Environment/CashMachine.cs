@@ -1,5 +1,6 @@
 using GMB.GamePlay.PlayerEnvironment;
 using GMB.GamePlay.ScrapConfig;
+using GMB.GamePlay.ScrapConfig.Reward;
 using UnityEngine;
 
 namespace GMB.GamePlay.Level.Environment
