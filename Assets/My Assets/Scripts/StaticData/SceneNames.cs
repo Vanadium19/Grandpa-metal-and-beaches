@@ -5,5 +5,5 @@ namespace GMB.StaticData
         StartMenu = 0,
         Menu,
         Game,
-    };
+    }
 }

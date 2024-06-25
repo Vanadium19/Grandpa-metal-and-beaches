@@ -2,7 +2,7 @@ using GMB.Settings;
 using GMB.UI;
 using UnityEngine;
 
-namespace GMB.GamePlay.Level
+namespace GMB.GamePlay.Level.UI
 {
     internal class Tutorial : MonoBehaviour
     {

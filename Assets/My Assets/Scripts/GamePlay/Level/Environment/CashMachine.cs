@@ -1,10 +1,11 @@
 using GMB.GamePlay.PlayerEnvironment;
 using GMB.GamePlay.ScrapConfig;
+using GMB.GamePlay.ScrapConfig.Reward;
 using UnityEngine;
 
-namespace GMB.GamePlay.Level
+namespace GMB.GamePlay.Level.Environment
 {
-    internal class ÑashMachine : MonoBehaviour
+    internal class CashMachine : MonoBehaviour
     {
         [SerializeField] private GameObject _pointer;
         [SerializeField] private Dumpster _dumpster;

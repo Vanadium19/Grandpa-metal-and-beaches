@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GMB.GamePlay.ScrapConfig
+namespace GMB.GamePlay.ScrapConfig.Reward
 {
     internal class MoneyZone : MonoBehaviour
     {

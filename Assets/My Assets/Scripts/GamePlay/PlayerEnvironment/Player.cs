@@ -1,4 +1,5 @@
 using System.Collections;
+using GMB.GamePlay.PlayerEnvironment.Movement;
 using GMB.Settings;
 using UnityEngine;
 
