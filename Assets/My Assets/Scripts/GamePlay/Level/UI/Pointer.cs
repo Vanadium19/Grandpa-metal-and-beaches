@@ -40,7 +40,6 @@ namespace GMB.GamePlay.Level
             screenPosition = Mathf.Approximately(clampedY, Screen.height - indent) ?
                 new Vector3(Screen.width / _screenWidthFactor, indent, 0) : clampedPosition;
 
-
             _pointerTransform.position = screenPosition;
         }
     }
