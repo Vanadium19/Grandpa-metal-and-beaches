@@ -2,7 +2,7 @@ using GMB.Settings;
 using GMB.StaticData;
 using UnityEngine;
 
-namespace GMB.GamePlay.PlayerEnvironment
+namespace GMB.GamePlay.PlayerEnvironment.Movement
 {
     [RequireComponent(typeof(PlayerInput))]
     [RequireComponent(typeof(Rigidbody))]

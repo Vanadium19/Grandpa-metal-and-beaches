@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GMB.GamePlay.ScrapConfig
+namespace GMB.GamePlay.ScrapConfig.Audio
 {
     [RequireComponent(typeof(AudioSource))]
     internal abstract class SoundPlayer : MonoBehaviour

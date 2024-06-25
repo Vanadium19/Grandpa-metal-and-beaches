@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using GMB.GamePlay.Level.LevelsGoals;
 using GMB.Settings;
 using UnityEngine;
 

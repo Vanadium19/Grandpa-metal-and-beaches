@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GMB.GamePlay.Level
+namespace GMB.GamePlay.Level.LevelsGoals
 {
     [CreateAssetMenu(fileName = "New Level", menuName = "Levels/Create new Level", order = 52)]
     internal class LevelGoals : ScriptableObject

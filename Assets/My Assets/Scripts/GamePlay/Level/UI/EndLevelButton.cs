@@ -4,7 +4,7 @@ using GMB.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GMB.GamePlay.Level
+namespace GMB.GamePlay.Level.UI
 {
     [RequireComponent(typeof(Button))]
     [RequireComponent(typeof(SceneLoader))]

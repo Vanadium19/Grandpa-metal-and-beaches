@@ -6,7 +6,7 @@ using GMB.GamePlay.Shop;
 using GMB.Settings;
 using UnityEngine;
 
-namespace GMB.GamePlay.PlayerEnvironment
+namespace GMB.GamePlay.PlayerEnvironment.Tools
 {
     internal class Bag : MonoBehaviour
     {

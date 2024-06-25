@@ -1,9 +1,10 @@
+using GMB.GamePlay.Level.Environment;
 using GMB.GamePlay.ScrapConfig;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GMB.GamePlay.Level
+namespace GMB.GamePlay.Level.UI
 {
     internal class ProgressBar : MonoBehaviour
     {
