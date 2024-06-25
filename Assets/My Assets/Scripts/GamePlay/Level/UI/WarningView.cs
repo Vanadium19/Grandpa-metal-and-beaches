@@ -2,7 +2,7 @@ using GMB.GamePlay.PlayerEnvironment;
 using GMB.StaticData;
 using UnityEngine;
 
-namespace GMB.GamePlay.Level
+namespace GMB.GamePlay.Level.UI
 {
     internal class WarningView : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GMB.GamePlay.Level
+namespace GMB.GamePlay.Level.UI
 {
     internal class Pointer : MonoBehaviour
     {
