@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GMB.GamePlay.PlayerEnvironment
+namespace GMB.GamePlay.PlayerEnvironment.UI
 {
     internal class BagView : MonoBehaviour
     {

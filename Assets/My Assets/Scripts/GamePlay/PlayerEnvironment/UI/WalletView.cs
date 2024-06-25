@@ -2,7 +2,7 @@ using GMB.GamePlay.PlayerEnvironment.Tools;
 using TMPro;
 using UnityEngine;
 
-namespace GMB.GamePlay.PlayerEnvironment
+namespace GMB.GamePlay.PlayerEnvironment.UI
 {
     internal class WalletView : MonoBehaviour
     {
