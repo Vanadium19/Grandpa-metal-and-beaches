@@ -24,8 +24,10 @@ namespace GMB.GamePlay.PlayerEnvironment
 
             while (Vector3.Distance(transform.position, scrap.position) >= range)
             {
-                scrap.position = Vector3.MoveTowards(scrap.position,
-                    transform.position, _speed * Time.deltaTime);
+                scrap.position = Vector3.MoveTowards(
+                    scrap.position,
+                    transform.position,
+                    _speed * Time.deltaTime);
 
                 elapsedTime += Time.deltaTime;
 
