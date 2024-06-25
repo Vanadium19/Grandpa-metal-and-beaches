@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GMB.GamePlay.Level
 {
-    internal class ÑashMachine : MonoBehaviour
+    internal class CashMachine : MonoBehaviour
     {
         [SerializeField] private GameObject _pointer;
         [SerializeField] private Dumpster _dumpster;
