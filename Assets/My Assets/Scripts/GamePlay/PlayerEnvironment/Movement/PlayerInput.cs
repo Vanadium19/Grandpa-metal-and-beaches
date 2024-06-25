@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GMB.GamePlay.PlayerEnvironment
+namespace GMB.GamePlay.PlayerEnvironment.Movement
 {
     public class PlayerInput : MonoBehaviour
     {
