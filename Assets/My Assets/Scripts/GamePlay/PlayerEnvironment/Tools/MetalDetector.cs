@@ -1,4 +1,5 @@
 using GMB.GamePlay.ScrapConfig;
+using GMB.GamePlay.ScrapConfig.Audio;
 using UnityEngine;
 
 namespace GMB.GamePlay.PlayerEnvironment.Tools

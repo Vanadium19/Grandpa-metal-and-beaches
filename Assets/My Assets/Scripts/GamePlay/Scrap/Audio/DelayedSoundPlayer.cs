@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GMB.GamePlay.ScrapConfig
+namespace GMB.GamePlay.ScrapConfig.Audio
 {
     internal class DelayedSoundPlayer : SoundPlayer
     {

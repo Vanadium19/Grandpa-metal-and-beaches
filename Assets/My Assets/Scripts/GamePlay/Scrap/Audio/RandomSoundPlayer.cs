@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GMB.GamePlay.ScrapConfig
+namespace GMB.GamePlay.ScrapConfig.Audio
 {
     internal class RandomSoundPlayer : SoundPlayer
     {
