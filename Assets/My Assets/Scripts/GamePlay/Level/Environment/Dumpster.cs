@@ -4,7 +4,7 @@ using GMB.GamePlay.PlayerEnvironment;
 using GMB.GamePlay.ScrapConfig;
 using UnityEngine;
 
-namespace GMB.GamePlay.Level
+namespace GMB.GamePlay.Level.Environment
 {
     [RequireComponent(typeof(AudioSource))]
     internal class Dumpster : MonoBehaviour

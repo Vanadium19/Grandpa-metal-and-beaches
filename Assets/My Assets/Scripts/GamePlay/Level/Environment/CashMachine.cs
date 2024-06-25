@@ -2,7 +2,7 @@ using GMB.GamePlay.PlayerEnvironment;
 using GMB.GamePlay.ScrapConfig;
 using UnityEngine;
 
-namespace GMB.GamePlay.Level
+namespace GMB.GamePlay.Level.Environment
 {
     internal class CashMachine : MonoBehaviour
     {

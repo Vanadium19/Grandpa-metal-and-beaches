@@ -1,3 +1,4 @@
+using GMB.GamePlay.Level.Environment;
 using GMB.GamePlay.ScrapConfig;
 using TMPro;
 using UnityEngine;
