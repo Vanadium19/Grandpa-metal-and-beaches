@@ -1,7 +1,7 @@
 using GMB.GamePlay.ScrapConfig;
 using UnityEngine;
 
-namespace GMB.GamePlay.PlayerEnvironment
+namespace GMB.GamePlay.PlayerEnvironment.Tools
 {
     internal class MetalDetector : MonoBehaviour
     {

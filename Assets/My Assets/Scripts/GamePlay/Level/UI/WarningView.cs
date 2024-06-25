@@ -1,4 +1,4 @@
-using GMB.GamePlay.PlayerEnvironment;
+using GMB.GamePlay.PlayerEnvironment.Tools;
 using GMB.StaticData;
 using UnityEngine;
 

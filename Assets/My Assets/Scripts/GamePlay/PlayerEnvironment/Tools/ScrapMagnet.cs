@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace GMB.GamePlay.PlayerEnvironment
+namespace GMB.GamePlay.PlayerEnvironment.Tools
 {
     internal class ScrapMagnet : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-using GMB.GamePlay.PlayerEnvironment;
+using GMB.GamePlay.PlayerEnvironment.Tools;
 using UnityEngine;
 
 namespace GMB.GamePlay.Level.UI

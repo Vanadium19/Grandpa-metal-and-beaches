@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using GMB.GamePlay.PlayerEnvironment;
+using GMB.GamePlay.PlayerEnvironment.Tools;
 using GMB.GamePlay.ScrapConfig;
 using UnityEngine;
 
