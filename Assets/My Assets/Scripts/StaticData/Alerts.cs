@@ -4,5 +4,5 @@ namespace GMB.StaticData
     {
         BagCrowded = 0,
         OutOfLevel,
-    };
+    }
 }
